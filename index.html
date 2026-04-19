@@ -1,259 +1,469 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    body {background-color: #0c0e12}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 32.0px '.Apple Color Emoji UI'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 15.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #5b626e; -webkit-text-stroke: #5b626e}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 52.0px '.SF NS'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 17.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 14.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px '.Apple Color Emoji UI'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 16.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #4892ff; -webkit-text-stroke: #4892ff}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.SF NS'; color: #4892ff; -webkit-text-stroke: #4892ff}
-    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.SF NS'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #12151a}
-    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #5b626e; -webkit-text-stroke: #5b626e}
-    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 15.0px 'Helvetica Neue'; color: #36af3f; -webkit-text-stroke: #36af3f}
-    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 15.0px 'Helvetica Neue'; color: #f33839; -webkit-text-stroke: #f33839}
-    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #ea7430; -webkit-text-stroke: #ea7430; background-color: #22160a}
-    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #ea7430; -webkit-text-stroke: #ea7430}
-    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px '.SF NS'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #f33839; -webkit-text-stroke: #f33839; background-color: #1f1011}
-    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #36af3f; -webkit-text-stroke: #36af3f}
-    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p34 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #4892ff; -webkit-text-stroke: #4892ff}
-    p.p35 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #bdc6d0; -webkit-text-stroke: #bdc6d0}
-    p.p36 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0; background-color: #141a26}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 20.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s3 {font-kerning: none; background-color: #12151a}
-    span.s4 {font: 17.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #12151a}
-    span.s5 {font: 14.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #12151a}
-    span.s6 {font: 13.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s7 {font: 14.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s8 {font: 15.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #12151a}
-    span.s9 {font: 11.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #12151a}
-    span.s10 {font-kerning: none; background-color: #162015}
-    span.s11 {font: 15.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #162015}
-    span.s12 {font-kerning: none; color: #ffffff; background-color: #12151a; -webkit-text-stroke: 0px #ffffff}
-    span.s13 {font: 13.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #12151a}
-    span.s14 {font-kerning: none; background-color: #1a55e6}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Daily Briefing — Carlos</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #1a1d27;
+      --bg3: #22263a;
+      --accent: #4f8ef7;
+      --accent2: #7c5cfc;
+      --green: #34d399;
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --text: #e8eaf0;
+      --muted: #8b90a8;
+      --border: #2d3250;
+      --card: #1e2235;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      padding: 0 0 60px 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1d35 0%, #12162b 100%);
+      padding: 28px 20px 22px;
+      border-bottom: 2px solid var(--accent);
+      text-align: center;
+    }
+    .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
+    .header .subtitle { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .header .timestamp { margin-top: 10px; font-size: 12px; color: var(--accent); letter-spacing: 0.3px; }
+    .section { padding: 22px 18px 10px; border-bottom: 1px solid var(--border); }
+    .section-title { font-size: 19px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .card { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: #fff; line-height: 1.4; }
+    .card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+    .card .source { font-size: 12px; color: var(--accent); margin-top: 8px; font-style: italic; }
+    .weather-main { display: flex; align-items: center; justify-content: space-between; background: var(--card); border-radius: 14px; padding: 18px 16px; border: 1px solid var(--border); margin-bottom: 12px; }
+    .weather-temp { font-size: 52px; font-weight: 200; color: #fff; line-height: 1; }
+    .weather-temp span { font-size: 28px; }
+    .weather-details { text-align: right; }
+    .weather-condition { font-size: 18px; font-weight: 600; }
+    .weather-minmax { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .forecast-row { display: flex; gap: 10px; margin-top: 2px; }
+    .forecast-day { flex: 1; background: var(--card); border-radius: 12px; padding: 12px 10px; text-align: center; border: 1px solid var(--border); }
+    .forecast-day .day-name { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .forecast-day .day-icon { font-size: 24px; margin: 6px 0; }
+    .forecast-day .day-temp { font-size: 14px; font-weight: 600; color: #fff; }
+    .forecast-day .day-low { font-size: 12px; color: var(--muted); }
+    .tag { display: inline-block; background: var(--bg3); color: var(--accent); border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-right: 4px; margin-bottom: 4px; text-transform: uppercase; }
+    .tag.red { color: var(--red); background: rgba(248,113,113,0.12); }
+    .tag.green { color: var(--green); background: rgba(52,211,153,0.12); }
+    .tag.yellow { color: var(--yellow); background: rgba(251,191,36,0.12); }
+    .market-table { width: 100%; border-collapse: collapse; }
+    .market-table td { padding: 9px 4px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; }
+    .market-table tr:last-child td { border-bottom: none; }
+    .market-table .asset-name { color: var(--text); font-weight: 500; }
+    .market-table .asset-val { color: var(--muted); font-size: 13px; }
+    .market-table .up { color: var(--green); font-weight: 700; text-align: right; }
+    .market-table .down { color: var(--red); font-weight: 700; text-align: right; }
+    .liga-table { width: 100%; border-collapse: collapse; }
+    .liga-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 6px 6px; text-align: center; font-weight: 600; }
+    .liga-table th:first-child { text-align: left; }
+    .liga-table td { padding: 9px 6px; border-bottom: 1px solid var(--border); font-size: 14px; text-align: center; }
+    .liga-table tr:last-child td { border-bottom: none; }
+    .liga-table .team-name { text-align: left; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; }
+    .liga-table .pts { font-weight: 700; color: var(--accent); }
+    .liga-table .highlight td { background: rgba(79,142,247,0.06); }
+    .pos-badge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 700; background: var(--bg3); color: var(--muted); }
+    .pos-badge.p1 { background: rgba(251,191,36,0.2); color: var(--yellow); }
+    .pos-badge.p2 { background: rgba(156,163,175,0.2); color: #9ca3af; }
+    .ufc-event { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .ufc-event::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #ef4444, #f97316); }
+    .ufc-event .event-type { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #ef4444; font-weight: 700; margin-bottom: 4px; }
+    .ufc-event .event-date { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .ufc-event .main-event { font-size: 16px; font-weight: 700; color: #fff; }
+    .ufc-event .location { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .ai-card { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .ai-card h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .ai-card p { font-size: 14px; color: var(--muted); }
+    .ai-card .why { margin-top: 8px; font-size: 13px; color: var(--accent2); font-style: italic; }
+    .ai-card .why::before { content: "💡 Por qué importa: "; font-style: normal; font-weight: 600; }
+    .concept-box { background: linear-gradient(135deg, #1e2235 0%, #1a1630 100%); border-radius: 16px; padding: 20px; border: 1px solid var(--accent2); }
+    .concept-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .concept-category { display: inline-block; background: rgba(124,92,252,0.2); color: var(--accent2); border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+    .concept-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 4px; margin-top: 14px; }
+    .concept-text { font-size: 15px; color: var(--text); line-height: 1.7; }
+    .concept-question { background: var(--bg3); border-radius: 12px; padding: 14px; margin-top: 14px; border-left: 3px solid var(--accent2); font-size: 15px; color: var(--text); font-style: italic; }
+    .sub-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent); margin: 14px 0 8px; }
+    .radar-card { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.3); border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+    .radar-card h3 { font-size: 15px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .radar-card p { font-size: 14px; color: var(--text); }
+    .next-match { background: var(--bg3); border-radius: 10px; padding: 10px 14px; margin-top: 10px; font-size: 14px; color: var(--muted); }
+    .next-match strong { color: var(--text); }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">📰</span></p>
-<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1"><b>Daily Briefing</b></span></h1>
-<p class="p3"><span class="s1">Domingo, 19 de abril de 2026</span></p>
-<p class="p4"><span class="s1">Generado automáticamente · Para Carlos Narciso</span></p>
-<p class="p5"><span class="s2">☁️</span><span class="s1"><b> Tiempo — Barcelona</b></span></p>
-<p class="p6"><span class="s3">241°</span></p>
-<p class="p7"><span class="s4">🌤</span><span class="s3"> Parcialmente nublado</span></p>
-<p class="p8"><span class="s3">Máx 24° · Mín 14°</span></p>
-<p class="p8"><span class="s5">💨</span><span class="s3"> Viento ~30 km/h · </span><span class="s5">🌧</span><span class="s3"> &lt;5% lluvia</span></p>
-<p class="p9"><span class="s3"><b>HOY DOM</b><b></b></span></p>
-<p class="p10"><span class="s3">🌤</span></p>
-<p class="p11"><span class="s3"><b>24°</b><b></b></span></p>
-<p class="p12"><span class="s3">mín 14°</span></p>
-<p class="p9"><span class="s3"><b>LUN 20</b><b></b></span></p>
-<p class="p10"><span class="s3">⛅</span></p>
-<p class="p11"><span class="s3"><b>22°</b><b></b></span></p>
-<p class="p12"><span class="s3">mín 14°</span></p>
-<p class="p9"><span class="s3"><b>MAR 21</b><b></b></span></p>
-<p class="p10"><span class="s3">🌥</span></p>
-<p class="p11"><span class="s3"><b>21°</b><b></b></span></p>
-<p class="p12"><span class="s3">mín 13°</span></p>
-<p class="p5"><span class="s2">🌍</span><span class="s1"><b> Noticias del Día</b></span></p>
-<p class="p13"><span class="s6">🌐</span><span class="s1"><b> INTERNACIONAL</b></span></p>
-<p class="p14"><span class="s3"><b>El FMI rebaja el crecimiento global al 3,1% por el conflicto en Oriente Medio</b><b></b></span></p>
-<p class="p15"><span class="s3">El conflicto entre EE.UU. e Israel contra Irán, iniciado en febrero, ha truncado las expectativas de crecimiento mundial. La directora del FMI, Kristalina Georgieva, advirtió que "se vienen tiempos difíciles": en un escenario adverso, el crecimiento global podría caer al 2,5% y la inflación subir hasta el 5,4%.</span></p>
-<p class="p16"><span class="s3"><b>France 24 · ONU News</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Wall Street en máximos históricos: el S&amp;P 500 supera los 7.000 puntos</b><b></b></span></p>
-<p class="p15"><span class="s3">La reapertura del estrecho de Ormuz impulsó a Wall Street a nuevos récords. El petróleo se mantiene un 20% por debajo del pico de marzo. Se abre la temporada de resultados del Q1 2026, con estimaciones de crecimiento del BPA del +14% en EE.UU. y +4% en Europa.</span></p>
-<p class="p16"><span class="s3"><b>El Español / Invertia · La Jornada</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Advertencia global: "Estamos al borde de una Tercera Guerra Mundial"</b><b></b></span></p>
-<p class="p15"><span class="s3">Académicos chinos y analistas internacionales alertan de que sin moderación de las grandes potencias, la escalada en Oriente Medio podría derivar en un conflicto global. Las tensiones geopolíticas siguen siendo el principal factor de riesgo en los mercados financieros de 2026.</span></p>
-<p class="p16"><span class="s3"><b>La Jornada</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>OpenAI, Anthropic y Google se unen para frenar el clonado de IA por China</b><b></b></span></p>
-<p class="p15"><span class="s3">Las tres grandes compañías de IA comparten inteligencia a través del Frontier Model Forum para impedir que rivales chinos extraigan resultados de sus modelos frontier. Es un movimiento sin precedentes de cooperación entre competidores directos que señala la creciente presión geopolítica sobre la IA.</span></p>
-<p class="p16"><span class="s3"><b>Bloomberg · The Japan Times</b><b></b></span></p>
-<p class="p13"><span class="s6">🇪🇸</span><span class="s1"><b> NACIONAL (ESPAÑA)</b></span></p>
-<p class="p14"><span class="s3"><b>Barcelona clausura la Global Progressive Mobilisation con Sánchez y Illa al frente</b><b></b></span></p>
-<p class="p15"><span class="s3">Más de 3.000 personas y líderes progresistas de todo el mundo se dieron cita en la Fira de Barcelona los días 17 y 18 de abril. Sánchez cerró el foro afirmando que "el tiempo de la derecha se acaba". España busca consolidarse como referente de la democracia progresista internacional.</span></p>
-<p class="p16"><span class="s3"><b>El Español · Infobae</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>España liderará el crecimiento entre las economías avanzadas en 2026 con un 2,2%</b><b></b></span></p>
-<p class="p15"><span class="s3">Según proyecciones del FMI, España crece al 2,2%, por delante de EE.UU. (1,7%) y doblando a Alemania y Francia (1%). Es el tercer año consecutivo encabezando el pelotón europeo. El ministro Cuerpo anunció además el primer Consejo Global para la Economía del Bien Común.</span></p>
-<p class="p16"><span class="s3"><b>El Diario · elEconomista</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>PP y Vox consolidan gobierno en Extremadura; el Ejecutivo critica el "retroceso social"</b><b></b></span></p>
-<p class="p15"><span class="s3">El ministro de Economía Carlos Cuerpo lamentó el pacto PP-Vox en Extremadura, calificándolo de retroceso económico y social. La tensión entre el gobierno nacional y las comunidades autónomas gobernadas por la derecha sigue siendo un eje político dominante en la recta final de legislatura.</span></p>
-<p class="p16"><span class="s3"><b>El Español</b><b></b></span></p>
-<p class="p13"><span class="s6">🏙</span><span class="s1"><b> LOCAL (CATALUÑA / BARCELONA)</b></span></p>
-<p class="p14"><span class="s3"><b>Illa reivindica un frente común progresista desde la Barcelona de la Global Progressive Mobilisation</b><b></b></span></p>
-<p class="p15"><span class="s3">El presidente de la Generalitat, Salvador Illa, participó activamente en el foro barcelonés y defendió que "hoy ser progresista no es una opción, es una urgencia moral". El evento reunió a líderes de 60 países y posicionó Barcelona como capital del diálogo de izquierda a nivel global.</span></p>
-<p class="p16"><span class="s3"><b>Catalunya Press</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Sheinbaum no asistió al foro de Barcelona pese a su anunciada participación</b><b></b></span></p>
-<p class="p15"><span class="s3">La presidenta de México, Claudia Sheinbaum, declinó acudir a última hora al foro progresista de Barcelona. Su ausencia fue la nota discordante de un evento que buscaba reforzar el eje España-América Latina, aunque los líderes presentes escenificaron unidad frente al auge del populismo de derechas.</span></p>
-<p class="p16"><span class="s3"><b>ZOLO Noticias · El Español</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Sánchez y Sheinbaum escenifican el deshielo diplomático España-México en Barcelona</b><b></b></span></p>
-<p class="p15"><span class="s3">Al margen del foro, Pedro Sánchez y Claudia Sheinbaum mantuvieron contactos que permitieron escenificar la mejora en las relaciones bilaterales: "Nunca ha habido una crisis", declararon ambos bandos. La normalización diplomática es un logro para la política exterior española.</span></p>
-<p class="p16"><span class="s3"><b>El Español</b><b></b></span></p>
-<p class="p5"><span class="s2">📈</span><span class="s1"><b> Finanzas y Mercados</b></span></p>
-<p class="p13"><span class="s6">📊</span><span class="s1"><b> CONTEXTO DE MERCADOS</b></span></p>
-<p class="p17"><span class="s3"><b>S&amp;P 500</b><b></b></span></p>
-<p class="p18"><span class="s1"><b>+7.000 pts </b></span><span class="s7">🔝</span><span class="s1"><b> Máximos</b><b></b></span></p>
-<p class="p17"><span class="s3"><b>PETRÓLEO BRENT</b><b></b></span></p>
-<p class="p18"><span class="s1"><b>~97 $/b · ▼20% vs. pico</b><b></b></span></p>
-<p class="p17"><span class="s3"><b>IBEX 35</b><b></b></span></p>
-<p class="p18"><span class="s1"><b>4ª semana alcista </b></span><span class="s7">📈</span></p>
-<p class="p17"><span class="s3"><b>BPA EE.UU. Q1E</b><b></b></span></p>
-<p class="p18"><span class="s1"><b>+14% YoY</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Hoy: Libro Beige de la Fed y Producción Industrial de la Eurozona</b><b></b></span></p>
-<p class="p15"><span class="s3">El Libro Beige de la Reserva Federal —el primero que recogerá el impacto del conflicto iraní— se publica hoy. Los datos de producción industrial europea son de febrero y tendrán menor relevancia. El tono del Libro Beige marcará las expectativas sobre el próximo movimiento en tipos de la Fed.</span></p>
-<p class="p16"><span class="s3"><b>Bankinter · El Español Invertia</b><b></b></span></p>
-<p class="p13"><span class="s6">💼</span><span class="s1"><b> SEGUIMIENTO DE CARTERA</b></span></p>
-<p class="p19"><span class="s3">Core MSCI World USD (Acc)</span></p>
-<p class="p20"><span class="s3">2.606 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 5,82%</b><b></b></span></p>
-<p class="p19"><span class="s3">Physical Swiss Gold USD</span></p>
-<p class="p20"><span class="s3">1.542 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 17,56%</b><b></b></span></p>
-<p class="p19"><span class="s3">MSCI World Small Cap USD</span></p>
-<p class="p20"><span class="s3">1.088 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 3,63%</b><b></b></span></p>
-<p class="p19"><span class="s3">Core MSCI EM IMI USD (Acc)</span></p>
-<p class="p20"><span class="s3">1.060 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 6,03%</b><b></b></span></p>
-<p class="p19"><span class="s3">Defense USD (Acc)</span></p>
-<p class="p20"><span class="s3">756 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 6,99%</b><b></b></span></p>
-<p class="p19"><span class="s3">Physical Silver</span></p>
-<p class="p20"><span class="s3">604 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 15,83%</b><b></b></span></p>
-<p class="p19"><span class="s3">Coinbase Global (A)</span></p>
-<p class="p20"><span class="s3">393 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 12,28%</b><b></b></span></p>
-<p class="p19"><span class="s3">Nasdaq Clean Edge Smart Grid</span></p>
-<p class="p20"><span class="s3">184 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 5,03%</b><b></b></span></p>
-<p class="p19"><span class="s3">Uranium &amp; Nuclear Technology</span></p>
-<p class="p20"><span class="s3">179 €</span></p>
-<p class="p21"><span class="s3"><b>▲ 2,41%</b><b></b></span></p>
-<p class="p19"><span class="s3">Clean Water USD (Acc)</span></p>
-<p class="p20"><span class="s3">174 €</span></p>
-<p class="p22"><span class="s3"><b>▼ 0,68%</b><b></b></span></p>
-<p class="p19"><span class="s3">PayPal (PYPL)</span></p>
-<p class="p20"><span class="s3">335 €</span></p>
-<p class="p22"><span class="s3"><b>▼ 23,02%</b><b></b></span></p>
-<p class="p19"><span class="s3">Qorvo (QRVO)</span></p>
-<p class="p20"><span class="s3">327 €</span></p>
-<p class="p22"><span class="s3"><b>▼ 12,49%</b><b></b></span></p>
-<p class="p13"><span class="s6">📌</span><span class="s1"><b> NOTICIAS DE ACCIONES EN CARTERA</b></span></p>
-<p class="p23"><span class="s7">⚠️</span><span class="s1"> <b>PYPL — MAÑANA 20 DE ABRIL es el plazo límite</b> para inscribirse como lead plaintiff en la demanda colectiva por fraude de valores contra PayPal (Kessler Topaz / Gross Law Firm). Si eres tenedor de acciones afectado, considera consultar con un abogado hoy mismo.</span></p>
-<p class="p14"><span class="s3"><b>PayPal (PYPL) — CEO sorpresa, demanda colectiva y BPA a la baja en 2026</b><b></b></span></p>
-<p class="p15"><span class="s3">En febrero, PayPal sorprendió con un cambio repentino de CEO coincidiendo con resultados del Q4 que decepcionaron en ingresos y beneficios. El BPA se espera en declive durante 2026 y el crecimiento de ingresos roza solo el 2,9%. Múltiples demandas de fraude de valores con plazo mañana. Precio objetivo Citi: 48$. Consenso: Hold.</span></p>
-<p class="p16"><span class="s3"><b>GlobeNewsWire · Motley Fool · CNBC</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Coinbase (COIN) — Aprobación histórica de la OCC como banco de custodia nacional</b><b></b></span></p>
-<p class="p15"><span class="s3">Coinbase recibió aprobación condicional de la Oficina del Contralor de la Moneda (OCC) para operar como banco de custodia nacional, un hito regulatorio que abre mandatos de custodia institucional. La acción sigue muy por debajo de su máximo de 52 semanas ($419) pero el consenso de 27 analistas es Buy. Barclays recortó objetivo a $148.</span></p>
-<p class="p16"><span class="s3"><b>FinancialContent · TipRanks · 247 Wall St.</b><b></b></span></p>
-<p class="p14"><span class="s3"><b>Qorvo (QRVO) — Fusión con Skyworks crea gigante de semiconductores de 22.000M$</b><b></b></span></p>
-<p class="p15"><span class="s3">Skyworks Solutions y Qorvo avanzan en su fusión para crear un líder global en semiconductores RF y analógicos. El cierre se espera en principios de 2027. Próximos resultados: 28 de abril (EPS estimado $1,13). Wolfe Research rebajó Qorvo a Peer Perform por el impacto de la adquisición en los catalizadores independientes.</span></p>
-<p class="p16"><span class="s3"><b>StockTitan · Wolfe Research</b><b></b></span></p>
-<p class="p13"><span class="s6">💡</span><span class="s1"><b> RADAR DE OPORTUNIDADES</b></span></p>
-<p class="p24"><span class="s8">🥇</span><span class="s3"><b> Oro y Plata — Refugio sólido con recorrido</b><b></b></span></p>
-<p class="p15"><span class="s3">Con el oro en +17,56% y la plata en +15,83% en cartera, el entorno geopolítico sigue respaldando los metales preciosos. Si la tensión en Oriente Medio escala de nuevo, estos activos seguirán siendo los principales beneficiarios. Considera mantener o ampliar posición en correcciones.</span></p>
-<p class="p24"><span class="s8">🛡</span><span class="s3"><b> Defense ETF — Demanda estructural intacta</b><b></b></span></p>
-<p class="p15"><span class="s3">+6,99% en cartera y con viento de cola geopolítico sostenido. El conflicto iraní ha disparado los presupuestos de defensa en Europa y EE.UU. Este ETF tiene recorrido mientras persista la inestabilidad global. Ampliar en correcciones de mercado.</span></p>
-<p class="p24"><span class="s8">⚡</span><span class="s3"><b> Coinbase (COIN) — Catalizador regulatorio pendiente de cotizarse</b><b></b></span></p>
-<p class="p15"><span class="s3">La aprobación de la OCC es un hito que el mercado no ha terminado de descontar. Si Bitcoin consolida y sube el volumen institucional gracias al nuevo estatus bancario, COIN podría revalorizarse desde niveles actuales (~$168–195). Vigilar zona de entrada en $150–160.</span></p>
-<p class="p5"><span class="s2">⚽</span><span class="s1"><b> Fútbol</b></span></p>
-<p class="p13"><span class="s6">🔵🔴</span><span class="s1"><b> FC BARCELONA</b></span></p>
-<p class="p14"><span class="s3"><b>Barça líder con 7 puntos de ventaja tras golear 5-0 al Athletic Club</b><b></b></span></p>
-<p class="p15"><span class="s3">El Barça firmó una espectacular goleada ante el Athletic de Bilbao (5-0) y se mantiene líder de LaLiga con 76 puntos, siete por delante del Real Madrid. El equipo atraviesa un gran momento de forma con la recta final de temporada a la vista.</span></p>
-<p class="p16"><span class="s3"><b>SI.com ES · LaLiga</b><b></b></span></p>
-<p class="p25"><span class="s9">🗓</span><span class="s3"><b> PRÓXIMO PARTIDO · JORNADA 33</b><b></b></span></p>
-<p class="p26"><span class="s3"><b>FC Barcelona vs. Celta de Vigo</b><b></b></span></p>
-<p class="p27"><span class="s3">Miércoles 22 de abril · 21:30h · LaLiga 2025–26</span></p>
-<p class="p13"><span class="s6">⚪</span><span class="s1"><b> REAL MADRID</b></span></p>
-<p class="p14"><span class="s3"><b>Real Madrid, 2º a 7 puntos del Barça tras tropezar ante el Mallorca</b><b></b></span></p>
-<p class="p15"><span class="s3">El Madrid perdió ante el Mallorca en la jornada 30, lo que permitió al Barça ampliar ventaja en la clasificación. El equipo blanco necesita que el Barça pinche para mantener opciones al título. Semana clave con partido de Liga para reducir distancias.</span></p>
-<p class="p16"><span class="s3"><b>FutbolRed · ClaroSports</b><b></b></span></p>
-<p class="p25"><span class="s9">🗓</span><span class="s3"><b> PRÓXIMO PARTIDO · JORNADA 33</b><b></b></span></p>
-<p class="p26"><span class="s3"><b>Real Madrid · por confirmar rival</b><b></b></span></p>
-<p class="p27"><span class="s3">Semana del 22 de abril · LaLiga 2025–26</span></p>
-<p class="p13"><span class="s6">🏆</span><span class="s1"><b> CLASIFICACIÓN LALIGA — TOP 6 (TRAS J32)</b></span></p>
-<p class="p15"><span class="s10"><b>1</b><b></b></span></p>
-<p class="p28"><span class="s11">🔵🔴</span><span class="s10"> FC Barcelona</span></p>
-<p class="p14"><span class="s10"><b>76</b><b></b></span></p>
-<p class="p15"><span class="s3"><b>2</b><b></b></span></p>
-<p class="p28"><span class="s8">⚪</span><span class="s3"> Real Madrid</span></p>
-<p class="p14"><span class="s3"><b>69</b><b></b></span></p>
-<p class="p15"><span class="s3"><b>3</b><b></b></span></p>
-<p class="p28"><span class="s8">🟡</span><span class="s3"> Villarreal</span></p>
-<p class="p14"><span class="s3"><b>58</b><b></b></span></p>
-<p class="p15"><span class="s3"><b>4</b><b></b></span></p>
-<p class="p28"><span class="s8">🔴⚪</span><span class="s3"> Atlético de Madrid</span></p>
-<p class="p14"><span class="s3"><b>57</b><b></b></span></p>
-<p class="p15"><span class="s3"><b>5</b><b></b></span></p>
-<p class="p28"><span class="s8">🟢⚪</span><span class="s3"> Real Betis</span></p>
-<p class="p14"><span class="s3"><b>45</b><b></b></span></p>
-<p class="p15"><span class="s3"><b>6</b><b></b></span></p>
-<p class="p28"><span class="s8">🔵⚪</span><span class="s3"> Real Sociedad</span></p>
-<p class="p14"><span class="s3"><b>41</b><b></b></span></p>
-<p class="p5"><span class="s2">🥊</span><span class="s1"><b> UFC — Próximos Eventos</b></span></p>
-<p class="p29"><span class="s7">⚠️</span><span class="s1"> Sin spoilers de peleas ya disputadas</span></p>
-<p class="p30"><span class="s12"><b>UFC Fight Night — </b></span><span class="s3"><b>Ayer (18 abr) · ya disputado</b><b></b></span></p>
-<p class="p27"><span class="s13">📍</span><span class="s3"> Canada Life Centre, Winnipeg (Canadá)</span></p>
-<p class="p28"><span class="s8">🥊</span><span class="s3"> Main Event: Burns vs. Malott</span></p>
-<p class="p14"><span class="s3"><b>UFC Fight Night</b><b></b></span></p>
-<p class="p27"><span class="s13">📅</span><span class="s3"> Sábado 25 de abril · </span><span class="s13">📍</span><span class="s3"> Las Vegas, EE.UU.</span></p>
-<p class="p28"><span class="s8">🥊</span><span class="s3"> Aljamain Sterling vs. Youssef Zalal</span></p>
-<p class="p14"><span class="s3"><b>UFC Fight Night</b><b></b></span></p>
-<p class="p27"><span class="s13">📅</span><span class="s3"> Sábado 2 de mayo · </span><span class="s13">📍</span><span class="s3"> Perth, Australia</span></p>
-<p class="p28"><span class="s8">🥊</span><span class="s3"> Jack Della Maddalena vs. Carlos Prates</span></p>
-<p class="p14"><span class="s3"><b>UFC Fight Night</b><b></b></span></p>
-<p class="p27"><span class="s13">📅</span><span class="s3"> Sábado 9 de mayo · </span><span class="s13">📍</span><span class="s3"> Newark, EE.UU.</span></p>
-<p class="p28"><span class="s8">🥊</span><span class="s3"> Khamzat Chimaev vs. Sean Strickland</span></p>
-<p class="p5"><span class="s2">🤖</span><span class="s1"><b> Inteligencia Artificial</b></span></p>
-<p class="p14"><span class="s3"><b>Anthropic lanza Claude Design y Claude Opus 4.7</b><b></b></span></p>
-<p class="p15"><span class="s3">El 17 de abril, Anthropic presentó Claude Design, herramienta experimental para crear prototipos, presentaciones, mockups y materiales de marketing directamente con IA. Está disponible en research preview para suscriptores Pro, Max, Team y Enterprise, impulsada por Claude Opus 4.7, el nuevo modelo flagship que supera al 4.6 en tareas de visión y razonamiento.</span></p>
-<p class="p31"><span class="s13">💡</span><span class="s3"><i> Por qué importa: Anthropic entra de lleno en el espacio de herramientas creativas, compitiendo con Figma y Canva. El lanzamiento de Opus 4.7 también anticipa el modelo "Mythos", que aún no ha sido publicado pero que ya muestra rendimientos históricos en benchmarks de ingeniería de software.</i><i></i></span></p>
-<p class="p14"><span class="s3"><b>Meta lanza Muse Spark y anuncia inversión de hasta 135.000M$ en IA en 2026</b><b></b></span></p>
-<p class="p15"><span class="s3">Meta presentó Muse Spark (nombre clave: Avocado), primer modelo de su nueva serie Muse del Meta Superintelligence Labs. Compite con modelos multimodales de OpenAI y Google a fracción del coste. Meta también anunció un presupuesto de IA de entre 115.000 y 135.000M$ en 2026, casi el doble del año anterior.</span></p>
-<p class="p31"><span class="s13">💡</span><span class="s3"><i> Por qué importa: Meta está acelerando para cerrar la brecha con OpenAI y Google con una inversión brutal en infraestructura. Con ese gasto, la infraestructura de IA de Meta podría ser la mayor del mundo en 2027, cambiando el equilibrio de poder en el sector.</i><i></i></span></p>
-<p class="p14"><span class="s3"><b>OpenAI supera 25.000M$ en ingresos anualizados y da pasos hacia la OPV</b><b></b></span></p>
-<p class="p15"><span class="s3">OpenAI ha superado los 25.000M$ en ingresos recurrentes anualizados, mientras Anthropic ronda los 19.000M$. Ambas compañías exploran salidas a bolsa, aunque la opinión pública sobre la IA y los centros de datos es cada vez más negativa, lo que podría pesar en la valoración de la IPO.</span></p>
-<p class="p31"><span class="s13">💡</span><span class="s3"><i> Por qué importa: La carrera hacia la OPV de las dos mayores compañías de IA no cotizadas del mundo marca un punto de inflexión. La percepción pública negativa sobre el consumo energético de la IA podría ser el principal obstáculo para una valoración justa.</i><i></i></span></p>
-<p class="p14"><span class="s3"><b>AlphaEvolve de Google DeepMind: la IA que optimiza la propia infraestructura de Google</b><b></b></span></p>
-<p class="p15"><span class="s3">AlphaEvolve es un agente de codificación basado en Gemini que combina LLMs con algoritmos evolutivos. Lleva más de un año desplegado dentro de Google, recuperando el 0,7% de sus recursos computacionales mundiales de forma continua y acelerando un kernel clave de Gemini en un 23%. También está resolviendo problemas abiertos de matemáticas de complejidad computacional.</span></p>
-<p class="p31"><span class="s13">💡</span><span class="s3"><i> Por qué importa: Es la primera evidencia pública de una IA que optimiza activamente la infraestructura de su propio creador en producción real a escala global. Abre una nueva era de auto-mejora supervisada con implicaciones enormes para la eficiencia en clouds e infraestructuras de datos.</i><i></i></span></p>
-<p class="p5"><span class="s2">📊</span><span class="s1"><b> Concepto Data del Día</b></span></p>
-<p class="p32"><span class="s14"><b>IA APLICADA</b><b></b></span></p>
-<p class="p33"><span class="s3"><b>Agentic AI en Producción</b><b></b></span></p>
-<p class="p34"><span class="s3"><b>¿QUÉ ES?</b><b></b></span></p>
-<p class="p35"><span class="s3">Un sistema de IA agéntica es aquel que no solo responde a preguntas, sino que actúa de forma autónoma en múltiples pasos: planifica un objetivo, usa herramientas (APIs, bases de datos, código), toma decisiones intermedias y se auto-corrige para llegar al resultado. A diferencia de un chatbot, un agente puede ejecutar pipelines de datos, llamar a servicios externos o generar y enviar informes sin intervención humana en cada paso.</span></p>
-<p class="p34"><span class="s3"><b>¿POR QUÉ IMPORTA COMO EJECUTIVO?</b><b></b></span></p>
-<p class="p35"><span class="s3">Los casos de uso en una línea de negocio de Data son inmediatos y medibles: automatización de pipelines de reporting, detección y escalado autónomo de incidencias de calidad de datos, análisis de KPIs sobre demanda sin esperar al equipo de analytics. El ahorro en horas-analista puede cuantificarse en semanas. El riesgo real está en la gobernanza: si el agente actúa mal, puede propagar errores de datos por toda la organización silenciosamente.</span></p>
-<p class="p34"><span class="s3"><b>PREGUNTA PARA TU EQUIPO O CLIENTE ESTA SEMANA</b><b></b></span></p>
-<p class="p36"><span class="s1"><i>"¿Tenemos identificados los 3 procesos de datos repetitivos en los que un agente de IA podría sustituir trabajo manual hoy mismo? ¿Y tenemos los guardrails de gobernanza para detectar y revertir rápidamente una actuación incorrecta del agente?"</i></span></p>
-<p class="p4"><span class="s1">Daily Briefing generado automáticamente · 19 de abril de 2026<br>
-Para Carlos Narciso · cnarcisom@gmail.com</span></p>
+
+<div class="header">
+  <h1>☀️ Daily Briefing</h1>
+  <div class="subtitle">Buenos días, Carlos 👋</div>
+  <div class="timestamp">📅 Domingo, 19 de abril de 2026 &nbsp;|&nbsp; 🕐 Generado a las 07:30h</div>
+</div>
+
+<!-- TIEMPO -->
+<div class="section">
+  <div class="section-title">☁️ Tiempo — Barcelona</div>
+  <div class="weather-main">
+    <div>
+      <div class="weather-temp">23<span>°C</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">🌡️ Máx 24° · Mín 14°</div>
+    </div>
+    <div class="weather-details">
+      <div class="weather-condition">🌤️ Poco nuboso</div>
+      <div class="weather-minmax">Humedad ~55%</div>
+      <div class="weather-minmax">Viento suave del SW</div>
+    </div>
+  </div>
+  <div class="forecast-row">
+    <div class="forecast-day">
+      <div class="day-name">Lun 20</div>
+      <div class="day-icon">⛅</div>
+      <div class="day-temp">22°</div>
+      <div class="day-low">13°</div>
+    </div>
+    <div class="forecast-day">
+      <div class="day-name">Mar 21</div>
+      <div class="day-icon">🌥️</div>
+      <div class="day-temp">20°</div>
+      <div class="day-low">12°</div>
+    </div>
+    <div class="forecast-day">
+      <div class="day-name">Mié 22</div>
+      <div class="day-icon">🌦️</div>
+      <div class="day-temp">18°</div>
+      <div class="day-low">13°</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:10px;">⚠️ Posibles chubascos fuertes en el Prepirineo esta tarde. Ciudad de Barcelona sin precipitaciones previstas.</p>
+</div>
+
+<!-- NOTICIAS -->
+<div class="section">
+  <div class="section-title">🌍 Noticias del Día</div>
+
+  <div class="sub-title">Internacional</div>
+
+  <div class="card">
+    <span class="tag yellow">Geopolítica</span>
+    <h3>La guerra en Irán dispara el precio del gas europeo un 98%</h3>
+    <p>El conflicto en Oriente Medio amenaza el estrecho de Ormuz, por donde transita el 20% del GNL mundial. El crudo Brent cotiza a 109$/barril tras alcanzar máximos de 119,5$ en marzo. Analistas advierten de precios potenciales entre 130-150$ si el estrecho se bloquea.</p>
+    <div class="source">Investing.com · Es.Euronews · 19 abr 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Economía Global</span>
+    <h3>FMI: crecimiento mundial se desacelera al 3,1% en 2026</h3>
+    <p>Las perspectivas de abril del FMI reflejan el impacto de los aranceles y la incertidumbre geopolítica. América Latina crecerá 2,1% (vs 2,4% en 2025). El EUR/USD ronda 1,17 mientras el dólar pierde fuerza anticipando recortes de la Fed a finales de año.</p>
+    <div class="source">FMI — Perspectivas de la Economía Mundial, Abril 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Mercados</span>
+    <h3>Wall Street resiste: S&amp;P 500 en 6.816 y Nasdaq sobre 25.100</h3>
+    <p>Los índices se mantienen alcistas sostenidos casi en exclusiva por la IA y semiconductores. Nvidia lidera con 4,7 billones de dólares de capitalización. Arrancan los resultados del Q1 2026: se espera crecimiento del BPA del +14% en EE.UU. y +4% en Europa.</p>
+    <div class="source">MásQueTrading via Investing.com · Abril 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag green">Energía</span>
+    <h3>2026: el mundo supera por primera vez el 20% de electricidad renovable</h3>
+    <p>Un hito histórico en la transición energética global, aunque la crisis en Oriente Medio pone de manifiesto la dependencia de los fósiles a corto plazo y la importancia de diversificar el mix energético de manera urgente.</p>
+    <div class="source">CIDOB — The World in 2026</div>
+  </div>
+
+  <div class="sub-title">España</div>
+
+  <div class="card">
+    <span class="tag">Política</span>
+    <h3>Sánchez arranca la precampaña andaluza apoyando a María Jesús Montero</h3>
+    <p>El presidente del Gobierno desembarca este domingo en Andalucía para apoyar a la candidata socialista. En paralelo, el PP critica que Armengol "no puede" aspirar a presidir el Parlament balear por el caso mascarillas. El frente político arranca la semana caliente.</p>
+    <div class="source">El Español · 19 abril 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag green">Economía</span>
+    <h3>España, la gran economía avanzada de mayor crecimiento en 2026 (2,2%)</h3>
+    <p>Por tercer año consecutivo, España liderará las economías avanzadas superando a EE.UU. (1,7%), Francia y Alemania. Los fondos europeos, la relajación de tipos y la mejora de renta disponible son los pilares. La moderación llegará en la segunda mitad del año.</p>
+    <div class="source">ElDiario.es · Abril 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Diplomacia</span>
+    <h3>España propone a la UE romper el acuerdo de asociación con Israel</h3>
+    <p>El Gobierno español llevará a Bruselas la propuesta de suspender el acuerdo UE-Israel en respuesta al conflicto en Gaza. Sánchez definió la guerra como "un inmenso error que cuesta miles de vidas y millones de desplazados en Oriente Medio".</p>
+    <div class="source">El Español · 19 abril 2026</div>
+  </div>
+
+  <div class="sub-title">Cataluña / Barcelona</div>
+
+  <div class="card">
+    <span class="tag">Ciencia &amp; IA</span>
+    <h3>La presidenta de México visita el Barcelona Supercomputing Center con Illa</h3>
+    <p>Claudia Sheinbaum, acompañada de Salvador Illa y la ministra Diana Morant, visitó el BSC este domingo para reforzar la colaboración en investigación y desarrollo de IA entre España, Cataluña y México. Se discutió la vinculación científica y cultural entre ambos países.</p>
+    <div class="source">ElNacional.cat · 19 abril 2026</div>
+  </div>
+
+  <div class="card">
+    <span class="tag yellow">Local</span>
+    <h3>Domingo soleado en Barcelona con máximas de 24°C</h3>
+    <p>Cielo poco nuboso o despejado en la ciudad. Los chubascos, que podrían ser localmente fuertes, se concentrarán en el Prepirineo durante la tarde. Buen día para actividades al aire libre en Barcelona y la costa.</p>
+    <div class="source">AEMET via OKDiario · 19 abril 2026</div>
+  </div>
+</div>
+
+<!-- FINANZAS -->
+<div class="section">
+  <div class="section-title">📈 Finanzas y Mercados</div>
+
+  <div class="sub-title">Contexto del Día</div>
+  <div class="card">
+    <p>🔴 <strong>Tensión geopolítica</strong> en Oriente Medio mantiene el crudo elevado (WTI $112 · Brent $109). Inflación en repunte en EE.UU. pero los mercados aguantan impulsados por la IA.</p>
+    <p style="margin-top:8px;">📊 <strong>EUR/USD 1,17</strong> — dólar débil, anticipando recortes de la Fed en H2 2026. Bitcoin consolida en 62.000€ respaldado por ETFs institucionales.</p>
+    <p style="margin-top:8px;">📅 <strong>Q1 2026 Earnings en marcha.</strong> Estimaciones: BPA +14% EE.UU., +4% Europa. Atención especial a <strong>Qorvo el 28 de abril</strong>.</p>
+  </div>
+
+  <div class="sub-title">Tu Cartera — Estado Actual</div>
+  <div style="background:var(--card);border-radius:14px;padding:8px 12px;border:1px solid var(--border);margin-bottom:12px;">
+    <table class="market-table">
+      <tr><td><div class="asset-name">Core MSCI World (Acc)</div><div class="asset-val">2.606 €</div></td><td class="up">▲ 5,82%</td></tr>
+      <tr><td><div class="asset-name">Physical Swiss Gold USD</div><div class="asset-val">1.541 €</div></td><td class="up">▲ 17,56%</td></tr>
+      <tr><td><div class="asset-name">MSCI World Small Cap USD</div><div class="asset-val">1.088 €</div></td><td class="up">▲ 3,63%</td></tr>
+      <tr><td><div class="asset-name">Core MSCI EM IMI USD (Acc)</div><div class="asset-val">1.060 €</div></td><td class="up">▲ 6,03%</td></tr>
+      <tr><td><div class="asset-name">Defense USD (Acc)</div><div class="asset-val">755 €</div></td><td class="up">▲ 6,99%</td></tr>
+      <tr><td><div class="asset-name">Physical Silver</div><div class="asset-val">603 €</div></td><td class="up">▲ 15,83%</td></tr>
+      <tr><td><div class="asset-name">Coinbase Global (A)</div><div class="asset-val">393 €</div></td><td class="up">▲ 12,28%</td></tr>
+      <tr><td><div class="asset-name">PayPal</div><div class="asset-val">335 €</div></td><td class="down">▼ 23,02%</td></tr>
+      <tr><td><div class="asset-name">Qorvo</div><div class="asset-val">326 €</div></td><td class="down">▼ 12,49%</td></tr>
+      <tr><td><div class="asset-name">Nasdaq Clean Edge Smart Grid</div><div class="asset-val">183 €</div></td><td class="up">▲ 5,03%</td></tr>
+      <tr><td><div class="asset-name">Uranium &amp; Nuclear Tech</div><div class="asset-val">179 €</div></td><td class="up">▲ 2,41%</td></tr>
+      <tr><td><div class="asset-name">Clean Water USD (Acc)</div><div class="asset-val">173 €</div></td><td class="down">▼ 0,68%</td></tr>
+    </table>
+  </div>
+
+  <div class="sub-title">Noticias por Posición</div>
+
+  <div class="card">
+    <span class="tag red">⚠️ Atención</span><span class="tag">COIN</span>
+    <h3>Coinbase busca acceso al modelo IA Claude Mythos de Anthropic</h3>
+    <p>Coinbase inició conversaciones con Anthropic para acceder a Claude Mythos Preview (modelo frontier restringido) con el objetivo de reforzar su seguridad operativa. Cotiza cerca de $199,83 (+2% reciente). <strong>Resultados el 7 de mayo.</strong> Analista downgrade por debilidad del mercado crypto en inicio de 2026.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag red">Negativo</span><span class="tag">PYPL</span>
+    <h3>PayPal: -19% desde 2023 frente a Coinbase +12% en el mismo período</h3>
+    <p>Análisis de Motley Fool destaca que PayPal tiene ingresos más estables que Coinbase pero su cotización sigue sufriendo. La presión competitiva de fintech y cripto pesa. Base de ingresos sólida: podría estar construyendo un suelo si Q1 sorprende positivamente.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag yellow">OPA en Marcha</span><span class="tag">QRVO</span>
+    <h3>Skyworks en proceso de adquirir Qorvo por ~22.000M$ — Earnings el 28 de abril</h3>
+    <p>La OPA de Skyworks podría ser el catalizador para recuperar pérdidas. Cotiza a ~$80,61 (52w alto: $106,30 · bajo: $54,49). EPS estimado para Q4: $1,13. En Q3 2026 batió estimaciones con EPS de $2,17 vs $1,72 esperado (+26%). Analistas señalan ventas estancadas y márgenes en compresión.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag green">⭐ Destaca</span>
+    <h3>Oro +17,56% y Plata +15,83% — Efecto refugio por geopolítica e inflación</h3>
+    <p>Los metales preciosos son los grandes ganadores de la cartera. La combinación de tensiones en Oriente Medio, inflación en EE.UU. y debilidad del dólar está actuando como catalizador perfecto. Este escenario podría mantenerse mientras el conflicto no se resuelva.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag green">Positivo</span>
+    <h3>Defense ETF +6,99% — Gasto militar estructuralmente al alza</h3>
+    <p>Las tensiones geopolíticas sostenidas aumentan los presupuestos de defensa en EE.UU. y Europa. El ETF de defensa se beneficia de un escenario que parece estructural. Posición con buen momentum en el contexto geopolítico actual.</p>
+  </div>
+
+  <div class="sub-title">💡 Radar de Oportunidades</div>
+
+  <div class="radar-card">
+    <h3>🟡 Qorvo (QRVO) — Esperar confirmación OPA</h3>
+    <p>Con la OPA de Skyworks en proceso y earnings el 28 de abril, puede ser momento de mantener y esperar. Si la adquisición avanza al precio acordado (~$22B), el upside desde $80 puede ser significativo. Riesgo principal: rotura del deal.</p>
+  </div>
+
+  <div class="radar-card">
+    <h3>🟡 Uranium &amp; Nuclear Tech — Ciclo largo favorable</h3>
+    <p>El debate sobre energía nuclear crece en Europa (descarbonización + seguridad energética post-crisis Oriente Medio). El sector nuclear tiene fundamentales sólidos a medio-largo plazo. El ETF lleva +2,41% en cartera pero el ciclo podría tener mucho más recorrido.</p>
+  </div>
+
+  <div class="radar-card">
+    <h3>🟢 PayPal (PYPL) — ¿Suelo estructural?</h3>
+    <p>Con -23% en cartera y cotización muy deprimida, PYPL podría estar cerca de un suelo si los resultados de Q1 sorprenden. La base de ingresos es estable y grande. Evaluar si tiene sentido promediar a la baja antes de los próximos resultados.</p>
+  </div>
+</div>
+
+<!-- FÚTBOL -->
+<div class="section">
+  <div class="section-title">⚽ Fútbol</div>
+
+  <div class="sub-title">FC Barcelona</div>
+  <div class="card">
+    <span class="tag green">Líder LaLiga</span>
+    <h3>Barça domina LaLiga pero cae eliminado de la Champions por el Atleti</h3>
+    <p>El Barça lidera LaLiga con <strong>79 puntos</strong> en 31 jornadas (+54 de diferencia de goles). Sin embargo, fue eliminado en cuartos de final de la Champions League por el Atlético de Madrid (3-2 en el global: 2-0 en el Camp Nou · 1-2 en la vuelta del 14 de abril).</p>
+    <div class="next-match">📅 <strong>Próximos partidos:</strong> vs Celta de Vigo (22 abr, LaLiga J32) · vs Getafe (25 abr, LaLiga J33)</div>
+  </div>
+
+  <div class="sub-title">Real Madrid</div>
+  <div class="card">
+    <span class="tag red">Temporada en Crisis</span>
+    <h3>Madrid encara otra temporada sin títulos — el Bernabéu exige respuestas</h3>
+    <p>El Real Madrid suma <strong>70 puntos</strong> (2º lugar), a 9 puntos del Barça con 7 jornadas por disputar. También eliminado de Champions por el Bayern de Múnich. Con LaLiga prácticamente perdida, el equipo afronta "mes y medio sin jugarse nada" mientras el Bernabéu prepara su veredicto.</p>
+    <div class="next-match">📅 <strong>Próximo partido:</strong> vs Alavés — martes (Santiago Bernabéu)</div>
+  </div>
+
+  <div class="sub-title">Clasificación LaLiga — Top 6</div>
+  <div style="background:var(--card);border-radius:14px;padding:6px 8px;border:1px solid var(--border);">
+    <table class="liga-table">
+      <thead>
+        <tr>
+          <th style="width:30px">#</th>
+          <th style="text-align:left">Club</th>
+          <th>PJ</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><span class="pos-badge p1">1</span></td>
+          <td><div class="team-name">🔵🔴 FC Barcelona</div></td>
+          <td>31</td>
+          <td class="pts">79</td>
+        </tr>
+        <tr>
+          <td><span class="pos-badge p2">2</span></td>
+          <td><div class="team-name">⚪ Real Madrid</div></td>
+          <td>31</td>
+          <td class="pts">70</td>
+        </tr>
+        <tr>
+          <td><span class="pos-badge">3</span></td>
+          <td><div class="team-name">🟡 Villarreal CF</div></td>
+          <td>31</td>
+          <td class="pts">61</td>
+        </tr>
+        <tr>
+          <td><span class="pos-badge">4</span></td>
+          <td><div class="team-name">🔴⚪ Atlético Madrid</div></td>
+          <td>31</td>
+          <td class="pts">57</td>
+        </tr>
+        <tr>
+          <td><span class="pos-badge">5</span></td>
+          <td><div class="team-name">🟢⚪ Real Betis</div></td>
+          <td>31</td>
+          <td class="pts">46</td>
+        </tr>
+        <tr>
+          <td><span class="pos-badge">6</span></td>
+          <td><div class="team-name">🔵⚪ Celta de Vigo</div></td>
+          <td>31</td>
+          <td class="pts">44</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- UFC -->
+<div class="section">
+  <div class="section-title">🥊 UFC — Próximos Eventos</div>
+
+  <div class="ufc-event">
+    <div class="event-type">UFC Fight Night</div>
+    <div class="event-date">📅 Sábado 25 de abril, 2026 · Las Vegas, USA</div>
+    <div class="main-event">Aljamain Sterling (#5) vs. Youssef Zalal (#7)</div>
+    <div class="location">🕗 Main card 02:00h CET (madrugada del domingo) · Paramount+</div>
+  </div>
+
+  <div class="ufc-event">
+    <div class="event-type">UFC Fight Night</div>
+    <div class="event-date">📅 Sábado 2 de mayo, 2026 · Perth, Australia</div>
+    <div class="main-event">Jack Della Maddalena (#1) vs. Carlos Prates (#5)</div>
+    <div class="location">🕗 Main card 13:00h CET · Paramount+</div>
+  </div>
+
+  <div class="ufc-event">
+    <div class="event-type">UFC 329 — PPV</div>
+    <div class="event-date">📅 Sábado 9 de mayo, 2026 · Newark, USA</div>
+    <div class="main-event">Khamzat Chimaev vs. Sean Strickland (#3)</div>
+    <div class="location">🕗 Main card 03:00h CET (madrugada del domingo) · PPV</div>
+  </div>
+
+  <p style="font-size:13px;color:var(--muted);margin-top:4px;">⚠️ Sin spoilers de eventos ya disputados, incluido UFC Fight Night Burns vs. Malott del 18 de abril.</p>
+</div>
+
+<!-- IA -->
+<div class="section">
+  <div class="section-title">🤖 Inteligencia Artificial</div>
+
+  <div class="ai-card">
+    <span class="tag">Anthropic</span>
+    <h3>Claude Opus 4.7 lanzado el 16 de abril — razonamiento complejo y agentes</h3>
+    <p>Anthropic presentó su nuevo modelo flagship orientado a flujos de trabajo de agentes de larga duración y razonamiento avanzado. Coincide con la ronda Serie G de <strong>30.000M$</strong>, consolidando a Anthropic como líder en el mercado. También prepara posible salida a bolsa.</p>
+    <div class="why">Los modelos de agentes que "razonan y actúan" aceleran la automatización de procesos. Para tu equipo Data, abren la puerta a agentes que gestionen pipelines, generen reportes y ejecuten análisis de forma autónoma sin intervención humana.</div>
+  </div>
+
+  <div class="ai-card">
+    <span class="tag">OpenAI</span>
+    <h3>GPT-5.4 con 1 millón de tokens de contexto y ejecución multi-agente autónoma</h3>
+    <p>OpenAI presentó GPT-5.4 con ventana de 1M tokens y capacidad de ejecutar flujos de trabajo autónomos multi-paso en entornos de software (75% en benchmark OSWorld-V). La compañía supera $25.000M de ingresos anualizados y explora su salida a bolsa en 2026 tras captar $122.000M de Amazon, Nvidia y SoftBank.</p>
+    <div class="why">Un contexto de 1M tokens permite analizar bases de código completas o años de datos históricos en una sola llamada. Impacto directo en análisis de datos masivos y generación de reportes ejecutivos sin preprocesamiento.</div>
+  </div>
+
+  <div class="ai-card">
+    <span class="tag">Google DeepMind</span>
+    <h3>Gemini 3.1 con voz e imagen en tiempo real — nuevo algoritmo reduce costes de IA ×6</h3>
+    <p>DeepMind actualizó Gemini 3.1 con análisis nativo de voz e imagen en tiempo real. Adicionalmente, Google presentó un algoritmo de compresión que reduce los requisitos de memoria de modelos IA en un factor de 6, abaratando significativamente el coste de inferencia.</p>
+    <div class="why">La reducción de costes ×6 cambia la economía de la IA. Democratiza el acceso a modelos potentes para PYMEs y consultoras, y puede acelerar la adopción de IA embebida en productos de datos sin disparar los presupuestos cloud.</div>
+  </div>
+
+  <div class="ai-card">
+    <span class="tag yellow">Geopolítica IA</span>
+    <h3>OpenAI, Anthropic y Google se alían para frenar el "model cloning" chino</h3>
+    <p>Los tres grandes actores occidentales de IA comparten información a través del Frontier Model Forum para detectar competidores chinos que extraen resultados de modelos frontier. xAI fue adquirida por SpaceX por 250.000M$. La opinión pública se vuelve negativa hacia la IA: 57% de voters en EE.UU. cree que los riesgos superan los beneficios.</p>
+    <div class="why">La geopolítica de la IA está definiendo el acceso a los modelos más avanzados y puede generar restricciones regulatorias. Las consultoras tecnológicas deben anticipar impactos en licencias, cumplimiento y soberanía del dato para sus clientes.</div>
+  </div>
+</div>
+
+<!-- CONCEPTO DATA -->
+<div class="section">
+  <div class="section-title">📊 Concepto Data del Día</div>
+  <div class="concept-box">
+    <div class="concept-title">Data Contracts</div>
+    <div class="concept-category">Gobierno de Datos</div>
+
+    <div class="concept-label">Qué es</div>
+    <div class="concept-text">
+      Un <strong>Data Contract</strong> es un acuerdo formal y versionado entre el productor de datos (el equipo o sistema que genera el dato) y sus consumidores (analítica, ML, producto), que define estructura, tipología, semántica, calidad mínima y SLAs del dato. Va más allá de un esquema técnico: es un contrato de negocio con propietario identificado, vigencia, y canal de notificación de cambios obligatorio.
+    </div>
+
+    <div class="concept-label">Por qué importa como ejecutivo</div>
+    <div class="concept-text">
+      En la mayoría de organizaciones, los datos "se rompen en silencio": un equipo cambia un campo, el pipeline falla y nadie sabe quién debió avisar a quién. Los Data Contracts convierten ese acuerdo implícito en explícito y auditable. <strong>Organizaciones que los adoptan reportan hasta un 60% menos de incidentes de calidad del dato</strong>, liberan tiempo del equipo de ingeniería y dan credibilidad a los datos ante el negocio. Para un Senior Manager, es la herramienta que transforma la conversación de "el dato estaba mal" a "quién violó el contrato, cuándo y cuál es el impacto".
+    </div>
+
+    <div class="concept-label">Pregunta para tu equipo esta semana</div>
+    <div class="concept-question">
+      "Si mañana el equipo de producto cambia el formato del campo <em>customer_id</em> en producción sin avisar, ¿cuántas horas tardaríamos en detectarlo — y cuántos dashboards o modelos se romperían antes de que alguien nos avisara?"
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:28px 20px 10px;color:var(--muted);font-size:12px;line-height:1.8;">
+  <div>Generado automáticamente · Domingo 19 de abril de 2026</div>
+  <div style="margin-top:4px;opacity:0.6;">Daily Briefing Personal — Carlos · powered by Claude</div>
+</div>
+
 </body>
 </html>
