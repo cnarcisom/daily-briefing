@@ -3,738 +3,848 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Daily Briefing · 19 Abril 2026</title>
+  <title>Daily Briefing — Carlos</title>
   <style>
     :root {
       --bg: #0f1117;
-      --surface: #1a1d27;
-      --surface2: #222534;
+      --card: #1a1d27;
+      --card2: #1e2130;
       --accent: #4f8ef7;
       --accent2: #7c5cbf;
-      --green: #3ecf8e;
-      --red: #f26b6b;
-      --yellow: #f7c948;
+      --accent3: #e86d3f;
+      --gold: #f5c842;
+      --green: #3ecf7a;
+      --red: #e85555;
       --text: #e8eaf0;
-      --muted: #8b90a8;
+      --muted: #8891a8;
+      --border: #2a2d3e;
       --radius: 14px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
       font-size: 16px;
-      line-height: 1.65;
-      padding: 0 0 60px 0;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      padding: 16px;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #1a1d27 0%, #0d1020 100%);
-      border-bottom: 1px solid rgba(79,142,247,0.2);
-      padding: 28px 20px 22px;
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12151f 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px 18px;
+      margin-bottom: 16px;
       text-align: center;
     }
-    header h1 {
+    .header h1 {
       font-size: 22px;
       font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #fff;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      margin-bottom: 4px;
     }
-    header .subtitle {
-      font-size: 13px;
+    .header .date {
+      font-size: 14px;
       color: var(--muted);
-      margin-top: 6px;
     }
-    header .badge {
-      display: inline-block;
-      background: rgba(79,142,247,0.15);
+    .header .tagline {
+      font-size: 13px;
       color: var(--accent);
-      border: 1px solid rgba(79,142,247,0.3);
-      border-radius: 20px;
-      font-size: 12px;
-      padding: 3px 12px;
-      margin-top: 10px;
-      letter-spacing: 0.4px;
+      margin-top: 6px;
+      font-weight: 500;
     }
 
-    /* Main container */
-    .container { max-width: 680px; margin: 0 auto; padding: 0 14px; }
-
-    /* Section */
+    /* SECTION */
     .section {
-      background: var(--surface);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      margin-top: 18px;
+      margin-bottom: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
     }
     .section-header {
-      padding: 16px 18px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .section-header .emoji { font-size: 22px; }
     .section-header h2 {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 700;
-      letter-spacing: 0.2px;
-      color: #fff;
-      text-transform: uppercase;
+      color: var(--text);
     }
-    .section-body { padding: 16px 18px; }
+    .section-body {
+      padding: 14px 18px;
+    }
 
-    /* Weather */
+    /* WEATHER */
     .weather-main {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      margin-bottom: 14px;
     }
     .weather-temp {
       font-size: 52px;
-      font-weight: 700;
-      color: #fff;
+      font-weight: 300;
+      color: var(--text);
       line-height: 1;
     }
-    .weather-info { flex: 1; }
-    .weather-condition {
-      font-size: 18px;
+    .weather-temp sup {
+      font-size: 22px;
+      font-weight: 400;
+      vertical-align: super;
+    }
+    .weather-desc {
+      text-align: right;
+    }
+    .weather-desc .condition {
+      font-size: 16px;
       font-weight: 600;
-      color: var(--yellow);
-      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .weather-desc .feels {
+      font-size: 13px;
+      color: var(--muted);
     }
     .weather-details {
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .weather-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      gap: 8px;
+      margin-bottom: 14px;
     }
-    .weather-day {
-      background: var(--surface2);
+    .weather-detail {
+      background: var(--card2);
       border-radius: 10px;
-      padding: 12px 10px;
+      padding: 10px;
       text-align: center;
     }
-    .weather-day .day-name { font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
-    .weather-day .day-icon { font-size: 20px; margin-bottom: 4px; }
-    .weather-day .day-temp { font-size: 15px; font-weight: 600; color: var(--text); }
-    .weather-day .day-minmax { font-size: 12px; color: var(--muted); }
-
-    /* News */
-    .news-block { margin-bottom: 6px; }
-    .news-block:last-child { margin-bottom: 0; }
-    .news-category {
+    .weather-detail .label {
       font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .weather-detail .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .forecast-days {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .forecast-day {
+      background: var(--card2);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .forecast-day .day {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .forecast-day .icon { font-size: 20px; margin-bottom: 4px; }
+    .forecast-day .hi { font-size: 16px; font-weight: 700; color: var(--text); }
+    .forecast-day .lo { font-size: 13px; color: var(--muted); }
+
+    /* NEWS */
+    .news-category {
+      margin-bottom: 16px;
+    }
+    .news-category:last-child { margin-bottom: 0; }
+    .news-category-title {
+      font-size: 12px;
       font-weight: 700;
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent);
-      margin: 14px 0 10px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(79,142,247,0.15);
-    }
-    .news-category:first-child { margin-top: 0; }
-    .news-item {
-      background: var(--surface2);
-      border-radius: 10px;
-      padding: 13px 15px;
       margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
     }
-    .news-item:last-child { margin-bottom: 0; }
-    .news-title {
+    .news-item {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .news-item .headline {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .news-item .context {
+      font-size: 14px;
+      color: #b0b8cc;
+      line-height: 1.5;
+    }
+    .news-item .source {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* MARKETS */
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .market-card {
+      background: var(--card2);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .market-card .name {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .market-card .change {
       font-size: 15px;
       font-weight: 700;
-      color: #fff;
-      line-height: 1.4;
-      margin-bottom: 6px;
+      margin-top: 2px;
     }
-    .news-context {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.55;
-      margin-bottom: 5px;
-    }
-    .news-source {
+    .market-card .note {
       font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
+      color: var(--muted);
+      margin-top: 2px;
     }
+    .up { color: var(--green); }
+    .down { color: var(--red); }
+    .neutral { color: var(--gold); }
 
-    /* Finance */
-    .market-card {
-      background: var(--surface2);
+    .radar {
+      background: linear-gradient(135deg, #1a2d1e 0%, #1a1d27 100%);
+      border: 1px solid #2a4a2e;
       border-radius: 10px;
-      padding: 13px 15px;
-      margin-bottom: 10px;
-    }
-    .market-card:last-child { margin-bottom: 0; }
-    .market-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-    .market-detail { font-size: 14px; color: var(--muted); line-height: 1.55; }
-    .tag {
-      display: inline-block;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      margin-bottom: 6px;
-    }
-    .tag-green { background: rgba(62,207,142,0.12); color: var(--green); }
-    .tag-red { background: rgba(242,107,107,0.12); color: var(--red); }
-    .tag-yellow { background: rgba(247,201,72,0.12); color: var(--yellow); }
-    .tag-blue { background: rgba(79,142,247,0.12); color: var(--accent); }
-    .tag-purple { background: rgba(124,92,191,0.12); color: var(--accent2); }
-
-    /* Radar */
-    .radar-item {
-      background: linear-gradient(135deg, rgba(62,207,142,0.07) 0%, var(--surface2) 100%);
-      border: 1px solid rgba(62,207,142,0.15);
-      border-radius: 10px;
-      padding: 13px 15px;
-      margin-bottom: 10px;
-    }
-    .radar-item:last-child { margin-bottom: 0; }
-    .radar-ticker { font-size: 16px; font-weight: 800; color: var(--green); margin-bottom: 3px; }
-    .radar-desc { font-size: 14px; color: var(--muted); }
-
-    /* Football */
-    .club-card {
-      background: var(--surface2);
-      border-radius: 10px;
-      padding: 14px 15px;
-      margin-bottom: 10px;
-    }
-    .club-card:last-child { margin-bottom: 0; }
-    .club-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .club-name { font-size: 16px; font-weight: 800; color: #fff; }
-    .club-pts { font-size: 14px; font-weight: 700; color: var(--yellow); }
-    .club-detail { font-size: 14px; color: var(--muted); line-height: 1.55; }
-    .next-match {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(79,142,247,0.1);
-      border: 1px solid rgba(79,142,247,0.2);
-      border-radius: 8px;
-      padding: 5px 10px;
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: 8px;
-    }
-
-    /* Standings table */
-    .standings {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
+      padding: 14px;
       margin-top: 12px;
     }
-    .standings th {
+    .radar-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .radar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #b0c8b8;
+    }
+    .radar-item:last-child { margin-bottom: 0; }
+    .radar-item .ticker {
+      background: #2a4a2e;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    /* FOOTBALL */
+    .match-card {
+      background: var(--card2);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 8px;
+    }
+    .match-card:last-of-type { margin-bottom: 0; }
+    .match-teams {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .match-info {
+      font-size: 13px;
       color: var(--muted);
+      text-align: center;
+    }
+    .match-label {
       font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      padding: 0 8px 8px;
-      text-align: right;
-      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
-    .standings th:first-child { text-align: left; }
-    .standings td {
-      padding: 8px 8px;
-      text-align: right;
-      border-top: 1px solid rgba(255,255,255,0.05);
+
+    .standings-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 10px;
     }
-    .standings td:first-child { text-align: left; }
-    .standings .team-name { font-weight: 600; color: var(--text); }
-    .standings .pos { color: var(--muted); margin-right: 8px; width: 18px; display: inline-block; }
-    .standings .pts { font-weight: 700; color: var(--yellow); }
-    .standings tr.highlight { background: rgba(79,142,247,0.05); }
-    .standings tr:hover { background: rgba(255,255,255,0.03); }
+    .standings-table th {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 4px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .standings-table th:not(:first-child):not(:nth-child(2)) { text-align: center; }
+    .standings-table td {
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .standings-table td:not(:first-child):not(:nth-child(2)) { text-align: center; }
+    .standings-table tr:last-child td { border-bottom: none; }
+    .standings-table .pos { color: var(--muted); font-weight: 600; width: 24px; }
+    .standings-table .team-name { font-weight: 600; }
+    .standings-table .pts { font-weight: 700; color: var(--gold); }
+    .highlight-row td { background: rgba(79, 142, 247, 0.07); }
+    .highlight-row .team-name { color: var(--accent); }
 
     /* UFC */
     .ufc-event {
-      background: var(--surface2);
+      background: var(--card2);
       border-radius: 10px;
-      padding: 13px 15px;
-      margin-bottom: 10px;
+      padding: 14px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--accent3);
     }
     .ufc-event:last-child { margin-bottom: 0; }
-    .ufc-date { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
-    .ufc-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .ufc-card { font-size: 14px; color: var(--muted); }
+    .ufc-event .event-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ufc-event .main-event {
+      font-size: 14px;
+      color: #e8c4a0;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .ufc-event .details {
+      font-size: 13px;
+      color: var(--muted);
+    }
 
     /* AI */
     .ai-item {
-      background: var(--surface2);
+      margin-bottom: 14px;
+      padding: 12px;
+      background: var(--card2);
       border-radius: 10px;
-      padding: 13px 15px;
-      margin-bottom: 10px;
+      border-left: 3px solid var(--accent2);
     }
     .ai-item:last-child { margin-bottom: 0; }
-    .ai-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-    .ai-body { font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 6px; }
-    .ai-why {
+    .ai-item .ai-headline {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ai-item .ai-context {
+      font-size: 14px;
+      color: #b0b8cc;
+      margin-bottom: 6px;
+    }
+    .ai-item .why {
       font-size: 13px;
-      border-left: 3px solid var(--accent2);
-      padding-left: 10px;
-      color: #c8bfe8;
-      font-style: italic;
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    .ai-item .why::before {
+      content: '💡 Por qué importa: ';
     }
 
-    /* Concepto Data */
+    /* DATA CONCEPT */
     .concept-card {
-      background: linear-gradient(135deg, rgba(124,92,191,0.12) 0%, var(--surface2) 100%);
-      border: 1px solid rgba(124,92,191,0.2);
+      background: linear-gradient(135deg, #1d1a2d 0%, #1a1d27 100%);
+      border: 1px solid #2d2a3e;
       border-radius: 10px;
-      padding: 16px 15px;
+      padding: 16px;
     }
     .concept-name {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
-      color: #fff;
-      margin-bottom: 4px;
+      color: var(--text);
+      margin-bottom: 2px;
     }
     .concept-category {
       font-size: 12px;
-      font-weight: 700;
       color: var(--accent2);
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 12px;
     }
-    .concept-label {
+    .concept-section {
+      margin-bottom: 10px;
+    }
+    .concept-section-title {
       font-size: 11px;
       font-weight: 700;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-top: 12px;
       margin-bottom: 4px;
     }
-    .concept-content {
+    .concept-section p {
       font-size: 14px;
-      color: var(--text);
-      line-height: 1.6;
+      color: #b0b8cc;
+      line-height: 1.5;
     }
-    .concept-question {
-      background: rgba(124,92,191,0.12);
+    .question-box {
+      background: rgba(124, 92, 191, 0.12);
+      border: 1px solid rgba(124, 92, 191, 0.3);
       border-radius: 8px;
-      padding: 12px 13px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+    .question-box .qlabel {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+    .question-box p {
       font-size: 14px;
-      color: #c8bfe8;
+      color: #c8b8e8;
       font-style: italic;
-      line-height: 1.55;
-      margin-top: 12px;
+      line-height: 1.5;
     }
 
-    /* Footer */
-    footer {
+    /* FOOTER */
+    .footer {
       text-align: center;
       font-size: 12px;
       color: var(--muted);
-      margin-top: 32px;
-      padding: 0 20px;
+      padding: 16px 0 8px;
+    }
+
+    /* DIVIDERS */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 12px 0;
+    }
+
+    @media (max-width: 360px) {
+      body { padding: 12px; font-size: 15px; }
+      .weather-temp { font-size: 44px; }
+      .market-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1>🗞️ Daily Briefing</h1>
-    <div class="subtitle">Domingo, 19 de abril de 2026</div>
-    <div class="badge">Generado el 19/04/2026 · Actualizado con datos en tiempo real</div>
-  </div>
-</header>
-
-<div class="container">
-
-  <!-- ☁️ TIEMPO -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">☁️</span>
-      <h2>Tiempo — Barcelona</h2>
-    </div>
-    <div class="section-body">
-      <div class="weather-main">
-        <div class="weather-info">
-          <div class="weather-condition">⛅ Parcialmente nublado</div>
-          <div class="weather-details">
-            💧 Humedad 51% &nbsp;·&nbsp; 💨 Viento 13 km/h<br>
-            🌅 Salida 07:06 &nbsp;·&nbsp; 🌇 Ocaso 20:36<br>
-            ☔ Prob. lluvia 0%
-          </div>
-        </div>
-        <div class="weather-temp">21°</div>
-      </div>
-      <div class="weather-grid">
-        <div class="weather-day">
-          <div class="day-name">Hoy</div>
-          <div class="day-icon">⛅</div>
-          <div class="day-temp">21°C</div>
-          <div class="day-minmax">Máx 24° · Mín 16°</div>
-        </div>
-        <div class="weather-day">
-          <div class="day-name">Lunes</div>
-          <div class="day-icon">🌤️</div>
-          <div class="day-temp">23°C</div>
-          <div class="day-minmax">Máx 25° · Mín 15°</div>
-        </div>
-        <div class="weather-day">
-          <div class="day-name">Martes</div>
-          <div class="day-icon">🌦️</div>
-          <div class="day-temp">19°C</div>
-          <div class="day-minmax">Máx 21° · Mín 13°</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 🌍 NOTICIAS DEL DÍA -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">🌍</span>
-      <h2>Noticias del Día</h2>
-    </div>
-    <div class="section-body">
-
-      <div class="news-category">🌐 Internacional</div>
-
-      <div class="news-item">
-        <div class="tag tag-red">CRISIS ENERGÉTICA</div>
-        <div class="news-title">El Estrecho de Ormuz vuelve a cerrarse: Irán endurece posición tras fin del alto al fuego</div>
-        <div class="news-context">Las Guardias Revolucionarias iraníes bloquean de nuevo el Estrecho de Ormuz, poniendo en riesgo el 20% del suministro global de GNL procedente de Qatar. Los precios del gas europeo han subido un 98% en lo que va de año, amenazando con una nueva crisis energética si no se reinician las negociaciones en las próximas 72 horas.</div>
-        <div class="news-source">📌 FMI / Euronews</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-yellow">ECONOMÍA GLOBAL</div>
-        <div class="news-title">FMI reduce perspectivas: crecimiento global del 3,1% en 2026, bajo la sombra de la guerra</div>
-        <div class="news-context">El Fondo Monetario Internacional publicó su World Economic Outlook de abril bajo el lema "Economía global en la sombra de la guerra". La proyección de crecimiento del 3,1% para 2026 está por debajo de los promedios prepandemia, con la inflación global que repuntará modestamente antes de reanudar su descenso en 2027.</div>
-        <div class="news-source">📌 IMF World Economic Outlook, Abril 2026</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-blue">GEOPOLÍTICA</div>
-        <div class="news-title">Ucrania lanza represalias contra objetivos militares rusos tras intensos bombardeos</div>
-        <div class="news-context">Kiev responde a los últimos bombardeos rusos con ataques de precisión contra infraestructuras logísticas en el este de Rusia. La escalada llega en un momento de máxima tensión diplomática, con la UE debatiendo nuevas sanciones y el Consejo de Seguridad convocado de emergencia para esta semana.</div>
-        <div class="news-source">📌 Euronews / CFR</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-purple">TECNOLOGÍA</div>
-        <div class="news-title">Los sistemas de IA "agéntica" dominan 2026: ejecutan tareas complejas sin supervisión humana</div>
-        <div class="news-context">El centro de gravedad del sector IA se ha desplazado hacia sistemas que no solo conversan sino que ejecutan flujos de trabajo de múltiples pasos en entornos locales y cloud. El coding asistido por IA transforma tiempos de desarrollo de semanas a horas, generando ganancias de productividad históricas en tecnología.</div>
-        <div class="news-source">📌 MIT Technology Review / PwC AI Report 2026</div>
-      </div>
-
-      <div class="news-category">🇪🇸 Nacional — España</div>
-
-      <div class="news-item">
-        <div class="tag tag-red">DIPLOMACIA</div>
-        <div class="news-title">España pedirá este martes a la UE que rompa el Acuerdo de Asociación con Israel</div>
-        <div class="news-context">Pedro Sánchez impulsa en Bruselas la ruptura del acuerdo UE-Israel, lo que ha generado una fuerte reacción del ministro de Exteriores israelí Gideon Saar. La medida, que requiere mayoría cualificada en el Consejo Europeo, cuenta con apoyo de algunos países mediterráneos pero enfrenta la oposición de Alemania y los países bálticos.</div>
-        <div class="news-source">📌 El Español / Euronews ES</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-yellow">POLÍTICA</div>
-        <div class="news-title">Sánchez arranca la precampaña andaluza apoyando a Montero entre el desgaste de varios casos</div>
-        <div class="news-context">El presidente del Gobierno inicia este domingo la precampaña andaluza respaldando a María Jesús Montero como candidata del PSOE. El Gobierno acumula desgaste mediático por los casos Begoña Gómez y Bolaños, mientras la oposición aprovecha para presionar con nuevas peticiones de comparecencia en el Congreso.</div>
-        <div class="news-source">📌 El Español / Okdiario</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-blue">DEMOGRAFÍA</div>
-        <div class="news-title">España 2050: 9,7 millones de extranjeros y 1,8 millones de nativos más, según proyección oficial</div>
-        <div class="news-context">Un nuevo informe proyecta que en 2050 España contará con 9,7 millones de residentes extranjeros frente a solo 1,8 millones adicionales de nacidos en el país. El debate sobre integración y servicios públicos copa la agenda política, con PP y Vox exigiendo una revisión urgente de la política migratoria.</div>
-        <div class="news-source">📌 El Diestro / INE</div>
-      </div>
-
-      <div class="news-category">🏙️ Local — Cataluña / Barcelona</div>
-
-      <div class="news-item">
-        <div class="tag tag-blue">CIENCIA &amp; DIPLOMACIA</div>
-        <div class="news-title">La presidenta de México, Claudia Sheinbaum, visita el Barcelona Supercomputing Center con Illa</div>
-        <div class="news-context">Sheinbaum y el president de la Generalitat, Salvador Illa, se reunieron en el BSC-CNS para reforzar la colaboración científica hispano-mexicana en IA y supercomputación. La visita incluye acuerdos de intercambio de investigadores y acceso compartido a infraestructura de cómputo de alto rendimiento.</div>
-        <div class="news-source">📌 ElNacional.cat / Okdiario</div>
-      </div>
-
-      <div class="news-item">
-        <div class="tag tag-yellow">SOCIEDAD</div>
-        <div class="news-title">Huelga en oficinas de extranjería el lunes 20: largas esperas previsibles para trámites</div>
-        <div class="news-context">Los trabajadores de las oficinas de extranjería de Cataluña convocan huelga para el lunes 20 de abril exigiendo mejores condiciones laborales. Se esperan retrasos significativos en la gestión de permisos de residencia y trabajo; el Govern pide mínimos de servicio esenciales para evitar el colapso administrativo.</div>
-        <div class="news-source">📌 Catalan News / TheObjective</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 📈 FINANZAS Y MERCADOS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">📈</span>
-      <h2>Finanzas y Mercados</h2>
-    </div>
-    <div class="section-body">
-
-      <div class="market-card">
-        <div class="tag tag-green">TENDENCIA 2026</div>
-        <div class="market-title">Europa bate a Wall Street por segundo año consecutivo</div>
-        <div class="market-detail">El Stoxx 600 cotiza con más de un 25% de descuento por PER frente al S&amp;P 500. Es la primera vez desde 2005-2006 que las bolsas europeas superan al índice americano en dos ejercicios seguidos, impulsadas por la rotación hacia valor, energía y dividendos. El BPA europeo crece ~+4% a/a en 1T26.</div>
-      </div>
-
-      <div class="market-card">
-        <div class="tag tag-red">VOLATILIDAD</div>
-        <div class="market-title">El VIX sube un 73% en 2026: guerra en Irán y petróleo disparan la incertidumbre</div>
-        <div class="market-detail">El índice de volatilidad CBOE acumula una subida del 73% en lo que va de año, reflejo del conflicto en Oriente Medio, el cierre del Estrecho de Ormuz y la presión inflacionista sobre la economía global. Los inversores rotan hacia activos defensivos y dividend-payers.</div>
-      </div>
-
-      <div class="market-card">
-        <div class="tag tag-yellow">RESULTADOS 1T26</div>
-        <div class="market-title">Inicio de temporada de resultados: EE.UU. espera +14% de BPA y Europa +4%</div>
-        <div class="market-detail">Arranca la temporada de resultados del primer trimestre de 2026. El mercado anticipa un crecimiento del beneficio por acción del +14% interanual en la bolsa americana y del +4% en Europa. Los sectores tecnológico, energético y financiero lideran las expectativas.</div>
-      </div>
-
-      <!-- 💡 RADAR DE OPORTUNIDADES -->
-      <div style="margin-top:18px;">
-        <div class="news-category" style="margin-top:0;">💡 Radar de Oportunidades</div>
-
-        <div class="radar-item">
-          <div class="radar-ticker">SCHD — Schwab U.S. Dividend Equity ETF</div>
-          <div class="radar-desc">Después de un período difícil en 2023-2025, este ETF de dividendos ha protagonizado un giro completo en 2026. La rotación hacia valor y dividendos lo posiciona como una de las apuestas más sólidas del momento. Rentabilidad por dividendo atractiva en entorno de alta volatilidad.</div>
-        </div>
-
-        <div class="radar-item">
-          <div class="radar-ticker">EWY — iShares MSCI South Korea ETF</div>
-          <div class="radar-desc">+180% acumulado desde principios de 2025. La presencia de Corea del Sur en la cadena de suministro de semiconductores lo convierte en una puerta de entrada bajo el radar al ciclo de IA, con múltiplos más atractivos que los equivalentes americanos.</div>
-        </div>
-
-        <div class="radar-item">
-          <div class="radar-ticker">ETFs Energía (XLE / sector energético EU)</div>
-          <div class="radar-desc">El ciclo de capex energético e infraestructuras se consolida como tendencia de largo plazo. Incluso si el conflicto iraní se desescala y los precios del crudo retroceden, la necesidad de independencia energética europea sostiene el sector durante años. Momento de entrada atractivo en correcciones.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ⚽ FÚTBOL -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">⚽</span>
-      <h2>Fútbol</h2>
-    </div>
-    <div class="section-body">
-
-      <div class="club-card">
-        <div class="club-header">
-          <div class="club-name">🔵🔴 FC Barcelona</div>
-          <div class="club-pts">79 pts · 1º</div>
-        </div>
-        <div class="club-detail">
-          El Barça lidera LaLiga con 9 puntos de ventaja sobre el Real Madrid, a 7 jornadas del final. Fue eliminado de Champions League en cuartos de final por el Atlético de Madrid (derrota global 3-2), pese a ganar 2-1 en la vuelta en el Metropolitano. Ahora el foco está en certificar el título de Liga lo antes posible.
-        </div>
-        <div class="next-match">📅 Próximo: vs Celta de Vigo — Miércoles 22 abril, 21:30h · Camp Nou (J33)</div>
-      </div>
-
-      <div class="club-card">
-        <div class="club-header">
-          <div class="club-name">⚪ Real Madrid</div>
-          <div class="club-pts">70 pts · 2º</div>
-        </div>
-        <div class="club-detail">
-          El Bayern Munich de Luis Díaz eliminó al Madrid en cuartos de Champions (4-3 en el global), con la polémica expulsión de Camavinga como punto de inflexión. Sin Champions y a 9 puntos del Barça en LaLiga, el objetivo madridista para las 7 jornadas restantes es terminar segundo y preparar el proyecto de la próxima temporada.
-        </div>
-        <div class="next-match">📅 Próximo: LaLiga J33 — Fin de semana 26-27 abril</div>
-      </div>
-
-      <div style="margin-top:16px;">
-        <div class="news-category" style="margin-top:0;">🏆 Clasificación LaLiga — Top 6</div>
-        <table class="standings">
-          <thead>
-            <tr>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>G</th>
-              <th>P</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="highlight">
-              <td><span class="team-name"><span class="pos">1</span>🔵🔴 FC Barcelona</span></td>
-              <td>31</td>
-              <td>26</td>
-              <td>4</td>
-              <td class="pts">79</td>
-            </tr>
-            <tr>
-              <td><span class="team-name"><span class="pos">2</span>⚪ Real Madrid</span></td>
-              <td>31</td>
-              <td>22</td>
-              <td>5</td>
-              <td class="pts">70</td>
-            </tr>
-            <tr>
-              <td><span class="team-name"><span class="pos">3</span>🟡 Villarreal</span></td>
-              <td>31</td>
-              <td>18</td>
-              <td>7</td>
-              <td class="pts">61</td>
-            </tr>
-            <tr>
-              <td><span class="team-name"><span class="pos">4</span>🔴⚪ Atlético Madrid</span></td>
-              <td>31</td>
-              <td>17</td>
-              <td>8</td>
-              <td class="pts">57</td>
-            </tr>
-            <tr>
-              <td><span class="team-name"><span class="pos">5</span>🟢⚪ Real Betis</span></td>
-              <td>31</td>
-              <td>12</td>
-              <td>11</td>
-              <td class="pts">46</td>
-            </tr>
-            <tr>
-              <td><span class="team-name"><span class="pos">6</span>🔵⚪ Real Sociedad</span></td>
-              <td>31</td>
-              <td>11</td>
-              <td>12</td>
-              <td class="pts">43</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 🥊 UFC -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">🥊</span>
-      <h2>UFC — Próximos Eventos</h2>
-    </div>
-    <div class="section-body">
-
-      <div class="ufc-event">
-        <div class="ufc-date">📅 Sábado 18 Abril 2026 — Winnipeg, Canadá</div>
-        <div class="ufc-name">UFC Fight Night: Burns vs. Malott</div>
-        <div class="ufc-card">Canada Life Centre · Cartelera estelar: Gilbert Burns vs. Matthew Malott</div>
-      </div>
-
-      <div class="ufc-event">
-        <div class="ufc-date">📅 Sábado 25 Abril 2026 — Las Vegas, EE.UU.</div>
-        <div class="ufc-name">UFC Fight Night: Sterling vs. Zalal</div>
-        <div class="ufc-card">Aljamain Sterling vs. Youssef Zalal · Peso Pluma</div>
-      </div>
-
-      <div class="ufc-event">
-        <div class="ufc-date">📅 Sábado 2 Mayo 2026 — Perth, Australia</div>
-        <div class="ufc-name">UFC Fight Night: Della Maddalena vs. Prates</div>
-        <div class="ufc-card">Jack Della Maddalena vs. Carlos Prates · Peso Welter</div>
-      </div>
-
-      <div class="ufc-event">
-        <div class="ufc-date">📅 Sábado 9 Mayo 2026 — Newark, EE.UU.</div>
-        <div class="ufc-name">UFC Fight Night: Chimaev vs. Strickland</div>
-        <div class="ufc-card">Khamzat Chimaev vs. Sean Strickland · Revancha muy esperada en Peso Medio</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 🤖 INTELIGENCIA ARTIFICIAL -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">🤖</span>
-      <h2>Inteligencia Artificial</h2>
-    </div>
-    <div class="section-body">
-
-      <div class="ai-item">
-        <div class="tag tag-purple">MODELO · ANTHROPIC</div>
-        <div class="ai-title">Anthropic lanza Claude Mythos 5 con 10 billones de parámetros</div>
-        <div class="ai-body">El nuevo modelo insignia de Anthropic establece un nuevo estándar para ciberseguridad, coding avanzado y razonamiento complejo. Con 10 trillones de parámetros, Mythos 5 lidera los benchmarks del sector y consolida a Anthropic como empresa número uno en el ranking de modelos de IA.</div>
-        <div class="ai-why">💡 Por qué importa: Las capacidades de coding y seguridad de esta generación ya permiten automatizar tareas que hasta hace un año requerían equipos completos de ingenieros. El gap entre líderes y rezagados en adopción se acelera.</div>
-      </div>
-
-      <div class="ai-item">
-        <div class="tag tag-blue">EFICIENCIA · GOOGLE</div>
-        <div class="ai-title">Google presenta Gemini 3.1 Flash-Lite y TurboQuant: 2,5× más rápido al 0,25$/M tokens</div>
-        <div class="ai-body">Gemini 3.1 Flash-Lite ofrece respuestas 2,5 veces más rápidas con una reducción del 45% en la latencia, a un precio de $0,25 por millón de tokens de entrada. Simultáneamente, el algoritmo TurboQuant (presentado en ICLR 2026) reduce en 6× las necesidades de memoria en sistemas de IA a gran escala.</div>
-        <div class="ai-why">💡 Por qué importa: La caída de costes de inferencia democratiza la IA para casos de uso empresarial de alto volumen. El ROI de los proyectos de IA mejora drásticamente, acortando los ciclos de amortización.</div>
-      </div>
-
-      <div class="ai-item">
-        <div class="tag tag-red">LABORAL · SNAP</div>
-        <div class="ai-title">Snap despide al 25% de su plantilla: "La IA genera más del 65% de nuestro código"</div>
-        <div class="ai-body">El CEO de Snap, Evan Spiegel, anunció el despido de ~1.000 empleados y el cierre de más de 300 vacantes abiertas. La justificación: los avances en IA permiten a equipos más pequeños lograr el mismo output. El ahorro esperado supera los 500 millones de dólares anualizados en la segunda mitad de 2026.</div>
-        <div class="ai-why">💡 Por qué importa: Es el caso más explícito hasta la fecha de una empresa tech cotizada atribuyendo directamente recortes de plantilla a la IA. Marca un antes y un después en cómo los inversores y reguladores medirán el impacto laboral real de la automatización.</div>
-      </div>
-
-      <div class="ai-item">
-        <div class="tag tag-green">ROBÓTICA · NVIDIA</div>
-        <div class="ai-title">NVIDIA lanza "Ising": primeros modelos de IA abiertos para acelerar la computación cuántica</div>
-        <div class="ai-body">NVIDIA presenta Ising, los primeros modelos de IA de código abierto diseñados para reducir el "simulation gap" en computación cuántica. Combinado con la expansión de su partnership con Cadence Design Systems para robótica física, NVIDIA consolida su posición como infraestructura horizontal de la IA del mundo real.</div>
-        <div class="ai-why">💡 Por qué importa: La convergencia entre IA, robótica y computación cuántica define la próxima frontera competitiva. Las empresas que dominen la capa de simulación controlarán el desarrollo de sistemas físicos autónomos en industria y logística.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 📊 CONCEPTO DATA DEL DÍA -->
-  <div class="section">
-    <div class="section-header">
-      <span class="emoji">📊</span>
-      <h2>Concepto Data del Día</h2>
-    </div>
-    <div class="section-body">
-      <div class="concept-card">
-        <div class="concept-name">AI Value Capture Gap</div>
-        <div class="concept-category">Estrategia de Datos · IA Empresarial</div>
-
-        <div class="concept-label">Qué es</div>
-        <div class="concept-content">
-          El <em>AI Value Capture Gap</em> describe la brecha entre el valor teórico generado por iniciativas de IA en una organización y el valor que realmente se materializa en resultados de negocio medibles (ingresos, ahorro de costes, mejora de márgenes). Según el estudio PwC 2026 AI Performance, el 75% de los beneficios económicos de la IA los captura solo el 20% de las empresas — precisamente aquellas que orientan la IA al crecimiento, no solo a la productividad.
-        </div>
-
-        <div class="concept-label">Por qué importa como ejecutivo</div>
-        <div class="concept-content">
-          Como Senior Manager de Data en una consultora tecnológica, este concepto define directamente la diferencia entre proyectos de IA que generan caso de negocio y los que mueren en el CoE o en un MVP sin adopción. La mayoría de los clientes tienen el talento y los datos para capturar valor; el problema es el <em>translation layer</em> entre el output del modelo y el KPI de negocio. Tu rol es acortar esa brecha.
-        </div>
-
-        <div class="concept-label">Una pregunta para tu equipo esta semana</div>
-        <div class="concept-question">
-          "De todos los proyectos de IA en los que estamos trabajando ahora mismo, ¿en cuántos tenemos un mecanismo explícito para medir el valor capturado vs. el valor proyectado? Y si no lo tenemos, ¿quién es el responsable de crearlo?"
-        </div>
-      </div>
-    </div>
-  </div>
-
+<!-- HEADER -->
+<div class="header">
+  <h1>☀️ Daily Briefing</h1>
+  <div class="date">Lunes, 20 de abril de 2026</div>
+  <div class="tagline">Generado a las 06:41 · Barcelona, España</div>
 </div>
 
-<footer>
-  <p>Daily Briefing · Carlos · Barcelona · 19/04/2026</p>
-  <p style="margin-top:4px;">Generado automáticamente con IA · Datos verificados con fuentes públicas</p>
-</footer>
+<!-- TIEMPO -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">☁️</span>
+    <h2>Tiempo — Barcelona</h2>
+  </div>
+  <div class="section-body">
+    <div class="weather-main">
+      <div class="weather-temp">21<sup>°C</sup></div>
+      <div class="weather-desc">
+        <div class="condition">Parcialmente nuboso</div>
+        <div class="feels">Riesgo tormentas en Cataluña</div>
+        <div class="feels">Viento SO · 23 km/h</div>
+        <div class="feels">🌅 07:05 &nbsp;|&nbsp; 🌇 20:34</div>
+      </div>
+    </div>
+    <div class="weather-details">
+      <div class="weather-detail">
+        <div class="label">Máx.</div>
+        <div class="value">22°C</div>
+      </div>
+      <div class="weather-detail">
+        <div class="label">Mín.</div>
+        <div class="value">12°C</div>
+      </div>
+      <div class="weather-detail">
+        <div class="label">Precip.</div>
+        <div class="value">35%</div>
+      </div>
+    </div>
+    <div class="forecast-days">
+      <div class="forecast-day">
+        <div class="day">MAR 21</div>
+        <div class="icon">⛅</div>
+        <div class="hi">20°C</div>
+        <div class="lo">13°C</div>
+      </div>
+      <div class="forecast-day">
+        <div class="day">MIÉ 22</div>
+        <div class="icon">🌦️</div>
+        <div class="hi">19°C</div>
+        <div class="lo">12°C</div>
+      </div>
+      <div class="forecast-day">
+        <div class="day">JUE 23</div>
+        <div class="icon">🌤️</div>
+        <div class="hi">23°C</div>
+        <div class="lo">13°C</div>
+      </div>
+    </div>
+    <div style="margin-top:10px; font-size:13px; color:var(--muted);">
+      ⚠️ <strong style="color:#e8c84a">Aviso:</strong> AEMET prevé riesgo de chubascos y tormentas en el Pirineo y Prepirineo por la tarde.
+    </div>
+  </div>
+</div>
+
+<!-- NOTICIAS -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">🌍</span>
+    <h2>Noticias del Día</h2>
+  </div>
+  <div class="section-body">
+
+    <!-- Internacional -->
+    <div class="news-category">
+      <div class="news-category-title">🌐 Internacional</div>
+
+      <div class="news-item">
+        <div class="headline">FMI recorta previsión de crecimiento global a 3,1% por conflicto Irán-EEUU-Israel</div>
+        <div class="context">El ataque de EE.UU. e Israel a Irán en febrero disparó los precios energéticos y la inflación. La directora del FMI advierte de "tiempos difíciles" y rebaja la proyección 2026 de 3,3% a 3,1%. En un escenario adverso, el crecimiento podría caer al 2,5%.</div>
+        <div class="source">📰 France24 / Noticias ONU</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">Cumbre en Barcelona: Sánchez, Lula y Sheinbaum impulsan bloque progresista global</div>
+        <div class="context">La IV Cumbre en Defensa de la Democracia se celebra en Barcelona. Los mandatarios de España, Brasil, México y Sudáfrica proponen una reforma estructural de organismos internacionales y lanzan el Consejo Global para una Economía del Bien Común como alternativa al eje liderado por Trump.</div>
+        <div class="source">📰 Cadena Política / El Español</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">Tensión geopolítica reconfgura el mapa mundial en dos bloques ideológicos</div>
+        <div class="context">El mundo se divide entre el "Escudo de las Américas" liderado por EE.UU. y el "Movimiento en Defensa de la Democracia" con México, Brasil y España al frente. El CIDOB analiza el reordenamiento como uno de los diez hitos que marcarán la agenda global de 2026.</div>
+        <div class="source">📰 CIDOB / Cadena Política</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">América Latina proyecta el menor crecimiento regional del mundo en 2026: 2,1%</div>
+        <div class="context">El Banco Mundial advierte que LATAM, con un crecimiento del 2,1%, queda como la región más lenta del planeta. La inestabilidad del entorno externo, los altos costes energéticos y la dependencia exportadora explican la ralentización frente a 2025 (2,4%).</div>
+        <div class="source">📰 Banco Mundial / CEP Chile</div>
+      </div>
+    </div>
+
+    <!-- Nacional -->
+    <div class="news-category">
+      <div class="news-category-title">🇪🇸 España</div>
+
+      <div class="news-item">
+        <div class="headline">España lidera las grandes economías avanzadas con un crecimiento del 2,2% en 2026</div>
+        <div class="context">Por tercer año consecutivo, España supera a EE.UU. (1,7%), Alemania y Francia (1,1%) en crecimiento del PIB. La fortaleza del consumo interno y del turismo son los principales motores, aunque el conflicto en Oriente Medio limita el ajuste fiscal previsto.</div>
+        <div class="source">📰 El Diario / CaixaBank Research</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">Sánchez usa la cumbre de Barcelona como plataforma de liderazgo progresista global</div>
+        <div class="context">El presidente del Gobierno protagoniza la Global Progressive Mobilisation junto a varios mandatarios de izquierda. El PP responde con críticas a los gastos del evento. Sánchez defiende ser "orgullosamente progresista" y señala que "la vergüenza cambia de bando".</div>
+        <div class="source">📰 El Español</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">Precampaña andaluza: Sánchez desembarca el domingo en apoyo a María Jesús Montero</div>
+        <div class="context">El presidente se suma a la campaña del PSOE en Andalucía, una de las regiones clave en el juego político estatal. Montero encabeza las listas socialistas frente al PP de Juanma Moreno, que mantiene una sólida mayoría en las encuestas.</div>
+        <div class="source">📰 El Español</div>
+      </div>
+    </div>
+
+    <!-- Local -->
+    <div class="news-category">
+      <div class="news-category-title">🏙️ Cataluña / Barcelona</div>
+
+      <div class="news-item">
+        <div class="headline">Illa y Sheinbaum visitan el Barcelona Supercomputing Center para impulsar la colaboración científica</div>
+        <div class="context">El president de la Generalitat, Salvador Illa, recibió a la presidenta de México, Claudia Sheinbaum, en el BSC. Abordaron la vinculación histórica Cataluña-México y nuevas vías de cooperación en ciencia, tecnología e inteligencia artificial.</div>
+        <div class="source">📰 ElNacional.cat</div>
+      </div>
+
+      <div class="news-item">
+        <div class="headline">BCN Film Fest celebra su 10ª edición hasta el 24 de abril con 90 películas</div>
+        <div class="context">El Festival Internacional de Cinema de Barcelona-Sant Jordi proyecta cerca de 90 filmes en varias sedes de la ciudad. La película inaugural fue 'Viatge al país dels blancs'. El festival coincide con la Feria de Abril, que se extiende en el Parc del Fòrum hasta el 3 de mayo.</div>
+        <div class="source">📰 Betevé / Idealista</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MERCADOS -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">📈</span>
+    <h2>Finanzas y Mercados</h2>
+  </div>
+  <div class="section-body">
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="name">Europa (EFA)</div>
+        <div class="change up">↑ Resistente</div>
+        <div class="note">Salud y finanzas europeas aguantan vs tech USA</div>
+      </div>
+      <div class="market-card">
+        <div class="name">EE.UU. Tech</div>
+        <div class="change down">↓ Presionado</div>
+        <div class="note">Índices tecnológicos bajo presión geopolítica</div>
+      </div>
+      <div class="market-card">
+        <div class="name">Petróleo</div>
+        <div class="change up">↑ Al alza</div>
+        <div class="note">Tensión Irán eleva precios energéticos</div>
+      </div>
+      <div class="market-card">
+        <div class="name">Bitcoin ETF</div>
+        <div class="change up">+73% anual</div>
+        <div class="note">iShares BTC cap. 56.000M — liderazgo rentabilidad</div>
+      </div>
+    </div>
+
+    <div class="news-item" style="margin-top:10px;">
+      <div class="headline">Flujos masivos hacia ETFs activos y alternativos en Q1 2026</div>
+      <div class="context">La volatilidad macro y los cambios en expectativas de tipos en el primer trimestre han acelerado la migración hacia ETFs de gestión activa. Europa sobreponderada frente a EE.UU., y emergentes en el radar de mayores rentabilidades esperadas.</div>
+      <div class="source">📰 Ainvest / Qualebroker</div>
+    </div>
+
+    <div class="radar">
+      <div class="radar-title">💡 Radar de Oportunidades</div>
+      <div class="radar-item">
+        <span class="ticker">VEA</span>
+        <span>Mercados desarrollados fuera de EE.UU. — Corea del Sur especialmente "barata" tras tensiones iraníes. Descuento de valoración atractivo.</span>
+      </div>
+      <div class="radar-item">
+        <span class="ticker">EFA</span>
+        <span>ETF de mercados desarrollados Europa/Asia. Defensivo ante la presión sobre tech USA. Sectores salud y finanzas como ancla.</span>
+      </div>
+      <div class="radar-item">
+        <span class="ticker">España (IBEX)</span>
+        <span>España lidera crecimiento PIB avanzado 2026 (+2,2%). Potencial de revalorización frente a pares europeos con menor crecimiento.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FÚTBOL -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">⚽</span>
+    <h2>Fútbol</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="match-label">🔵🔴 FC Barcelona</div>
+
+    <div class="news-item" style="margin-bottom:12px;">
+      <div class="headline">Barça lidera LaLiga con 9 puntos de ventaja — temporada histórica en marcha</div>
+      <div class="context">El equipo de Flick acumula 79 puntos en 31 jornadas, con una ventaja de 9 puntos sobre el Real Madrid (70 pts). La Copa del Rey también está en juego, con la final programada para el 26 de abril.</div>
+      <div class="source">📰 LaLiga / Flashscore</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-label">Próximo partido — Jornada 33</div>
+      <div class="match-teams">🔵🔴 FC Barcelona vs Celta de Vigo 🟢⚪</div>
+      <div class="match-info">📅 Miércoles, 22 de abril · 21:30h · LaLiga EA Sports</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="match-label">⚪ Real Madrid</div>
+
+    <div class="news-item" style="margin-bottom:12px;">
+      <div class="headline">Real Madrid a 9 puntos del líder — con 70 puntos en 31 partidos</div>
+      <div class="context">El equipo blanco afronta el tramo decisivo de la temporada en una doble batalla por LaLiga y la Champions League. Tras los cuartos ante el Bayern, el Madrid necesita sumar en liga para mantener opciones.</div>
+      <div class="source">📰 LaLiga / ESPN</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-label">Próximo partido — Jornada 33</div>
+      <div class="match-teams">⚪ Real Madrid vs Deportivo Alavés 🔵⚪</div>
+      <div class="match-info">📅 Martes, 22 de abril · LaLiga EA Sports</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="match-label">📊 Clasificación LaLiga — Top 6</div>
+
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th class="pos">#</th>
+          <th>Equipo</th>
+          <th>PJ</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td class="pos">1</td>
+          <td class="team-name">FC Barcelona</td>
+          <td>31</td>
+          <td class="pts">79</td>
+        </tr>
+        <tr>
+          <td class="pos">2</td>
+          <td class="team-name">Real Madrid</td>
+          <td>31</td>
+          <td class="pts">70</td>
+        </tr>
+        <tr>
+          <td class="pos">3</td>
+          <td class="team-name">Villarreal CF</td>
+          <td>31</td>
+          <td class="pts">61</td>
+        </tr>
+        <tr>
+          <td class="pos">4</td>
+          <td class="team-name">Atlético Madrid</td>
+          <td>31</td>
+          <td class="pts">57</td>
+        </tr>
+        <tr>
+          <td class="pos">5</td>
+          <td class="team-name">Real Betis</td>
+          <td>31</td>
+          <td class="pts">46</td>
+        </tr>
+        <tr>
+          <td class="pos">6</td>
+          <td class="team-name">Celta de Vigo</td>
+          <td>31</td>
+          <td class="pts">44</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- UFC -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">🥊</span>
+    <h2>UFC — Próximos Eventos</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="ufc-event">
+      <div class="event-name">UFC Fight Night — Las Vegas</div>
+      <div class="main-event">🎯 Aljamain Sterling vs Youssef Zalal</div>
+      <div class="details">📅 Sábado, 25 de abril · Las Vegas, EE.UU. · Main Card 02:00h (hora española)</div>
+    </div>
+
+    <div class="ufc-event">
+      <div class="event-name">UFC Fight Night — Perth, Australia</div>
+      <div class="main-event">🎯 Jack Della Maddalena vs Carlos Prates</div>
+      <div class="details">📅 Sábado, 2 de mayo · Perth, Australia · Welterweight estrella del momento</div>
+    </div>
+
+    <div class="ufc-event">
+      <div class="event-name">UFC Fight Night — Newark</div>
+      <div class="main-event">🎯 Khamzat Chimaev vs Sean Strickland</div>
+      <div class="details">📅 Sábado, 9 de mayo · Newark, EE.UU. · Duelo explosivo de Middleweight</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- IA -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">🤖</span>
+    <h2>Inteligencia Artificial</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="ai-item">
+      <div class="ai-headline">AI Index Report 2026: la IA crece más rápido que los sistemas para gobernarla</div>
+      <div class="ai-context">El informe anual de la Stanford HAI confirma una aceleración sin precedentes de las capacidades de IA, pero advierte de un "desajuste estructural" entre tecnología, regulación, talento y sistemas de evaluación de riesgos.</div>
+      <div class="why">La industria avanza a velocidad de startup; los marcos de gobernanza siguen en velocidad de gobierno. Las empresas que establezcan sus propios estándares de evaluación internos llevarán ventaja regulatoria.</div>
+    </div>
+
+    <div class="ai-item">
+      <div class="ai-headline">Google potencia Gemini en Workspace: generación automática de docs desde email y calendario</div>
+      <div class="ai-context">Nuevas funcionalidades permiten a Gemini sintetizar información de Gmail, Drive, Calendar y Chats para generar documentos, presentaciones y hojas de cálculo completamente formateados. El objetivo: eliminar la entrada manual de datos en flujos de trabajo corporativos.</div>
+      <div class="why">El copiloto de ofimática deja de ser asistente y se convierte en productor autónomo. Las empresas que integren este flujo ganarán 2-3 horas/semana por empleado en tareas de síntesis y documentación.</div>
+    </div>
+
+    <div class="ai-item">
+      <div class="ai-headline">Amazon lanza agente de salud con IA para todos sus miembros Prime</div>
+      <div class="ai-context">El servicio ofrece orientación sanitaria 24/7: responde preguntas médicas, interpreta resultados de laboratorio y gestiona renovaciones de recetas. Es el mayor despliegue de IA de salud a consumidor final de la historia, llegando a más de 200 millones de Prime members.</div>
+      <div class="why">La sanidad llega a la pantalla del móvil como un servicio de suscripción. Esto presiona a aseguradoras y clínicas a reimaginar el punto de entrada al sistema de salud.</div>
+    </div>
+
+    <div class="ai-item">
+      <div class="ai-headline">Snap despide a 1.000 empleados citando que la IA permite hacer más con menos gente</div>
+      <div class="ai-context">La compañía redujo su plantilla en aproximadamente 1.000 personas y cerró más de 300 posiciones abiertas. La CEO argumentó que los "avances rápidos en IA" permiten que equipos más pequeños logren los mismos outputs. Es el caso más explícito hasta la fecha de sustitución laboral directa atribuida a IA.</div>
+      <div class="why">El discurso de "IA como complemento" empieza a ceder ante evidencias de sustitución real. Los departamentos de Data y Tecnología deben anticipar conversaciones sobre restructuración y redistribución de roles.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONCEPTO DATA -->
+<div class="section">
+  <div class="section-header">
+    <span style="font-size:20px">📊</span>
+    <h2>Concepto Data del Día</h2>
+  </div>
+  <div class="section-body">
+    <div class="concept-card">
+      <div class="concept-name">Data Product Thinking</div>
+      <div class="concept-category">Estrategia de Datos · Producto · Gobernanza</div>
+
+      <div class="concept-section">
+        <div class="concept-section-title">¿Qué es?</div>
+        <p>Es el enfoque que trata cada conjunto de datos, pipeline o solución analítica como un <strong style="color:var(--text)">producto</strong> con usuarios, propietarios, SLAs, versionado y roadmap — exactamente como un producto de software. Implica aplicar mentalidad de producto (discovery, iteración, métricas de adopción) a los activos de datos de la organización.</p>
+      </div>
+
+      <div class="concept-section">
+        <div class="concept-section-title">¿Por qué importa como ejecutivo?</div>
+        <p>La mayoría de los departamentos de datos generan outputs, no productos. Sin un propietario claro, sin SLA de calidad y sin métricas de uso, los datos se convierten en activos sin demanda ni mantenimiento. Data Product Thinking alinea la inversión en datos con valor de negocio medible: reduce el tiempo de time-to-insight y convierte a Data en una línea de negocio con accountability real, no en un centro de coste opaco.</p>
+      </div>
+
+      <div class="question-box">
+        <div class="qlabel">❓ Pregunta para tu equipo esta semana</div>
+        <p>"¿Podemos listar los cinco data products más usados en la compañía hoy, nombrar quién es el product owner de cada uno y cuál es su SLA de actualización y calidad? Si no podemos responder en 10 minutos, tenemos una conversación pendiente."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Generado automáticamente el lunes 20 de abril de 2026 a las 06:41<br/>
+  Fuentes: AEMET · Tutiempo · France24 · Noticias ONU · ElDiario.es · ElNacional.cat · LaLiga · UFC.com · MuyComputerPro · Stanford AI Index
+</div>
 
 </body>
 </html>
