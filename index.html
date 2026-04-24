@@ -1,769 +1,557 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Daily Briefing — 23 Abril 2026</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — Carlos</title>
   <style>
-    :root {
-      --bg: #0f1117;
-      --card: #1a1d27;
-      --card2: #1e2130;
-      --accent: #4f8ef7;
-      --accent2: #7c5cfc;
-      --green: #22c55e;
-      --red: #ef4444;
-      --yellow: #f59e0b;
-      --text: #e8eaf0;
-      --muted: #8b92a8;
-      --border: #2a2f42;
-      --radius: 14px;
-    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #0d1117;
+      color: #e6edf3;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 17px;
-      line-height: 1.6;
-      padding: 0 0 40px 0;
+      line-height: 1.7;
+      padding: 16px;
       max-width: 680px;
       margin: 0 auto;
     }
-
-    /* HEADER */
-    .header {
-      background: linear-gradient(135deg, #1a1d27 0%, #12162a 100%);
-      padding: 28px 20px 20px;
-      border-bottom: 1px solid var(--border);
+    header {
+      background: linear-gradient(135deg, #1a2236, #0d1117);
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      margin-bottom: 20px;
       text-align: center;
     }
-    .header h1 {
-      font-size: 22px;
+    header h1 {
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #fff;
+      color: #58a6ff;
+      letter-spacing: -0.5px;
     }
-    .header .subtitle {
-      font-size: 14px;
-      color: var(--muted);
+    header .meta {
+      font-size: 0.85rem;
+      color: #8b949e;
       margin-top: 6px;
     }
-    .header .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-top: 10px;
-      letter-spacing: 0.5px;
-    }
-
-    /* SECTIONS */
     .section {
-      margin: 18px 16px 0;
-      background: var(--card);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 20px 18px;
+      margin-bottom: 18px;
     }
-    .section-header {
-      padding: 14px 18px 12px;
-      border-bottom: 1px solid var(--border);
-      font-size: 16px;
+    .section-title {
+      font-size: 1.15rem;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      letter-spacing: 0.3px;
-      background: var(--card2);
+      color: #f0f6fc;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #21262d;
     }
-    .section-body {
-      padding: 16px 18px;
-    }
-
-    /* WEATHER */
-    .weather-main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-    .weather-temp {
-      font-size: 52px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-    }
-    .weather-details {
-      text-align: right;
-    }
-    .weather-condition {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .weather-hi-lo {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-    .weather-extra {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 14px;
-      padding: 10px 14px;
-      background: rgba(79,142,247,0.08);
-      border-radius: 10px;
-      border-left: 3px solid var(--accent);
-    }
-    .forecast-grid {
+    .weather-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .weather-card {
+      background: #1c2230;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .weather-card .label { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+    .weather-card .value { font-size: 1.5rem; font-weight: 700; color: #79c0ff; margin-top: 4px; }
+    .weather-forecast {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
     }
     .forecast-day {
-      background: rgba(255,255,255,0.04);
+      background: #1c2230;
       border-radius: 10px;
-      padding: 10px 8px;
+      padding: 12px 8px;
       text-align: center;
     }
-    .forecast-day .day-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .forecast-day .day-icon {
-      font-size: 22px;
-      margin: 6px 0;
-    }
-    .forecast-day .day-temp {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .forecast-day .day-lo {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* NEWS CARDS */
-    .news-block-title {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--accent);
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-    }
+    .forecast-day .day-name { font-size: 0.75rem; color: #8b949e; font-weight: 600; }
+    .forecast-day .day-icon { font-size: 1.4rem; margin: 4px 0; }
+    .forecast-day .day-temp { font-size: 0.85rem; color: #e6edf3; }
     .news-item {
       margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #21262d;
     }
-    .news-item:last-child { margin-bottom: 0; }
+    .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .news-headline {
-      font-size: 16px;
       font-weight: 700;
-      color: #fff;
-      line-height: 1.35;
+      color: #f0f6fc;
+      font-size: 1rem;
       margin-bottom: 5px;
+      line-height: 1.4;
     }
     .news-context {
-      font-size: 14px;
-      color: var(--muted);
+      color: #8b949e;
+      font-size: 0.88rem;
       line-height: 1.5;
     }
     .news-source {
-      display: inline-block;
+      font-size: 0.75rem;
+      color: #58a6ff;
       margin-top: 5px;
-      font-size: 12px;
-      color: var(--accent);
-      background: rgba(79,142,247,0.1);
-      padding: 2px 8px;
-      border-radius: 6px;
+      font-weight: 500;
     }
-    .news-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 14px 0;
-    }
-
-    /* MARKETS */
-    .market-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .market-card {
-      background: rgba(255,255,255,0.04);
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .market-name { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .market-val { font-size: 18px; font-weight: 700; color: #fff; margin: 2px 0; }
-    .market-change { font-size: 13px; font-weight: 600; }
-    .up { color: var(--green); }
-    .down { color: var(--red); }
-
-    .radar-box {
-      background: rgba(124,92,252,0.1);
-      border: 1px solid rgba(124,92,252,0.35);
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-top: 12px;
-    }
-    .radar-title {
-      font-size: 14px;
+    .sub-section-label {
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--accent2);
-      margin-bottom: 8px;
+      color: #3fb950;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+      margin-top: 18px;
     }
-    .radar-item {
-      font-size: 14px;
-      color: var(--text);
-      margin-bottom: 5px;
-      padding-left: 10px;
-      border-left: 2px solid var(--accent2);
+    .sub-section-label:first-of-type { margin-top: 0; }
+    .market-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #21262d;
     }
-
-    /* FOOTBALL */
-    .team-block {
-      margin-bottom: 16px;
+    .market-row:last-child { border-bottom: none; }
+    .market-name { font-size: 0.95rem; font-weight: 600; color: #e6edf3; }
+    .market-value { font-size: 0.95rem; font-weight: 700; }
+    .red { color: #f85149; }
+    .green { color: #3fb950; }
+    .opportunity-box {
+      background: #1a2b1a;
+      border: 1px solid #3fb950;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 14px;
     }
-    .team-block:last-of-type { margin-bottom: 0; }
-    .team-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .match-pill {
-      display: inline-block;
-      background: rgba(79,142,247,0.12);
-      border: 1px solid rgba(79,142,247,0.2);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: 5px;
-    }
-    .standings-table {
+    .opportunity-box .opp-title { font-size: 0.85rem; font-weight: 700; color: #3fb950; margin-bottom: 8px; }
+    .opportunity-box p { font-size: 0.88rem; color: #8b949e; margin-bottom: 6px; }
+    .football-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
-    .standings-table th {
-      color: var(--muted);
-      font-size: 12px;
+    .football-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      color: #8b949e;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 6px 8px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
+      padding: 6px 4px;
+      border-bottom: 1px solid #21262d;
     }
-    .standings-table td {
-      padding: 8px 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      vertical-align: middle;
+    .football-table td {
+      padding: 9px 4px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #21262d;
     }
-    .standings-table tr:last-child td { border-bottom: none; }
+    .football-table tr:last-child td { border-bottom: none; }
     .pos-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
       width: 22px;
       height: 22px;
-      border-radius: 6px;
-      font-size: 12px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 22px;
+      font-size: 0.75rem;
       font-weight: 700;
+      background: #21262d;
+      color: #8b949e;
     }
-    .pos-1 { background: #f59e0b22; color: #f59e0b; }
-    .pos-2 { background: #94a3b822; color: #94a3b8; }
-    .pos-3 { background: #b45309; color: #fbbf24; }
-    .pos-other { background: rgba(255,255,255,0.07); color: var(--muted); }
-    .team-barca { color: #a855f7; font-weight: 700; }
-    .team-madrid { color: #fbbf24; font-weight: 700; }
-
-    /* UFC */
-    .event-card {
-      background: rgba(255,255,255,0.04);
+    .pos-1 { background: #f0c030; color: #0d1117; }
+    .pos-2 { background: #9e9e9e; color: #0d1117; }
+    .pos-3 { background: #cd7f32; color: #0d1117; }
+    .team-name-bold { font-weight: 700; color: #58a6ff; }
+    .pts-bold { font-weight: 700; color: #f0f6fc; }
+    .match-card {
+      background: #1c2230;
       border-radius: 10px;
-      padding: 12px 14px;
+      padding: 14px;
       margin-bottom: 10px;
     }
-    .event-card:last-child { margin-bottom: 0; }
-    .event-date {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--yellow);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .match-card:last-child { margin-bottom: 0; }
+    .match-label { font-size: 0.75rem; color: #8b949e; margin-bottom: 6px; font-weight: 600; }
+    .match-teams { font-size: 1rem; font-weight: 700; color: #f0f6fc; }
+    .match-info { font-size: 0.82rem; color: #8b949e; margin-top: 5px; }
+    .match-info span { color: #58a6ff; }
+    .ufc-event {
+      background: #1c1018;
+      border: 1px solid #4a1020;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 10px;
     }
-    .event-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin: 4px 0;
-    }
-    .event-location {
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .event-main {
-      font-size: 14px;
-      margin-top: 6px;
-      color: var(--text);
-    }
-    .event-main span { color: var(--accent); font-weight: 600; }
-
-    /* AI */
+    .ufc-event:last-child { margin-bottom: 0; }
+    .ufc-date { font-size: 0.75rem; color: #f85149; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .ufc-name { font-size: 1rem; font-weight: 700; color: #f0f6fc; margin: 5px 0; }
+    .ufc-card { font-size: 0.88rem; color: #8b949e; }
     .ai-item {
       margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #21262d;
     }
-    .ai-item:last-child { margin-bottom: 0; }
-    .ai-headline {
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 5px;
-    }
-    .ai-context {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
+    .ai-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .ai-headline { font-weight: 700; color: #f0f6fc; font-size: 1rem; margin-bottom: 5px; }
+    .ai-context { color: #8b949e; font-size: 0.88rem; }
     .ai-why {
-      font-size: 13px;
-      color: #6ee7b7;
-      background: rgba(110,231,183,0.08);
-      border-radius: 6px;
-      padding: 5px 10px;
-      border-left: 2px solid #6ee7b7;
+      background: #1a2030;
+      border-left: 3px solid #58a6ff;
+      padding: 8px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #79c0ff;
+      border-radius: 0 6px 6px 0;
     }
-    .ai-why::before { content: "💡 Por qué importa: "; font-weight: 600; }
-
-    /* DATA CONCEPT */
-    .concept-badge {
-      display: inline-block;
-      background: rgba(124,92,252,0.15);
-      border: 1px solid rgba(124,92,252,0.3);
-      color: var(--accent2);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .data-concept {
+      background: #1a1a2e;
+      border: 1px solid #58a6ff40;
+      border-radius: 12px;
+      padding: 18px;
     }
-    .concept-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .concept-row {
-      margin-bottom: 12px;
-    }
-    .concept-label {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      margin-bottom: 3px;
-    }
-    .concept-text {
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.55;
-    }
-    .concept-question {
-      background: rgba(79,142,247,0.08);
+    .concept-name { font-size: 1.1rem; font-weight: 700; color: #58a6ff; margin-bottom: 4px; }
+    .concept-category { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+    .concept-block { margin-bottom: 12px; }
+    .concept-block .block-label { font-size: 0.75rem; font-weight: 700; color: #3fb950; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .concept-block p { font-size: 0.9rem; color: #c9d1d9; }
+    .question-box {
+      background: #1a2b3a;
+      border: 1px solid #58a6ff;
       border-radius: 10px;
-      padding: 12px 14px;
-      border: 1px solid rgba(79,142,247,0.2);
+      padding: 14px;
       margin-top: 12px;
     }
-    .concept-question .concept-label { color: var(--yellow); }
-    .concept-question .concept-text { font-style: italic; font-size: 15px; }
-
-    /* FOOTER */
-    .footer {
+    .question-box .q-label { font-size: 0.75rem; font-weight: 700; color: #58a6ff; margin-bottom: 6px; }
+    .question-box p { font-size: 0.95rem; color: #f0f6fc; font-style: italic; line-height: 1.5; }
+    footer {
       text-align: center;
-      padding: 24px 20px 8px;
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 0.78rem;
+      color: #484f58;
+      margin-top: 24px;
+      padding-bottom: 24px;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>📋 Daily Briefing</h1>
-    <div class="subtitle">Jueves, 23 de Abril de 2026 &nbsp;·&nbsp; Generado 07:00 CEST</div>
-    <span class="badge">Sant Jordi 🌹</span>
+<header>
+  <h1>📋 Daily Briefing</h1>
+  <div class="meta">Carlos · Viernes, 24 de abril de 2026<br>Generado a las 07:00 CEST · Barcelona</div>
+</header>
+
+<!-- TIEMPO -->
+<div class="section">
+  <div class="section-title">☁️ Tiempo — Barcelona</div>
+  <div class="weather-grid">
+    <div class="weather-card">
+      <div class="label">Ahora</div>
+      <div class="value">17°C</div>
+    </div>
+    <div class="weather-card">
+      <div class="label">Condición</div>
+      <div class="value" style="font-size:1.2rem">Parcialmente nublado</div>
+    </div>
+    <div class="weather-card">
+      <div class="label">Máxima</div>
+      <div class="value">20°C</div>
+    </div>
+    <div class="weather-card">
+      <div class="label">Mínima</div>
+      <div class="value">12°C</div>
+    </div>
+  </div>
+  <div class="weather-forecast">
+    <div class="forecast-day">
+      <div class="day-name">Sáb 25</div>
+      <div class="day-icon">🌤️</div>
+      <div class="day-temp">13–22°C</div>
+    </div>
+    <div class="forecast-day">
+      <div class="day-name">Dom 26</div>
+      <div class="day-icon">⛅</div>
+      <div class="day-temp">14–21°C</div>
+    </div>
+    <div class="forecast-day">
+      <div class="day-name">Lun 27</div>
+      <div class="day-icon">🌦️</div>
+      <div class="day-temp">12–19°C</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTICIAS -->
+<div class="section">
+  <div class="section-title">🌍 Noticias del Día</div>
+
+  <div class="sub-section-label">🌐 Internacional</div>
+
+  <div class="news-item">
+    <div class="news-headline">Petróleo supera los $103: Trump amenaza con bloquear el Estrecho de Ormuz</div>
+    <div class="news-context">Las tensiones en Medio Oriente escalan después de declaraciones sobre un posible bloqueo del paso estratégico. El Brent sube un 1,58% hasta 103,54 $/barril, presionando la economía global en un momento de alta vulnerabilidad.</div>
+    <div class="news-source">France 24 / elEspañol</div>
   </div>
 
-  <!-- WEATHER -->
-  <div class="section">
-    <div class="section-header">☁️ Tiempo — Barcelona</div>
-    <div class="section-body">
-      <div class="weather-main">
-        <div class="weather-temp">20°</div>
-        <div class="weather-details">
-          <div class="weather-condition">Parcialmente nublado</div>
-          <div class="weather-hi-lo">Máx 20° &nbsp;/&nbsp; Mín 12°</div>
-          <div class="weather-hi-lo" style="margin-top:2px;">Humedad ~60% · Viento 14 km/h</div>
-        </div>
-      </div>
-      <div class="weather-extra">
-        🌹 <strong>Sant Jordi:</strong> Buenas condiciones para las Ramblas — cielos despejados por la mañana, posible nubosidad por la tarde. Sin lluvia prevista.
-      </div>
-      <div class="forecast-grid">
-        <div class="forecast-day">
-          <div class="day-name">Vie 24</div>
-          <div class="day-icon">🌤️</div>
-          <div class="day-temp">21°</div>
-          <div class="day-lo">Mín 13°</div>
-        </div>
-        <div class="forecast-day">
-          <div class="day-name">Sáb 25</div>
-          <div class="day-icon">⛅</div>
-          <div class="day-temp">19°</div>
-          <div class="day-lo">Mín 12°</div>
-        </div>
-        <div class="forecast-day">
-          <div class="day-name">Dom 26</div>
-          <div class="day-icon">🌦️</div>
-          <div class="day-temp">17°</div>
-          <div class="day-lo">Mín 11°</div>
-        </div>
-      </div>
+  <div class="news-item">
+    <div class="news-headline">FMI rebaja el crecimiento global al 3,1% y advierte "vienen tiempos difíciles"</div>
+    <div class="news-context">En las Reuniones de Primavera del FMI y Banco Mundial en Washington, la directora gerente recortó la previsión dos décimas. El riesgo de recesión global aumenta si el conflicto en Oriente Medio se prolonga más allá del verano.</div>
+    <div class="news-source">France 24 / FMI</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-headline">Geopolítica y proteccionismo lastran el comercio internacional en 2026</div>
+    <div class="news-context">La ONU y CIDOB advierten que la reconfiguración de cadenas de suministro y el endurecimiento de políticas nacionales están redefiniendo los flujos comerciales globales. América Latina crecerá solo un 2,1%, por debajo del promedio mundial.</div>
+    <div class="news-source">Noticias ONU / CIDOB</div>
+  </div>
+
+  <div class="sub-section-label">🇪🇸 España</div>
+
+  <div class="news-item">
+    <div class="news-headline">Yolanda Díaz lleva al Consejo de Ministros la reforma de la Ley de Riesgos Laborales</div>
+    <div class="news-context">El anteproyecto irá al Consejo de Ministros el martes 28 de abril, coincidiendo con el Día Internacional de la Seguridad Laboral. La norma vigente data de 1995 y necesita, según la ministra, una reforma "profunda".</div>
+    <div class="news-source">El Español / La Moncloa</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-headline">IBEX 35 encadena cuatro caídas y pierde un 3,23% en la semana</div>
+    <div class="news-context">El selectivo español cerró en 17.885 puntos (-0,67%), arrastrado por las tensiones geopolíticas y la subida del crudo. Los analistas apuntan a soportes en 17.640 y 17.400 puntos si continúa la presión vendedora.</div>
+    <div class="news-source">elEconomista / Invertia</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-headline">El Congreso admite a trámite la Ley de Vivienda del PP con apoyo de Junts</div>
+    <div class="news-context">La propuesta del PP avanza en el Parlamento gracias al apoyo inesperado de Junts, en contra de la posición del Gobierno. El debate sobre el acceso a la vivienda se intensifica como tema central de la agenda política de primavera.</div>
+    <div class="news-source">El Español</div>
+  </div>
+
+  <div class="sub-section-label">🏙️ Cataluña / Barcelona</div>
+
+  <div class="news-item">
+    <div class="news-headline">Última jornada del BCN Film Fest y Feria de Abril en plena ebullición</div>
+    <div class="news-context">Hoy concluye la décima edición del BCN Film Fest – Festival Internacional de Cinema de Barcelona-Sant Jordi. Al mismo tiempo, la Feria de Abril continúa en el Parc del Fòrum hasta el 3 de mayo, con miles de visitantes diarios.</div>
+    <div class="news-source">Barcelona al Día / El Nacional</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-headline">Collboni presenta el Plan Estratégico de Bomberos 2026-2035</div>
+    <div class="news-context">El alcalde de Barcelona impulsa un plan decenal para adaptar el cuerpo a los riesgos emergentes: urbanos, tecnológicos y climáticos. La iniciativa incluye nuevas dotaciones, formación específica en incendios forestales y protocolos de ciberincidentes.</div>
+    <div class="news-source">Ajuntament de Barcelona</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-headline">Noche musical en Barcelona: RÜFÜS DU SOL llena el Palau Sant Jordi</div>
+    <div class="news-context">Esta noche el trío australiano ofrece un directo inmersivo en el Palau Sant Jordi, combinando bases electrónicas con sonido en vivo. Paralelamente, el cantante italiano Nek actúa en la Sala Apolo en su gira europea 'Hits 2026'.</div>
+    <div class="news-source">Idealista / Barcelona.com</div>
+  </div>
+</div>
+
+<!-- FINANZAS -->
+<div class="section">
+  <div class="section-title">📈 Finanzas y Mercados</div>
+
+  <div class="market-row">
+    <div class="market-name">IBEX 35</div>
+    <div class="market-value red">17.885 pts &nbsp;▼ 0,67%</div>
+  </div>
+  <div class="market-row">
+    <div class="market-name">EuroStoxx 50</div>
+    <div class="market-value red">&lt; 5.900 &nbsp;▼</div>
+  </div>
+  <div class="market-row">
+    <div class="market-name">DAX 40</div>
+    <div class="market-value red">~24.100 &nbsp;▼</div>
+  </div>
+  <div class="market-row">
+    <div class="market-name">S&amp;P 500</div>
+    <div class="market-value green">~7.000 ▲ (plano)</div>
+  </div>
+  <div class="market-row">
+    <div class="market-name">Brent (petróleo)</div>
+    <div class="market-value red">103,54 $/b &nbsp;▲ 1,58%</div>
+  </div>
+  <div class="market-row">
+    <div class="market-name">WTI (petróleo)</div>
+    <div class="market-value red">94,44 $/b &nbsp;▲ 1,59%</div>
+  </div>
+
+  <div class="opportunity-box">
+    <div class="opp-title">💡 Radar de Oportunidades</div>
+    <p><strong style="color:#e6edf3">Temporada de resultados 1T 2026 — próxima semana.</strong> Las grandes cotizadas del IBEX presentan cuentas trimestrales. Posible catalizador de volatilidad y rebote selectivo en valores con beneficios sólidos.</p>
+    <p><strong style="color:#e6edf3">Energía.</strong> Con el Brent superando los $103, ETFs de energía global (XLE, iShares Energy) y empresas como Repsol pueden verse respaldados a corto plazo. Vigilar soportes técnicos IBEX en 17.640–17.400.</p>
+    <p><strong style="color:#e6edf3">Cautela en Europa.</strong> El PMI de la eurozona entra en contracción por primera vez en 16 meses. Reducir exposición a valores cíclicos europeos hasta confirmar soporte.</p>
+  </div>
+</div>
+
+<!-- FÚTBOL -->
+<div class="section">
+  <div class="section-title">⚽ Fútbol</div>
+
+  <div class="sub-section-label">🔵🔴 FC Barcelona</div>
+  <div class="match-card">
+    <div class="match-label">Último resultado · J31</div>
+    <div class="match-teams">FC Barcelona 1–0 Celta de Vigo</div>
+    <div class="match-info">Gol de Lamine Yamal · Miércoles 22 de abril · <span>⚠️ Yamal se lesionó, pendiente de diagnóstico</span></div>
+  </div>
+  <div class="match-card">
+    <div class="match-label">Próximo partido · J32 · Sábado 25 abril</div>
+    <div class="match-teams">Getafe CF vs FC Barcelona</div>
+    <div class="match-info">Coliseum Alfonso Pérez · <span>16:15 h</span></div>
+  </div>
+
+  <div class="sub-section-label">⚪ Real Madrid</div>
+  <div class="match-card">
+    <div class="match-label">Partido de hoy · J32 · Viernes 24 abril</div>
+    <div class="match-teams">Real Betis vs Real Madrid</div>
+    <div class="match-info">Estadio La Cartuja, Sevilla · <span>21:00 h</span> · Madridistas a 9 pts del Barça con 18 en juego</div>
+  </div>
+
+  <div class="sub-section-label">📊 Clasificación LaLiga · J32</div>
+  <table class="football-table">
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Equipo</th>
+        <th>PJ</th>
+        <th>Pts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pos-badge pos-1">1</span></td>
+        <td class="team-name-bold">FC Barcelona</td>
+        <td>32</td>
+        <td class="pts-bold">82</td>
+      </tr>
+      <tr>
+        <td><span class="pos-badge pos-2">2</span></td>
+        <td>Real Madrid</td>
+        <td>32</td>
+        <td class="pts-bold">73</td>
+      </tr>
+      <tr>
+        <td><span class="pos-badge pos-3">3</span></td>
+        <td>Villarreal CF</td>
+        <td>31</td>
+        <td class="pts-bold">61</td>
+      </tr>
+      <tr>
+        <td><span class="pos-badge">4</span></td>
+        <td>Atlético Madrid</td>
+        <td>32</td>
+        <td class="pts-bold">57</td>
+      </tr>
+      <tr>
+        <td><span class="pos-badge">5</span></td>
+        <td>Real Betis</td>
+        <td>32</td>
+        <td class="pts-bold">49</td>
+      </tr>
+      <tr>
+        <td><span class="pos-badge">6</span></td>
+        <td>Getafe CF</td>
+        <td>32</td>
+        <td class="pts-bold">44</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- UFC -->
+<div class="section">
+  <div class="section-title">🥊 UFC — Próximos Eventos</div>
+
+  <div class="ufc-event">
+    <div class="ufc-date">Sábado 2 de mayo</div>
+    <div class="ufc-name">UFC Fight Night 275</div>
+    <div class="ufc-card">Main event: <strong>Jack Della Maddalena vs. Rafael Prates</strong> · Peso welter</div>
+  </div>
+
+  <div class="ufc-event">
+    <div class="ufc-date">Sábado 9 de mayo · PPV</div>
+    <div class="ufc-name">UFC 328: Chimaev vs. Strickland</div>
+    <div class="ufc-card"><strong>🏆 Título de Peso Medio en juego</strong> · Khamzat Chimaev vs. Sean Strickland · Prudential Center, Newark, NJ</div>
+  </div>
+
+  <div class="ufc-event">
+    <div class="ufc-date">Sábado 16 de mayo</div>
+    <div class="ufc-name">UFC Fight Night 276</div>
+    <div class="ufc-card">Main event: <strong>Arnold Allen vs. Melk Costa</strong> · Peso pluma</div>
+  </div>
+
+  <div class="ufc-event">
+    <div class="ufc-date">Jueves 28 de mayo</div>
+    <div class="ufc-name">UFC Road to UFC S5 · Macau Quarterfinals</div>
+    <div class="ufc-card">Torneo de jóvenes talentos asiáticos · Macao, China</div>
+  </div>
+</div>
+
+<!-- INTELIGENCIA ARTIFICIAL -->
+<div class="section">
+  <div class="section-title">🤖 Inteligencia Artificial</div>
+
+  <div class="ai-item">
+    <div class="ai-headline">Alucinaciones IA en documentos judiciales vuelven a generar alarma</div>
+    <div class="ai-context">Un nuevo caso de documento judicial con citas inventadas por IA, similar al ya célebre caso de Tesla, reabre el debate sobre la supervisión humana en entornos legales. El incidente ocurrió ayer en Estados Unidos.</div>
+    <div class="ai-why">📌 Por qué importa: Las empresas que despliegan agentes IA en flujos de trabajo críticos (legal, compliance, contratos) necesitan capas de verificación obligatorias. El riesgo reputacional y legal es real e inmediato.</div>
+  </div>
+
+  <div class="ai-item">
+    <div class="ai-headline">Anthropic lanza Claude Design: prototipado de productos mediante lenguaje natural</div>
+    <div class="ai-context">La herramienta experimental permite crear presentaciones, prototipos de apps y sitios web simplemente describiendo lo que se quiere. Compite directamente con Figma y Adobe en el espacio de diseño generativo.</div>
+    <div class="ai-why">📌 Por qué importa: El rol del diseñador y del consultor que crea entregables cambia radicalmente. Las consultoras que integren estas herramientas en sus flujos reducirán tiempos de prototipado de días a minutos.</div>
+  </div>
+
+  <div class="ai-item">
+    <div class="ai-headline">Google lleva Gemini AI al corazón de Workspace: Docs, Sheets, Slides y Drive</div>
+    <div class="ai-context">Google anunció mejoras masivas de Gemini en toda la suite de productividad. Gemini en Sheets logra un 70,48% de éxito en el benchmark SpreadsheetBench, eliminando entrada manual de datos y automatizando análisis.</div>
+    <div class="ai-why">📌 Por qué importa: Si tu equipo trabaja en Google Workspace, estas funciones ya están disponibles o llegarán pronto. Hay una oportunidad clara de liderar la adopción interna y diferenciarse como línea de negocio que aprovecha IA productiva.</div>
+  </div>
+
+  <div class="ai-item">
+    <div class="ai-headline">Las AI Overviews de Google aparecen ya en el 48% de todas las búsquedas</div>
+    <div class="ai-context">El crecimiento interanual es del 58%. ChatGPT Search, Perplexity y Claude.ai responden cada vez más consultas sin enviar usuarios a sitios web, redefiniendo el SEO y la visibilidad online de empresas y medios.</div>
+    <div class="ai-why">📌 Por qué importa: Las estrategias de contenido B2B de las consultoras deben evolucionar hacia GEO (Generative Engine Optimization). Si tu empresa no está optimizada para ser citada por los LLMs, pierde visibilidad en el nuevo canal de búsqueda.</div>
+  </div>
+</div>
+
+<!-- CONCEPTO DATA DEL DÍA -->
+<div class="section">
+  <div class="section-title">📊 Concepto Data del Día</div>
+  <div class="data-concept">
+    <div class="concept-name">Agentic Analytics</div>
+    <div class="concept-category">Categoría: IA Aplicada a Datos · Gestión ejecutiva de datos</div>
+
+    <div class="concept-block">
+      <div class="block-label">🔍 Qué es</div>
+      <p>Agentic Analytics es la evolución de la inteligencia de negocio tradicional hacia sistemas donde agentes de IA ejecutan ciclos completos de análisis de forma autónoma: recogen datos, identifican anomalías, formulan hipótesis, ejecutan consultas y presentan conclusiones sin intervención humana en cada paso. Va más allá del BI self-service: el agente actúa, no solo sugiere.</p>
+    </div>
+
+    <div class="concept-block">
+      <div class="block-label">💼 Por qué importa como ejecutivo</div>
+      <p>Tu línea de negocio compite en velocidad de insight. Si tus analistas siguen generando informes manuales mientras el mercado se mueve, pierdes ventana de acción. Agentic Analytics permite que un equipo reducido supervise y valide en lugar de producir, multiplicando la capacidad analítica sin aumentar headcount. Es la diferencia entre una consultora que "hace análisis" y una que "entrega decisiones en tiempo real".</p>
+    </div>
+
+    <div class="concept-block">
+      <div class="block-label">🏗️ Dónde ya está ocurriendo</div>
+      <p>Plataformas como Databricks, Snowflake y Microsoft Fabric están integrando agentes analíticos nativos. Los primeros casos de uso reales son: detección de anomalías financieras, análisis de churn en tiempo real y optimización de precios dinámica.</p>
     </div>
   </div>
 
-  <!-- NOTICIAS DEL DÍA -->
-  <div class="section">
-    <div class="section-header">🌍 Noticias del Día</div>
-    <div class="section-body">
-
-      <!-- Internacional -->
-      <div class="news-block-title">🌐 Internacional</div>
-
-      <div class="news-item">
-        <div class="news-headline">Zelensky exige avanzar en negociaciones de paz sin esperar al conflicto con Irán</div>
-        <div class="news-context">El presidente ucraniano presiona a los mediadores internacionales para desligar ambos conflictos y acelerar la hoja de ruta. EE.UU. envía delegación negociadora a la región.</div>
-        <span class="news-source">CNN / Reuters</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">El oro supera al euro como segunda reserva global de los bancos centrales</div>
-        <div class="news-context">Los bancos centrales acumulan oro al triple del ritmo histórico. El metal precioso consolida su estatus como activo refugio ante la volatilidad geopolítica y el debilitamiento del sistema multilateral.</div>
-        <span class="news-source">Bloomberg / FMI</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">J.P. Morgan eleva a 35% la probabilidad de recesión global en 2026</div>
-        <div class="news-context">El banco señala el proteccionismo comercial, la volatilidad en los mercados de energía y la fragmentación geopolítica como principales factores de riesgo. Los mercados reaccionan con cautela.</div>
-        <span class="news-source">J.P. Morgan Research</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">Hito climático: el 20% de la electricidad global ya proviene de renovables</div>
-        <div class="news-context">Por primera vez en la historia, la energía renovable supera ese umbral. China lidera la transición exportando más ingresos en limpias que EE.UU. en hidrocarburos.</div>
-        <span class="news-source">ONU Noticias / IEA</span>
-      </div>
-
-      <!-- España -->
-      <hr class="news-divider" style="margin-top:18px;" />
-      <div class="news-block-title" style="margin-top:16px;">🇪🇸 España</div>
-
-      <div class="news-item">
-        <div class="news-headline">Premio Cervantes 2025 al mexicano Gonzalo Celorio en ceremonia presidida por los Reyes</div>
-        <div class="news-context">El máximo galardón de las letras hispanas se entrega hoy en el Paraninfo de la Universidad de Alcalá de Henares. La celebración coincide con el Día del Libro.</div>
-        <span class="news-source">EFE / Infobae</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">El Congreso admite a trámite la Ley de Vivienda del PP con apoyo de Junts</div>
-        <div class="news-context">El Gobierno de Pedro Sánchez se opone a la iniciativa, que chocaría con sus propias políticas de vivienda. La alianza PP-Junts vuelve a tensar la aritmética parlamentaria.</div>
-        <span class="news-source">El Español</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">PP y Vox cierran gobierno en Aragón con endurecimiento de política migratoria</div>
-        <div class="news-context">El acuerdo fija prioridad de nacionales en ayudas sociales, restricciones en inmigración irregular y rebaja generalizada de impuestos. Será referente para otras comunidades.</div>
-        <span class="news-source">El Diario / Okdiario</span>
-      </div>
-
-      <!-- Cataluña -->
-      <hr class="news-divider" style="margin-top:18px;" />
-      <div class="news-block-title" style="margin-top:16px;">🏛️ Cataluña / Barcelona</div>
-
-      <div class="news-item">
-        <div class="news-headline">Sant Jordi 2026: récord de puestos tras el cambio de escenario por obras en La Rambla</div>
-        <div class="news-context">La Cámara del Libro y el Gremio de Libreros han expandido los espacios de venta. Se esperan vender 2 millones de libros, 7 millones de rosas y una facturación de 26M€.</div>
-        <span class="news-source">ElNacional.cat</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">Salvador Illa ofrece declaración institucional por la Diada de Sant Jordi</div>
-        <div class="news-context">El president de la Generalitat celebra la festividad cultural catalana más importante del año. También interviene el ministro de Cultura, Ernest Urtasun.</div>
-        <span class="news-source">Generalitat de Catalunya</span>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="news-item">
-        <div class="news-headline">BCN Film Fest clausura su 10ª edición coincidiendo con Sant Jordi</div>
-        <div class="news-context">El Festival Internacional de Cinema de Barcelona-Sant Jordi cierra hoy con gala de premiación. Ha reunido durante 9 días a cineastas y distribuidores internacionales.</div>
-        <span class="news-source">BCN Film Fest</span>
-      </div>
-
-    </div>
+  <div class="question-box">
+    <div class="q-label">💬 Pregunta para tu equipo esta semana</div>
+    <p>"¿Cuánto tiempo dedica cada analista de nuestra línea a recopilar y limpiar datos vs. a generar insight real? ¿Qué pasaría si ese tiempo se invirtiera en validar lo que un agente ya ha producido?"</p>
   </div>
+</div>
 
-  <!-- FINANZAS -->
-  <div class="section">
-    <div class="section-header">📈 Finanzas y Mercados</div>
-    <div class="section-body">
-      <div class="market-grid">
-        <div class="market-card">
-          <div class="market-name">S&amp;P 500</div>
-          <div class="market-val">~5.820</div>
-          <div class="market-change up">▲ +4.54% sem</div>
-        </div>
-        <div class="market-card">
-          <div class="market-name">Nasdaq</div>
-          <div class="market-val">~18.350</div>
-          <div class="market-change up">▲ +6.84% sem</div>
-        </div>
-        <div class="market-card">
-          <div class="market-name">Stoxx 600</div>
-          <div class="market-val">~490</div>
-          <div class="market-change down">▼ -1.1% hoy</div>
-        </div>
-        <div class="market-card">
-          <div class="market-name">Petróleo WTI</div>
-          <div class="market-val">~$90</div>
-          <div class="market-change down">▼ -25% desde máx</div>
-        </div>
-        <div class="market-card">
-          <div class="market-name">DAX</div>
-          <div class="market-val">~19.200</div>
-          <div class="market-change down">▼ -1.4% hoy</div>
-        </div>
-        <div class="market-card">
-          <div class="market-name">Oro</div>
-          <div class="market-val">2ª reserva</div>
-          <div class="market-change up">▲ ×3 ritmo acum.</div>
-        </div>
-      </div>
-
-      <div class="news-item">
-        <div class="news-headline">Boeing recupera terreno tras reducir pérdidas un 77%</div>
-        <div class="news-context">La mejora en todas las divisiones del fabricante aeronáutico impulsa su cotización. Los inversores celebran la recuperación operativa tras años de turbulencias.</div>
-      </div>
-      <hr class="news-divider" />
-      <div class="news-item">
-        <div class="news-headline">Tesla supera expectativas en Q1 con beneficios de $477M</div>
-        <div class="news-context">El fabricante de vehículos eléctricos bate estimaciones del consenso. Los márgenes se estabilizan y el guidance para el resto del año es positivo.</div>
-      </div>
-
-      <div class="radar-box">
-        <div class="radar-title">💡 Radar de Oportunidades</div>
-        <div class="radar-item">🟢 <strong>ETFs Energía Limpia</strong> (ICLN, QCLN): Momento favorable con hito del 20% renovables global. Revisión al alza de valoraciones del sector.</div>
-        <div class="radar-item" style="margin-top:8px;">🟡 <strong>Boeing (BA)</strong>: Recuperación operativa en marcha. Posible consolidación antes de un nuevo tramo al alza.</div>
-        <div class="radar-item" style="margin-top:8px;">🔴 <strong>Cautela mercados europeos</strong>: DAX y CAC muestran debilidad intradiaria. Riesgo de corrección ante incertidumbre geopolítica.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FÚTBOL -->
-  <div class="section">
-    <div class="section-header">⚽ Fútbol</div>
-    <div class="section-body">
-
-      <div class="team-block">
-        <div class="team-name team-barca">🔵🔴 FC Barcelona</div>
-        <div class="news-context">Temporada extraordinaria: 1º en LaLiga con <strong>79 puntos</strong>, 26V 1E 4D en 31 partidos. Reciente victoria en Atletico (J30, 1-2) y goleada al Espanyol (J31, 4-1). En semifinales de Champions.</div>
-        <div class="match-pill">⏭ Próx. partido: Getafe — 25 Abr, 16:15 h (LaLiga J33)</div>
-      </div>
-
-      <hr class="news-divider" />
-
-      <div class="team-block">
-        <div class="team-name team-madrid">⚪ Real Madrid</div>
-        <div class="news-context">2º con <strong>73 puntos</strong>. Venció al Alavés el 21 de abril (2-0) con goles de Mbappé y Vinícius Júnior. A 6 puntos del Barça con jornadas restantes por jugar.</div>
-        <div class="match-pill">⏭ Próx. partido: pendiente J33 confirmación</div>
-      </div>
-
-      <hr class="news-divider" />
-
-      <div style="margin-top:4px;">
-        <div class="news-block-title">Clasificación LaLiga — Top 6</div>
-        <table class="standings-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>Pts</th>
-              <th>DG</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="pos-badge pos-1">1</span></td>
-              <td class="team-barca">FC Barcelona</td>
-              <td>31</td>
-              <td><strong>79</strong></td>
-              <td style="color:var(--green);">+52</td>
-            </tr>
-            <tr>
-              <td><span class="pos-badge pos-2">2</span></td>
-              <td class="team-madrid">Real Madrid</td>
-              <td>32</td>
-              <td><strong>73</strong></td>
-              <td style="color:var(--green);">+36</td>
-            </tr>
-            <tr>
-              <td><span class="pos-badge pos-3">3</span></td>
-              <td>Villarreal CF</td>
-              <td>31</td>
-              <td><strong>61</strong></td>
-              <td style="color:var(--green);">+18</td>
-            </tr>
-            <tr>
-              <td><span class="pos-badge pos-other">4</span></td>
-              <td>Atlético Madrid</td>
-              <td>31</td>
-              <td><strong>57</strong></td>
-              <td style="color:var(--green);">+12</td>
-            </tr>
-            <tr>
-              <td><span class="pos-badge pos-other">5</span></td>
-              <td>Real Betis</td>
-              <td>32</td>
-              <td><strong>49</strong></td>
-              <td style="color:var(--muted);">+4</td>
-            </tr>
-            <tr>
-              <td><span class="pos-badge pos-other">6</span></td>
-              <td>Celta de Vigo</td>
-              <td>31</td>
-              <td><strong>44</strong></td>
-              <td style="color:var(--muted);">+1</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- UFC -->
-  <div class="section">
-    <div class="section-header">🥊 UFC — Próximos Eventos</div>
-    <div class="section-body">
-      <div class="event-card">
-        <div class="event-date">25 Abril 2026 · Las Vegas</div>
-        <div class="event-name">UFC Fight Night: Sterling vs. Zalal</div>
-        <div class="event-location">📍 Meta APEX, Las Vegas · 20:00 ET / 02:00 CEST</div>
-        <div class="event-main">⭐ Main Event: <span>Aljamain Sterling vs. Youssef Zalal</span></div>
-      </div>
-      <div class="event-card">
-        <div class="event-date">2 Mayo 2026 · Perth, Australia</div>
-        <div class="event-name">UFC Fight Night: Della Maddalena vs. Prates</div>
-        <div class="event-location">📍 Perth · 07:00 ET / 13:00 CEST</div>
-        <div class="event-main">⭐ Main Event: <span>Jack Della Maddalena vs. Carlos Prates</span></div>
-      </div>
-      <div class="event-card">
-        <div class="event-date">9 Mayo 2026 · Newark, NJ</div>
-        <div class="event-name">UFC 328 — Defensa del Título Peso Medio</div>
-        <div class="event-location">📍 Newark, New Jersey · 21:00 ET / 03:00 CEST</div>
-        <div class="event-main">⭐ Main Event: <span>Khamzat Chimaev (c) vs. Sean Strickland</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- INTELIGENCIA ARTIFICIAL -->
-  <div class="section">
-    <div class="section-header">🤖 Inteligencia Artificial</div>
-    <div class="section-body">
-
-      <div class="ai-item">
-        <div class="ai-headline">La IA se volvió más confiable en 2026 — no por ser más inteligente, sino por aprender a pedir ayuda</div>
-        <div class="ai-context">Los modelos avanzados ahora reconocen su incertidumbre y escalan a humanos en lugar de alucinar. Un cambio de paradigma en la fiabilidad de los sistemas.</div>
-        <div class="ai-why">Los modelos de IA que reconocen sus límites son más seguros de desplegar en producción. Esto acelera la adopción enterprise sin sacrificar control.</div>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="ai-item">
-        <div class="ai-headline">Anthropic lanza Claude Design: prototipado de apps, webs y presentaciones con lenguaje natural</div>
-        <div class="ai-context">La herramienta experimental compite directamente con Figma y Adobe, permitiendo crear prototipos funcionales con instrucciones en texto. Integrado en el ecosistema Claude.</div>
-        <div class="ai-why">El diseño sin fricción reduce tiempos de TTM en proyectos digitales. Consultoras tecnológicas que lo adopten primero tendrán ventaja competitiva en propuestas.</div>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="ai-item">
-        <div class="ai-headline">Stanford AI Index 2026: la IA entra en fase de impacto sistémico con alarma regulatoria</div>
-        <div class="ai-context">El informe anual más citado confirma aceleración sin precedentes. La adopción de IA generativa supera el 53% de la población en 3 años — por encima del ritmo de internet.</div>
-        <div class="ai-why">Los marcos de gobernanza van detrás de la tecnología. Las empresas necesitan políticas internas de IA hoy, antes de que la regulación las obligue mañana.</div>
-      </div>
-      <hr class="news-divider" />
-
-      <div class="ai-item">
-        <div class="ai-headline">La IA entra en "fase crítica": crece más rápido que los sistemas que deben gobernarla</div>
-        <div class="ai-context">Un análisis de Revista Inteligencia Artificial alerta sobre el desajuste estructural entre capacidad tecnológica, regulación, talento y evaluación. El riesgo de desincronización es real.</div>
-        <div class="ai-why">Para líderes de negocios en Data: el gap regulatorio crea tanto oportunidades (mover rápido) como riesgos (responsabilidad difusa). Hay que tener postura clara.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- CONCEPTO DATA DEL DÍA -->
-  <div class="section">
-    <div class="section-header">📊 Concepto Data del Día</div>
-    <div class="section-body">
-      <div class="concept-badge">Arquitectura de Datos · Nivel Senior Manager</div>
-      <div class="concept-title">Agentic Data Pipelines</div>
-
-      <div class="concept-row">
-        <div class="concept-label">Qué es</div>
-        <div class="concept-text">Pipelines de datos que incorporan agentes de IA autónomos para tomar decisiones operativas: reparar errores automáticamente, adaptar esquemas ante cambios en la fuente, re-enrutar flujos si hay degradación de calidad, y orquestar workflows complejos sin intervención humana. Evolucionan los ETL/ELT clásicos hacia sistemas autogestivos.</div>
-      </div>
-
-      <div class="concept-row">
-        <div class="concept-label">Por qué importa como ejecutivo</div>
-        <div class="concept-text">Reduce el coste operativo de ingeniería de datos hasta un 40% en implementaciones tempranas. Los equipos de Data Engineering dejan de ser "fontaneros reactivos" y pasan a diseñar sistemas que se autorregulan. Permite escalar la superficie de datos sin escalar linealmente el equipo. Es el siguiente punto de inflexión después del lakehouse.</div>
-      </div>
-
-      <div class="concept-question">
-        <div class="concept-label">🎯 Pregunta para tu equipo esta semana</div>
-        <div class="concept-text">"¿Cuántas horas al mes dedica nuestro equipo a resolver incidencias reactivas en pipelines — y qué porcentaje de esas incidencias siguen patrones conocidos que un agente podría resolver?"</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    Generado automáticamente por Claude · Daily Briefing Personal de Carlos<br />
-    Datos con carácter informativo. Verifica antes de tomar decisiones financieras.
-  </div>
+<footer>
+  Briefing generado automáticamente · Viernes 24 de abril de 2026 · 07:00 CEST<br>
+  Fuentes: AEMET · Infobae · France24 · El Español · LaLiga · UFC · CNN España · llm-stats.com
+</footer>
 
 </body>
 </html>
