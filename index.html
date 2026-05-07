@@ -3,487 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Briefing — 6 de mayo de 2026</title>
+<title>Daily Briefing — 7 de mayo de 2026</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --bg2: #1a1d27;
-    --bg3: #222535;
-    --accent: #4f8ef7;
-    --accent2: #7c5cfc;
-    --green: #2ecc71;
-    --red: #e74c3c;
-    --yellow: #f1c40f;
-    --text: #e8eaf0;
-    --muted: #8b90a0;
-    --border: #2e3245;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    padding: 0 0 80px 0;
-  }
-  header {
-    background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
-    border-bottom: 2px solid var(--accent);
-    padding: 24px 20px 20px;
-    position: sticky; top: 0; z-index: 100;
-  }
-  header h1 { font-size: 20px; font-weight: 700; color: var(--accent); letter-spacing: 0.3px; }
-  header .meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
-  nav {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 20px;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  nav a {
-    display: inline-block;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    margin-right: 14px;
-    padding: 4px 0;
-  }
-  nav a:hover { color: var(--accent); }
-  section {
-    padding: 24px 20px 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  h2 {
-    font-size: 19px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--text);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .card {
-    background: var(--bg2);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
-    border: 1px solid var(--border);
-  }
-  .card-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text);
-    line-height: 1.4;
-  }
-  .card-body { font-size: 15px; color: #c5c9d6; line-height: 1.6; }
-  .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-  .tag-int { background: #1e3a5f; color: #4f8ef7; }
-  .tag-esp { background: #3a1e1e; color: #e74c3c; }
-  .tag-loc { background: #1e3a2a; color: #2ecc71; }
-  .tag-fin { background: #2a2a1e; color: #f1c40f; }
-  .tag-fut { background: #1e2a3a; color: #4fc3f7; }
-  .tag-ai  { background: #2a1e3a; color: #ce93d8; }
-  .tag-ufc { background: #3a1e2a; color: #f48fb1; }
-  .weather-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .weather-item {
-    background: var(--bg3);
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
-  }
-  .weather-val { font-size: 24px; font-weight: 700; color: var(--accent); }
-  .weather-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .forecast-row {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-    margin-top: 12px;
-  }
-  .forecast-day {
-    background: var(--bg3);
-    border-radius: 10px;
-    padding: 12px 14px;
-    min-width: 90px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  .forecast-day .day { font-size: 12px; color: var(--muted); }
-  .forecast-day .icon { font-size: 22px; margin: 4px 0; }
-  .forecast-day .temp { font-size: 14px; font-weight: 600; }
-  .stock-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .stock-row:last-child { border-bottom: none; }
-  .stock-name { font-size: 15px; font-weight: 600; }
-  .stock-ticker { font-size: 12px; color: var(--muted); }
-  .stock-info { text-align: right; }
-  .stock-price { font-size: 15px; font-weight: 600; }
-  .up { color: var(--green); }
-  .down { color: var(--red); }
-  .warn { color: var(--yellow); }
-  .alert-box {
-    background: #2a1f0f;
-    border: 1px solid #c0832a;
-    border-radius: 10px;
-    padding: 14px;
-    margin-top: 12px;
-    font-size: 14px;
-    color: #f0c060;
-    line-height: 1.6;
-  }
-  .opp-box {
-    background: #0f2a1a;
-    border: 1px solid #2ecc71;
-    border-radius: 10px;
-    padding: 14px;
-    margin-top: 12px;
-    font-size: 14px;
-    color: #70e8a0;
-    line-height: 1.6;
-  }
-  .match-row {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    gap: 8px;
-  }
-  .match-row:last-child { border-bottom: none; }
-  .match-date { font-size: 12px; color: var(--muted); min-width: 60px; }
-  .match-teams { font-size: 14px; font-weight: 500; flex: 1; }
-  .match-score { font-size: 15px; font-weight: 700; color: var(--accent); min-width: 40px; text-align: right; }
-  .standings {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  .standings th {
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 8px 6px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .standings td {
-    padding: 9px 6px;
-    border-bottom: 1px solid var(--border);
-  }
-  .standings tr:last-child td { border-bottom: none; }
-  .pos-1 { color: var(--green); font-weight: 700; }
-  .pos-2 { color: var(--accent); }
-  .concept-box {
-    background: var(--bg2);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
-    border-left: 3px solid var(--accent2);
-  }
-  .concept-name { font-size: 16px; font-weight: 700; color: #ce93d8; margin-bottom: 4px; }
-  .concept-cat { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-  .concept-section { margin-bottom: 8px; }
-  .concept-section strong { font-size: 12px; color: var(--muted); display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.4px; }
-  .concept-section p { font-size: 14px; color: #c5c9d6; }
-  .question-box {
-    background: #1e2640;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 14px;
-    color: #9dc4f5;
-    margin-top: 10px;
-    border-left: 3px solid var(--accent);
-  }
-  #back-top {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 48px; height: 48px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(79,142,247,0.4);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 200;
-    transition: opacity 0.2s;
-  }
-  .why-box {
-    background: #1a1f30;
-    border-radius: 8px;
-    padding: 9px 12px;
-    font-size: 13px;
-    color: #a0a8c0;
-    margin-top: 8px;
-    border-left: 2px solid var(--accent2);
-  }
+:root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#22263a;--accent:#4f8ef7;--accent2:#f7c34f;--green:#3ecf6e;--red:#f74f4f;--text:#e8eaf0;--muted:#9399ab;--border:#2e3352;--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;font-size:17px;line-height:1.65;padding:0 0 80px 0;max-width:680px;margin:0 auto}
+header{background:linear-gradient(135deg,#1a1d27 0%,#0d1020 100%);padding:28px 20px 18px 20px;border-bottom:2px solid var(--accent);position:sticky;top:0;z-index:100}
+header h1{font-size:1.45rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px}
+header .meta{font-size:0.8rem;color:var(--muted);margin-top:4px}
+.section{padding:22px 20px;border-bottom:1px solid var(--border)}
+.stitle{font-size:1.1rem;font-weight:800;color:var(--accent2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card{background:var(--bg2);border-radius:var(--radius);padding:16px;margin-bottom:12px;border:1px solid var(--border)}
+.card:last-child{margin-bottom:0}
+.card h3{font-size:0.97rem;font-weight:700;color:var(--text);margin-bottom:7px;line-height:1.4}
+.card p{font-size:0.88rem;color:#b0b6c8;line-height:1.58}
+.tag{display:inline-block;font-size:0.72rem;font-weight:600;padding:2px 9px;border-radius:99px;margin-bottom:8px;background:var(--bg3);color:var(--muted)}
+.wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.wi{background:var(--bg2);border-radius:12px;padding:12px 14px;border:1px solid var(--border)}
+.wi .lbl{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+.wi .val{font-size:1.08rem;font-weight:700;color:var(--text)}
+.frow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.fday{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;text-align:center;flex:0 0 auto;min-width:92px}
+.fday .dn{font-size:0.7rem;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.fday .cond{font-size:0.8rem;color:#b0b6c8;margin-bottom:5px}
+.fday .tmp{font-size:0.92rem;font-weight:700;color:var(--text)}
+.fday .tmp span{color:var(--muted);font-weight:400}
+.alert-b{background:rgba(247,195,79,.12);border:1px solid rgba(247,195,79,.4);border-radius:12px;padding:12px 14px;font-size:0.87rem;color:var(--accent2);margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.mrow:last-child{border-bottom:none}
+.mname{font-size:0.88rem;font-weight:600;color:var(--text)}
+.mdet{font-size:0.77rem;color:var(--muted);margin-top:2px}
+.mprice{font-size:0.9rem;font-weight:700;text-align:right}
+.pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--muted)}
+.ftable{width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:8px}
+.ftable th{text-align:left;padding:6px 8px;color:var(--muted);font-size:0.73rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--border)}
+.ftable td{padding:8px 8px;border-bottom:1px solid rgba(46,51,82,.5);color:var(--text)}
+.ftable tr:last-child td{border-bottom:none}
+.hl{color:var(--accent);font-weight:700}
+.cblock{background:var(--bg2);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:12px;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cblock h4{font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:5px}
+.cblock .cat{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
+.cblock p{font-size:0.87rem;color:#b0b6c8;margin-bottom:8px;line-height:1.55}
+.cblock .q{font-size:0.84rem;color:var(--accent2);font-style:italic;background:rgba(247,195,79,.08);border-radius:8px;padding:8px 12px}
+.matchc{background:var(--bg2);border-radius:12px;padding:12px 14px;margin-bottom:8px;border:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.matchc .db{background:var(--bg3);border-radius:8px;padding:4px 8px;font-size:0.72rem;color:var(--accent);font-weight:700;white-space:nowrap;min-width:58px;text-align:center}
+.matchc .mi{flex:1}
+.matchc .teams{font-size:0.88rem;font-weight:600;color:var(--text)}
+.matchc .comp{font-size:0.74rem;color:var(--muted);margin-top:2px}
+.clasico{background:linear-gradient(135deg,rgba(0,74,143,.3),rgba(132,0,0,.3));border:1px solid rgba(79,142,247,.4);border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
+.clasico h3{font-size:1.0rem;font-weight:800;color:var(--text)}
+.clasico .cd{font-size:0.82rem;color:var(--accent2);margin-top:5px}
+.ufcc{background:var(--bg2);border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid var(--border);border-left:3px solid #ff4444}
+.ufcc h4{font-size:0.95rem;font-weight:700;color:#ff6666;margin-bottom:4px}
+.ufcc .um{font-size:0.79rem;color:var(--muted);margin-bottom:7px}
+.ufcc p{font-size:0.86rem;color:#b0b6c8}
+.why{color:var(--accent2);font-size:0.82rem;margin-top:8px;background:rgba(247,195,79,.07);border-radius:8px;padding:8px 12px}
+.back-top{position:fixed;bottom:24px;right:20px;background:var(--accent);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(79,142,247,.4);z-index:999;text-decoration:none}
 </style>
 </head>
 <body>
+
 <header>
-  <h1>📋 Daily Briefing</h1>
-  <div class="meta">Miércoles, 6 de mayo de 2026 &nbsp;·&nbsp; Generado a las 02:10h</div>
+  <h1>📰 Daily Briefing</h1>
+  <div class="meta">Jueves, 7 de mayo de 2026 &nbsp;&middot;&nbsp; Generado a las 06:30h &nbsp;&middot;&nbsp; Barcelona</div>
 </header>
-<nav>
-  <a href="#tiempo">☁️ Tiempo</a>
-  <a href="#internacional">🌍 Internacional</a>
-  <a href="#espana">🇪🇸 España</a>
-  <a href="#local">🏙️ Local</a>
-  <a href="#finanzas">📈 Finanzas</a>
-  <a href="#futbol">⚽ Fútbol</a>
-  <a href="#ufc">🥊 UFC</a>
-  <a href="#ia">🤖 IA</a>
-  <a href="#conceptos">📊 Conceptos</a>
-</nav>
-<section id="tiempo">
-  <h2>☁️ Tiempo — Barcelona</h2>
-  <div class="weather-grid">
-    <div class="weather-item"><div class="weather-val">14°C</div><div class="weather-lbl">Ahora</div></div>
-    <div class="weather-item"><div class="weather-val">15°C</div><div class="weather-lbl">Sensación</div></div>
-    <div class="weather-item"><div class="weather-val">82%</div><div class="weather-lbl">Humedad</div></div>
-    <div class="weather-item"><div class="weather-val">4 km/h</div><div class="weather-lbl">Viento NNE</div></div>
+
+<!-- ☁️ TIEMPO -->
+<div class="section">
+  <div class="stitle">☁️ Tiempo &mdash; Barcelona</div>
+  <div class="wgrid">
+    <div class="wi"><div class="lbl">Temperatura</div><div class="val">15&deg;C</div></div>
+    <div class="wi"><div class="lbl">Sensaci&oacute;n t&eacute;rmica</div><div class="val">15&deg;C</div></div>
+    <div class="wi"><div class="lbl">M&aacute;x / M&iacute;n hoy</div><div class="val">18&deg; / 15&deg;</div></div>
+    <div class="wi"><div class="lbl">Condici&oacute;n</div><div class="val" style="font-size:0.9rem">&#x26C5; Parcialmente nublado</div></div>
+    <div class="wi"><div class="lbl">Humedad</div><div class="val">77%</div></div>
+    <div class="wi"><div class="lbl">Viento</div><div class="val">ENE 11 km/h</div></div>
+    <div class="wi"><div class="lbl">&#x1F305; Amanecer</div><div class="val">06:41h</div></div>
+    <div class="wi"><div class="lbl">&#x1F307; Atardecer</div><div class="val">20:55h</div></div>
   </div>
+  <div class="frow">
+    <div class="fday"><div class="dn">Hoy</div><div class="cond">&#x2600;&#xFE0F; Soleado</div><div class="tmp">18&deg; <span>/ 15&deg;</span></div></div>
+    <div class="fday"><div class="dn">Viernes</div><div class="cond">&#x2600;&#xFE0F; Soleado</div><div class="tmp">19&deg; <span>/ 15&deg;</span></div></div>
+    <div class="fday"><div class="dn">S&aacute;bado</div><div class="cond">&#x1F326; Llovizna</div><div class="tmp">19&deg; <span>/ 16&deg;</span></div></div>
+  </div>
+</div>
+
+<!-- 🌍 INTERNACIONAL -->
+<div class="section">
+  <div class="stitle">&#x1F30D; Internacional</div>
+
   <div class="card">
-    <div class="card-body">🌤️ Mañana <strong>despejada</strong>. Por la tarde posibilidad de <strong>lluvia intermitente</strong>. Máx <strong>18°C</strong> / Mín <strong>15°C</strong>. Presión 1011hPa.<br>🌅 Salida sol: <strong>06:42</strong> &nbsp;·&nbsp; 🌇 Puesta: <strong>20:54</strong></div>
+    <div class="tag">&#x1F1EE;&#x1F1F7; Conflicto Ir&aacute;n &mdash; D&iacute;a 69</div>
+    <h3>Fin de la Operaci&oacute;n Epic Fury: Rubio anuncia cese de operaciones, Trump abre negociaciones</h3>
+    <p>El Secretario de Estado Marco Rubio declar&oacute; el 5 de mayo que la fase ofensiva de la guerra en Ir&aacute;n ha concluido. EEUU pausa la "Project Freedom" en el Estrecho de Hormuz mientras se exploran conversaciones diplom&aacute;ticas. Trump advierte que si no hay acuerdo los ataques volveran a un "nivel muy superior". El gas en EEUU sigue a $4.45/gal&oacute;n, un 50% por encima de antes de la guerra.</p>
   </div>
-  <div class="forecast-row">
-    <div class="forecast-day"><div class="day">HOY 6/5</div><div class="icon">🌤️</div><div class="temp">18° / 15°</div></div>
-    <div class="forecast-day"><div class="day">JUE 7/5</div><div class="icon">☀️</div><div class="temp">18° / 15°</div></div>
-    <div class="forecast-day"><div class="day">VIE 8/5</div><div class="icon">☀️</div><div class="temp">19° / 16°</div></div>
-  </div>
-</section>
-<section id="internacional">
-  <h2>🌍 Internacional</h2>
+
   <div class="card">
-    <div class="tag tag-int">MEDIO ORIENTE · DÍA 67</div>
-    <div class="card-title">Trump pausa misión Hormuz para negociar fin de la guerra con Irán</div>
-    <div class="card-body">El presidente Trump suspendió la operación de escolta de barcos por el Estrecho de Hormuz para dar margen a una negociación diplomática. EE.UU. mantiene 15.000 militares, más de 100 aviones y un bloqueo naval de puertos iraníes. Irán atacó a los EAU el día 66. El precio del gas en EE.UU. ha subido un 50% desde el inicio del conflicto (28 feb), alcanzando $4,45/galón.</div>
+    <div class="tag">&#x1F4B9; Mercados Globales</div>
+    <h3>Rally en Europa: Stoxx 50 +1.8% y Stoxx 600 +0.7% el mi&eacute;rcoles gracias a la distenci&oacute;n en Oriente Medio</h3>
+    <p>Los mercados europeos rompieron la racha bajista el 6 de mayo con ganancias lideradas por industriales: Siemens, Schneider y Siemens Energy subieron entre 3-5%. AB InBev dispar&oacute; +10% por resultados Q1 s&oacute;lidos. UniCredit avanz&oacute; +7% tras lanzar su oferta para ampliar posici&oacute;n en Commerzbank. La normalizaci&oacute;n del Estrecho de Hormuz es clave para el precio de la energ&iacute;a europea.</p>
   </div>
+
   <div class="card">
-    <div class="tag tag-int">ECONOMÍA GLOBAL</div>
-    <div class="card-title">FMI rebaja crecimiento mundial al 3,1%: guerra de Irán lastra previsiones</div>
-    <div class="card-body">El World Economic Outlook de abril del FMI rebajó el crecimiento global al 3,1% para 2026 (vs. 3,3% en enero). La inflación repunta levemente antes de retomar su descenso en 2027. India lidera los emergentes con +6,7%. EE.UU. crece al 2,0%. El superciclo de IA sigue impulsando los beneficios del S&P 500 al 13–15% anual.</div>
+    <div class="tag">&#x1F916; Big Tech</div>
+    <h3>Pentagon firma con 7 compa&ntilde;&iacute;as de IA &mdash; Novo Nordisk se integra por completo con OpenAI</h3>
+    <p>El Departamento de Defensa de EEUU anunci&oacute; contratos con siete empresas de IA para sistemas clasificados. Por su parte, Novo Nordisk firma una alianza total con OpenAI para integrar IA desde el descubrimiento de f&aacute;rmacos hasta la cadena de suministro, con despliegue completo previsto a finales de 2026.</p>
   </div>
+</div>
+
+<!-- 🇪🇸 ESPAÑA -->
+<div class="section">
+  <div class="stitle">&#x1F1EA;&#x1F1F8; Espa&ntilde;a</div>
+
   <div class="card">
-    <div class="tag tag-int">GEOPOLÍTICA</div>
-    <div class="card-title">Mediación paquistaní: ¿frágil ventana diplomática para el alto el fuego?</div>
-    <div class="card-body">Pakistán actúa como mediador en conversaciones entre Washington y Teherán. Un alto el fuego condicional fue declarado el 8 de abril pero no se consolidó. Irán ha atacado con misiles y drones a Israel, bases de EE.UU. y aliados árabes en la región. La pausa de Trump abre la primera oportunidad real de desescalada en semanas.</div>
+    <div class="tag">&#x1F4C8; Econom&iacute;a</div>
+    <h3>Espa&ntilde;a lidera el crecimiento europeo: PIB al 2.7% en Q1 2026</h3>
+    <p>La econom&iacute;a espa&ntilde;ola arranc&oacute; 2026 con mayor impulso del esperado, con un PIB del 2.7% interanual. La demanda interna aporta 3.4 puntos porcentuales; el freno viene del sector exterior por los aranceles de EEUU (-0.1 pp). La banca espa&ntilde;ola mira el a&ntilde;o con perspectivas s&oacute;lidas seg&uacute;n Morningstar, apoyada por la fortaleza econ&oacute;mica dom&eacute;stica.</p>
   </div>
-</section>
-<section id="espana">
-  <h2>🇪🇸 España</h2>
+
   <div class="card">
-    <div class="tag tag-esp">ECONOMÍA</div>
-    <div class="card-title">PIB español crece al 2,7% interanual: lidera el crecimiento en Europa</div>
-    <div class="card-body">La economía española mantiene su impulso al inicio de 2026 con crecimiento interanual del 2,7% y trimestral del 0,6%. La demanda interna aporta 3,4 pp. Se esperan 360.000 empleos nuevos este año. España está "relativamente bien posicionada" frente a las tensiones geopolíticas en comparación con otros socios europeos.</div>
+    <div class="tag">&#x1F3E0; Empleo e Industria</div>
+    <h3>C&aacute;mara de Espa&ntilde;a prev&eacute; 360.000 empleos nuevos en 2026 &mdash; Preocupa la fragmentaci&oacute;n pol&iacute;tica</h3>
+    <p>La C&aacute;mara de Espa&ntilde;a proyecta un crecimiento del empleo del 1.6% para 2026, generando unos 360.000 puestos de trabajo. Sin embargo, empresas e inversores se&ntilde;alan la incertidumbre pol&iacute;tica, la falta de mano de obra y el coste energ&eacute;tico como los tres grandes frenos para la actividad.</p>
   </div>
+</div>
+
+<!-- 🏙️ CATALUÑA / BARCELONA / L'ESCALA -->
+<div class="section">
+  <div class="stitle">&#x1F3D9;&#xFE0F; Catalu&ntilde;a &middot; Barcelona &middot; L'Escala</div>
+
   <div class="card">
-    <div class="tag tag-esp">BANCA</div>
-    <div class="card-title">Morningstar: banca española afronta 2026 con resultados "sólidos"</div>
-    <div class="card-body">Según informe publicado el 5 de mayo, los grandes bancos españoles mantienen rentabilidades robustas pese a la incertidumbre de la guerra de Irán y la desaceleración global. El 43% de empresarios percibe la economía como buena; el 55% no prevé cambios significativos en los próximos 12 meses.</div>
+    <div class="tag">&#x26A0;&#xFE0F; Seguridad</div>
+    <h3>Apuñalamiento en estado cr&iacute;tico en Plaza de Catalu&ntilde;a el 3 de mayo</h3>
+    <p>Un hombre fue atacado con arma blanca en plena Plaza de Catalu&ntilde;a a plena luz del d&iacute;a y se encuentra en estado cr&iacute;tico. El incidente reactiv&oacute; el debate sobre seguridad en el centro de Barcelona y la presencia policial en las principales plazas de la ciudad.</p>
   </div>
-</section>
-<section id="local">
-  <h2>🏙️ Cataluña · Barcelona · L'Escala</h2>
+
   <div class="card">
-    <div class="tag tag-loc">BARCELONA · SEGURIDAD</div>
-    <div class="card-title">Apuñalamiento grave en Plaza de Cataluña a plena luz del día</div>
-    <div class="card-body">Un hombre quedó en estado crítico tras ser atacado con arma blanca en la icónica plaza. El suceso reaviva el debate sobre la seguridad en el centro de Barcelona, zona con alta afluencia turística y con historial de incidentes similares en meses recientes.</div>
+    <div class="tag">&#x1F3B5; Agenda Cultural</div>
+    <h3>Eric Clapton actúa este domingo en el Palau Sant Jordi &mdash; Bad Bunny llega el 22-23 mayo</h3>
+    <p>Barcelona se convierte en capital musical de mayo. Eric Clapton llena el Palau Sant Jordi este domingo 10 de mayo. Bad Bunny actuar&aacute; en el Estadio Ol&iacute;mpico los d&iacute;as 22 y 23 de mayo. El 18 de mayo, la Nit dels Museus abrir&aacute; todos los museos de la ciudad de forma gratuita.</p>
   </div>
+
   <div class="card">
-    <div class="tag tag-loc">FC BARCELONA FEMENINO</div>
-    <div class="card-title">Barça femenino estrena patrocinio de Olivia Rodrigo en Liga F (6 mayo)</div>
-    <div class="card-body">El equipo femenino del FC Barcelona debuta hoy con el logo de Olivia Rodrigo como patrocinio de Spotify. La artista (50M+ oyentes mensuales) ofrecerá el 8 de mayo un concierto privado exclusivo en Barcelona. Apuesta de Spotify por visibilizar el fútbol femenino de élite.</div>
+    <div class="tag">&#x1F4F7; L'Escala &mdash; Empord&agrave;</div>
+    <h3>MedFoto 2026: Concurs Internacional de Fotografia de la Mediterr&agrave;nia hasta el 15 mayo</h3>
+    <p>L'Escala acoge hasta el 15 de mayo el MedFoto 2026, certamen internacional de fotograf&iacute;a mediterr&aacute;nea. La Costa Brava entra en temporada alta con aumento de visitantes y actividades n&aacute;uticas en el Alt Empord&agrave;.</p>
   </div>
-  <div class="card">
-    <div class="tag tag-loc">L'ESCALA · EMPORDÀ</div>
-    <div class="card-title">MedFoto 2026: festival de fotografía mediterránea hasta el 15 de mayo</div>
-    <div class="card-body">El International Mediterranean Photography Contest sigue activo en L'Escala hasta el 15 de mayo, reuniendo fotógrafos de toda la cuenca mediterránea. Buen plan para visitar Empúries y disfrutar del Alt Empordà esta semana primaveral.</div>
+</div>
+
+<!-- 📈 FINANZAS -->
+<div class="section">
+  <div class="stitle">&#x1F4C8; Finanzas y Mercados</div>
+
+  <div class="alert-b">
+    &#x26A0;&#xFE0F; <span><strong>CATALIZADOR HOY:</strong> Coinbase (COIN) publica resultados Q1 2026 esta tarde. Ant&iacute;cipate: analistas esperan EPS $0.36 y revenue $1.51B &mdash; posible movimiento brusco en crypto.</span>
   </div>
-</section>
-<section id="finanzas">
-  <h2>📈 Finanzas y Mercados</h2>
-  <div class="card">
-    <div class="tag tag-fin">MERCADOS EUROPEOS</div>
-    <div class="card-title">Stoxx50 +1,8% · Stoxx600 +0,7% — liderado por industriales y banca</div>
-    <div class="card-body">Los mercados europeos cerraron el martes al alza apoyados en resultados empresariales y moderación de la tensión energética. <strong>AB InBev +10%</strong> (primera subida de ventas en 3 años). <strong>UniCredit +7%</strong> (mejora de beneficios + OPA Commerzbank). <strong>HSBC -5%</strong> (perdió estimaciones por mayores pérdidas crediticias y un caso de fraude en UK).</div>
+
+  <div class="card" style="border-color:rgba(247,195,79,.4)">
+    <div class="tag" style="background:rgba(247,195,79,.15);color:var(--accent2)">&#x26A0;&#xFE0F; Cartera &mdash; COIN</div>
+    <h3>Coinbase presenta Q1 hoy: reestructuraci&oacute;n AI-native y bar bajo por ca&iacute;da en vol&uacute;menes</h3>
+    <p>La reestructuraci&oacute;n del CEO Brian Armstrong (-14% de plantilla, equipos AI-native) fue recibida positivamente por el mercado. El stock lleg&oacute; a los $208 el 5 de mayo antes de ceder por debajo de $200. Los analistas tienen consensus Buy con precio objetivo $261. El verdadero catalizador es el volumen operativo cripto en Q1.</p>
   </div>
+
+  <div class="card" style="border-color:rgba(247,79,79,.4)">
+    <div class="tag" style="background:rgba(247,79,79,.12);color:var(--red)">&#x26A0;&#xFE0F; Cartera &mdash; PYPL</div>
+    <h3>PayPal -9% tras Q1 beat: revenue $8.35B (+7.2% YoY) pero guidance Q2 deprime al mercado</h3>
+    <p>Q1 s&oacute;lido: $464B en volumen de pagos, Venmo y PSP con doble d&iacute;gito de crecimiento. El problema: el nuevo CEO Enrique Lores anticipa EPS Q2 -9% YoY y margen de transacciones -3%. La reestructuraci&oacute;n en 3 unidades de negocio y la agenda de IA son positivos a largo plazo.</p>
+  </div>
+
   <div class="card">
-    <div class="tag tag-fin">SEGUIMIENTO CARTERA</div>
-    <div class="card-body">
-      <div class="stock-row">
-        <div><div class="stock-name">Coinbase Global</div><div class="stock-ticker">COIN · NASDAQ</div></div>
-        <div class="stock-info"><div class="stock-price warn">~$191</div><div class="stock-price" style="font-size:12px;color:var(--red)">-57% desde ATH</div></div>
+    <div class="tag">&#x1F527; Cartera &mdash; QRVO</div>
+    <h3>Qorvo bate Q4 FY26 con EPS $1.69 (+39.5%) &mdash; Fusi&oacute;n con Skyworks valorada en $22B</h3>
+    <p>Revenue Q4: $808M (ca&iacute;da -7% YoY pero +39.5% en EPS vs estimados). El stock subi&oacute; a $96.35. La fusi&oacute;n con Skyworks Solutions valorar&iacute;a la entidad combinada en ~$22B. Qorvo ha suspendido la gu&iacute;a futura por la transacci&oacute;n pendiente &mdash; el catalizador ahora es el cierre del deal.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">&#x26A1; Nuclear &amp; Metales</div>
+    <h3>URA (Uranio) a $54.06 &mdash; Oro en máximos hist&oacute;ricos ~$4.500/oz &mdash; Plata: posible despegue post-15 mayo</h3>
+    <p>El ETF Global X URA cotiza en $54.06 con $7.58B en activos; la demanda nuclear se acelera por los centros de datos de IA. El oro f&iacute;sico mantiene m&aacute;ximos hist&oacute;ricos. The Motley Fool anticipa que el ETF de plata SLV podr&iacute;a dispararse a partir del 15 de mayo, coincidiendo con vencimientos de opciones y catalizadores de pol&iacute;tica monetaria.</p>
+  </div>
+
+  <div class="card" style="border-color:rgba(62,207,110,.3)">
+    <div class="tag" style="background:rgba(62,207,110,.1);color:var(--green)">&#x1F4A1; Radar de Oportunidades</div>
+    <h3>Fin de hostilidades en Ir&aacute;n = rotaci&oacute;n en energ&iacute;a y reanudaci&oacute;n del comercio mar&iacute;timo</h3>
+    <p>La normalizaci&oacute;n del Estrecho de Hormuz reduce costes de flete y presiones sobre el precio del petr&oacute;leo y gas. Beneficia a: MSCI World Small Cap (reanudaci&oacute;n del ciclo), Clean Water (infraestructura), sectores industriales europeos. Monitorizar MSCI EM IMI ante rebote en pa&iacute;ses exportadores del Golfo.</p>
+  </div>
+</div>
+
+<!-- ⚽ FÚTBOL -->
+<div class="section">
+  <div class="stitle">&#x26BD; F&uacute;tbol</div>
+
+  <div class="clasico">
+    <h3>&#x1F525; EL CL&Aacute;SICO &mdash; FC Barcelona vs Real Madrid</h3>
+    <div class="cd">Domingo 10 de mayo &middot; 21:00h &middot; Spotify Camp Nou &middot; LaLiga J35</div>
+  </div>
+
+  <div class="card">
+    <div class="tag">&#x1F535;&#x1F534; FC Barcelona</div>
+    <h3>Bar&ccedil;a es virtual campe&oacute;n con 88 puntos &mdash; No jug&oacute; el 6 de mayo</h3>
+    <p>FC Barcelona lidera LaLiga con 88 puntos en 34 jornadas (29V 1E 4D), con 11 de ventaja sobre el Real Madrid. El equipo de Flick no tuvo partido ayer. El &uacute;ltimo resultado fue la victoria 2-1 ante Osasuna. El t&iacute;tulo podr&iacute;a llegar antes del El Cl&aacute;sico si el Madrid pincha.</p>
+  </div>
+
+  <div style="margin-bottom:8px">
+    <div class="matchc">
+      <div class="db">Dom 10/5</div>
+      <div class="mi">
+        <div class="teams">FC Barcelona vs Real Madrid &#x26A1;</div>
+        <div class="comp">LaLiga J35 &middot; 21:00h &middot; Spotify Camp Nou</div>
       </div>
-      <div class="stock-row">
-        <div><div class="stock-name">PayPal Holdings</div><div class="stock-ticker">PYPL · NASDAQ</div></div>
-        <div class="stock-info"><div class="stock-price down">↓ ~10% (5 mayo)</div><div class="stock-price" style="font-size:12px;color:var(--muted)">Q1 beat, Q2 flojo</div></div>
+    </div>
+    <div class="matchc">
+      <div class="db">Mi&eacute; 13/5</div>
+      <div class="mi">
+        <div class="teams">Alav&eacute;s vs FC Barcelona</div>
+        <div class="comp">LaLiga J36 &middot; 21:30h &middot; Mendizorroza</div>
       </div>
-      <div class="stock-row">
-        <div><div class="stock-name">Qorvo</div><div class="stock-ticker">QRVO · NASDAQ</div></div>
-        <div class="stock-info"><div class="stock-price">$92,53</div><div class="stock-price" style="font-size:12px;" class="up">+17,6% en 30d</div></div>
-      </div>
-      <div class="stock-row">
-        <div><div class="stock-name">iShares Silver Trust</div><div class="stock-ticker">SLV · Plata física</div></div>
-        <div class="stock-info"><div class="stock-price up">+96% en 2026</div><div class="stock-price" style="font-size:12px;color:var(--green)">Momentum fuerte</div></div>
-      </div>
-      <div class="stock-row">
-        <div><div class="stock-name">VanEck Uranium Nuclear</div><div class="stock-ticker">NLR · ETF Nuclear</div></div>
-        <div class="stock-info"><div class="stock-price">$141,45</div><div class="stock-price" style="font-size:12px;color:var(--red)">vs $143,46 previo</div></div>
-      </div>
-      <div class="stock-row">
-        <div><div class="stock-name">Global X Uranium</div><div class="stock-ticker">URA · ETF Uranio</div></div>
-        <div class="stock-info"><div class="stock-price">$54,84</div><div class="stock-price" style="font-size:12px;color:var(--muted)">AUM $7,68B</div></div>
+    </div>
+    <div class="matchc">
+      <div class="db">Dom 17/5</div>
+      <div class="mi">
+        <div class="teams">FC Barcelona vs Real Betis</div>
+        <div class="comp">LaLiga J37 &middot; 19:00h &middot; Spotify Camp Nou</div>
       </div>
     </div>
   </div>
-  <div class="alert-box">
-    ⚠️ <strong>Catalizadores clave próximas 72h:</strong><br><br>
-    • <strong>COIN earnings 7 mayo:</strong> EPS consenso revisado -49% desde Q4. Bar muy bajo + short interest 11,5% = potencial rerating alcista si suscripciones aguantan. Restructuración en curso: 700 despidos (14% plantilla).<br><br>
-    • <strong>PYPL:</strong> Acciones bajaron ~10% pese a Q1 sólido (revenue +7,2% a $8,35B, EPS $1,34 vs $1,27 est.). Q2 outlook decepcionó. Nuevo CEO Enrique Lores anuncia reorganización en 3 BU + $1,5B en ahorros reinvertidos en producto.<br><br>
-    • <strong>Plata post-15 mayo:</strong> Motley Fool anticipa despegue del ETF de plata tras el relevo en la Reserva Federal (Kevin Warsh). Déficit acumulado 2021–2025 cercano a 800M oz.
-  </div>
-  <div class="opp-box">
-    💡 <strong>Radar de oportunidades:</strong><br><br>
-    • <strong>QRVO:</strong> Fusión Skyworks ($22B) avanza. FCF $255M en Q4, margen bruto non-GAAP 52,6%. Posible arbitraje de cierre.<br><br>
-    • <strong>Nuclear/Uranio:</strong> IA data centers disparan demanda eléctrica (McKinsey: +33% anual hasta 2030). Tesis de largo plazo intacta. URA AUM en $7,68B.<br><br>
-    • <strong>Defensa:</strong> Conflicto Irán sin resolución a corto plazo sostiene ETFs de defensa. Seguir posición.
-  </div>
-</section>
-<section id="futbol">
-  <h2>⚽ Fútbol</h2>
+
   <div class="card">
-    <div class="tag tag-fut">FC BARCELONA · J34</div>
-    <div class="card-title">✅ Barcelona 2–1 Osasuna · 2 de mayo · LaLiga J34</div>
-    <div class="card-body">Victoria que afianza el liderato con <strong>88 puntos</strong>, 11 por encima del Real Madrid. El título de LaLiga está prácticamente en el bolsillo con solo 4 jornadas por disputar. Además, el Barça ya está en la <strong>final de la Champions League en Oslo</strong> tras eliminar al Bayern de Múnich 4–2 en semifinales.</div>
+    <div class="tag">&#x26AA; Real Madrid</div>
+    <h3>Real Madrid 2-0 Espanyol el 3/5: doblete de Vin&iacute;cius evita el t&iacute;tulo del Bar&ccedil;a</h3>
+    <p>Con este resultado, el Madrid se queda a 11 puntos del Bar&ccedil;a. Su pr&oacute;xima cita es el El Cl&aacute;sico del 10 de mayo, donde se juega mantenerse con opciones hasta la &uacute;ltima jornada.</p>
   </div>
+
   <div class="card">
-    <div class="tag tag-fut">PRÓXIMOS PARTIDOS · BARÇA</div>
-    <div class="card-body">
-      <div class="match-row"><div class="match-date">Dom 10/5</div><div class="match-teams">🔵🔴 Barça vs ⚪ Real Madrid — Camp Nou (J35)</div><div class="match-score">21:00</div></div>
-      <div class="match-row"><div class="match-date">Mié 13/5</div><div class="match-teams">Alavés vs 🔵🔴 Barça (J36)</div><div class="match-score">21:30</div></div>
-      <div class="match-row"><div class="match-date">Dom 17/5</div><div class="match-teams">🔵🔴 Barça vs Betis — Camp Nou (J37)</div><div class="match-score">19:00</div></div>
-      <div class="match-row"><div class="match-date">Dom 24/5</div><div class="match-teams">Valencia vs 🔵🔴 Barça — Mestalla (J38)</div><div class="match-score">TBC</div></div>
-    </div>
+    <div class="tag">&#x1F4CA; Clasificaci&oacute;n LaLiga &mdash; J34</div>
+    <table class="ftable">
+      <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>Pts</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="hl">FC Barcelona</td><td>34</td><td class="hl">88</td></tr>
+        <tr><td>2</td><td>Real Madrid</td><td>34</td><td>77</td></tr>
+        <tr><td>3</td><td>Villarreal</td><td>34</td><td>68</td></tr>
+        <tr><td>4</td><td>Atl&eacute;tico Madrid</td><td>34</td><td>63</td></tr>
+        <tr><td>5</td><td>Real Betis</td><td>34</td><td>53</td></tr>
+      </tbody>
+    </table>
   </div>
+</div>
+
+<!-- 🥊 UFC -->
+<div class="section">
+  <div class="stitle">&#x1F94A; UFC</div>
+
+  <div class="ufcc">
+    <h4>UFC 328: Chimaev vs. Strickland &mdash; &#x1F3C6; T&iacute;tulo Middleweight</h4>
+    <div class="um">&#x1F4C5; S&aacute;bado 9 de mayo &middot; Prudential Center, Newark, NJ &middot; PPV &middot; Main card 03:00h CET</div>
+    <p><strong>Main Event:</strong> Khamzat Chimaev defiende por primera vez el cintur&oacute;n ante el excampe&oacute;n Sean Strickland &mdash; duelo de estilos entre wrestling y boxeo. <strong>Co-main:</strong> Joshua Van vs. Tatsuro Taira por el t&iacute;tulo Flyweight (aplazado desde UFC 327 por lesi&oacute;n de Van).</p>
+  </div>
+
+  <div class="ufcc" style="border-left-color:#888">
+    <h4>Pr&oacute;ximamente: Ilia Topuria vs. Justin Gaethje</h4>
+    <div class="um">&#x1F4C5; Fecha TBC &mdash; Calendario 2026</div>
+    <p>Topuria defender&aacute; el cintur&oacute;n de Pluma ante el peligroso golpeador Gaethje. Una de las peleas m&aacute;s esperadas del a&ntilde;o. Confirmada en el calendario de la UFC para 2026.</p>
+  </div>
+</div>
+
+<!-- 🤖 IA -->
+<div class="section">
+  <div class="stitle">&#x1F916; Inteligencia Artificial</div>
+
   <div class="card">
-    <div class="tag tag-fut">REAL MADRID · J34</div>
-    <div class="card-title">✅ Espanyol 0–2 Real Madrid · 3 de mayo</div>
-    <div class="card-body">Doblete de <strong>Vinícius Júnior</strong> en el RCDE Stadium. El Madrid se mantiene vivo matemáticamente pero a 11 puntos del Barça. <strong>El Clásico del 10 de mayo en el Camp Nou</strong> definirá el contexto anímico del final de temporada.</div>
+    <div class="tag">&#x1F3C6; Anthropic</div>
+    <h3>Anthropic supera a OpenAI en ARR: $30B vs $24B &mdash; Lanza 10 agentes financieros verticales</h3>
+    <p>Anthropic alcanz&oacute; una tasa de ingresos recurrentes anualizados de $30.000M, superando a OpenAI ($24B). Paralelamente, lanz&oacute; 10 agentes especializados en finanzas: drafting de pitchbooks, revisi&oacute;n de balances, preparaci&oacute;n de cr&eacute;dito y escalado de compliance para bancos, aseguradoras y fintech.</p>
+    <div class="why">&#x2192; <strong>Por qu&eacute; importa:</strong> Los agentes verticales son el nuevo battleground. Las consultoras tecnol&oacute;gicas que posicionen ya sus pr&aacute;cticas de integraci&oacute;n de agentes ganar&aacute;n los mandatos de mayor valor en 2026-27.</div>
   </div>
+
   <div class="card">
-    <div class="tag tag-fut">CLASIFICACIÓN LALIGA · J34</div>
-    <div class="card-body">
-      <table class="standings">
-        <tr><th>#</th><th>Equipo</th><th>Pts</th></tr>
-        <tr><td class="pos-1">1</td><td>🔵🔴 FC Barcelona</td><td class="pos-1">88</td></tr>
-        <tr><td class="pos-2">2</td><td>⚪ Real Madrid</td><td class="pos-2">77</td></tr>
-        <tr><td>3</td><td>🟡 Villarreal</td><td>68</td></tr>
-        <tr><td>4</td><td>🔴 Atlético Madrid</td><td>63</td></tr>
-        <tr><td>5</td><td>🟢 Real Betis</td><td>53</td></tr>
-        <tr><td>6</td><td>🔵 Celta de Vigo</td><td>47</td></tr>
-      </table>
-    </div>
+    <div class="tag">&#x1F680; OpenAI</div>
+    <h3>GPT-5.5 Instant se convierte en el modelo por defecto de ChatGPT &mdash; Foco en reducci&oacute;n de alucinaciones</h3>
+    <p>Lanzado el 5 de mayo, GPT-5.5 Instant sustituye al modelo por defecto en ChatGPT con baja latencia y menor tasa de error en dominios de alto riesgo (medicina, derecho, finanzas). GPT-5.5 Pro (c&oacute;mputo paralelo) ya disponible para enterprise con capacidades ag&eacute;nticas multi-paso.</p>
+    <div class="why">&#x2192; <strong>Por qu&eacute; importa:</strong> La reducci&oacute;n de alucinaciones desbloquea casos de uso regulados &mdash; el vector m&aacute;s lucrativo para consultoras especializadas en sectores como banca, sanidad y legal.</div>
   </div>
-</section>
-<section id="ufc">
-  <h2>🥊 UFC</h2>
+
   <div class="card">
-    <div class="tag tag-ufc">PRÓXIMO EVENTO</div>
-    <div class="card-title">UFC 328: Chimaev vs. Strickland — Sábado 9 mayo 2026</div>
-    <div class="card-body">
-      📍 Prudential Center, Newark, New Jersey<br>
-      🥊 <strong>Pelea principal (MW):</strong> Khamzat Chimaev (15–0) vs Sean Strickland (ex-campeón, #3)<br>
-      📺 Paramount+ — Prelims 1:00h / Main Card 3:00h (hora española)<br><br>
-      Chimaev llega invicto y como claro favorito. Strickland buscará la sorpresa con su boxeo técnico frente a la potencia física del checheno.
-    </div>
+    <div class="tag">&#x1F1E8;&#x1F1F3; Open-Weights China</div>
+    <h3>4 labs chinas lanzan modelos open-weights al mismo nivel que GPT-5 a menor coste</h3>
+    <p>GLM-5.1 (Z.ai), MiniMax M2.7, Kimi K2.6 (Moonshot) y DeepSeek V4 alcanzan el mismo techo de capacidad en engineering ag&eacute;ntico que los modelos occidentales de frontera, pero a un coste de inferencia muy inferior y con pesos abiertos.</p>
+    <div class="why">&#x2192; <strong>Por qu&eacute; importa:</strong> La comoditizaci&oacute;n del LLM acelera. El diferencial competitivo ya no est&aacute; en el modelo &mdash; est&aacute; en los datos propietarios, la integraci&oacute;n empresarial y la experiencia de usuario.</div>
   </div>
-</section>
-<section id="ia">
-  <h2>🤖 Inteligencia Artificial</h2>
-  <div class="card">
-    <div class="tag tag-ai">MODELOS · OPENAI</div>
-    <div class="card-title">GPT-5.5 y GPT-5.5 Pro: capacidades agénticas más avanzadas de OpenAI</div>
-    <div class="card-body">Lanzados el 23 de abril, son los modelos con mayor capacidad agéntica que OpenAI ha construido, diseñados para trabajo del conocimiento empresarial y codificación. Compiten directamente con Claude Opus 4.6 de Anthropic, que lidera los benchmarks globales por un margen del 2,7%.</div>
-    <div class="why-box">Los modelos agénticos ya no son asistentes reactivos: ejecutan flujos de trabajo completos de forma autónoma. Para una práctica Data en consultoría, esto acelera la automatización de pipelines de análisis, reporting y calidad de datos, redefiniendo la productividad del equipo.</div>
+</div>
+
+<!-- 📊 CONCEPTOS DATA & IA -->
+<div class="section">
+  <div class="stitle">&#x1F4CA; Conceptos Data &amp; IA del D&iacute;a</div>
+
+  <div class="cblock">
+    <div class="cat">&#x1F5C4;&#xFE0F; Concepto DATA</div>
+    <h4>Data Contract</h4>
+    <p><strong>Qu&eacute; es:</strong> Un acuerdo formal (normalmente en c&oacute;digo o YAML) entre el productor de un dataset y sus consumidores. Define expl&iacute;citamente el esquema, la calidad esperada, el SLA y la sem&aacute;ntica de los datos. Es el equivalente a un contrato de API, aplicado al mundo de los datos.</p>
+    <p><strong>Por qu&eacute; importa como ejecutivo:</strong> Sin contratos de datos, cada cambio en la fuente rompe pipelines en silencio, generando incidentes invisibles y deuda t&eacute;cnica acumulada. Implantarlos puede reducir el coste de mantenimiento de pipelines hasta un 60% y acelerar el desarrollo de productos anal&iacute;ticos. Es una palanca clave en arquitecturas Data Mesh.</p>
+    <div class="q">&#x1F4AC; &#xBF;Cu&aacute;ntos de nuestros datasets cr&iacute;ticos tienen un contrato de datos documentado y quin es el due&ntilde;o responsable de mantenerlo?</div>
   </div>
-  <div class="card">
-    <div class="tag tag-ai">MODELOS · GOOGLE</div>
-    <div class="card-title">Gemini 3.1 Ultra: contexto de 2 millones de tokens y multimodal nativo</div>
-    <div class="card-body">Google lanzó Gemini 3.1 Ultra con ventana de contexto de 2M tokens (vídeo + audio + texto simultáneos). Gemini 3.1 Flash-Lite baja el coste a $0,25 por millón de tokens, democratizando el acceso para proyectos a escala.</div>
-    <div class="why-box">Una ventana de 2M tokens permite analizar documentos completos de proyectos, bases de contratos o historiales de ticketing sin truncar. Casos de uso de auditoría documental masiva en una sola llamada a la API.</div>
+
+  <div class="cblock" style="border-left-color:var(--accent2)">
+    <div class="cat">&#x1F9E0; Concepto IA</div>
+    <h4>Multi-Agent Orchestration</h4>
+    <p><strong>Qu&eacute; es:</strong> Patr&oacute;n arquitect&oacute;nico donde m&uacute;ltiples agentes de IA especializados colaboran bajo un orquestador com&uacute;n. Cada agente tiene un rol definido (buscador, redactor, validador, ejecutor) y se comunican mediante mensajes estructurados y herramientas compartidas.</p>
+    <p><strong>Por qu&eacute; importa como ejecutivo:</strong> Los casos de uso empresariales complejos (due diligence, auditor&iacute;a de c&oacute;digo, an&aacute;lisis competitivo, generaci&oacute;n de informes regulatorios) requieren este patr&oacute;n. Las consultoras que dise&ntilde;en arquitecturas multi-agente s&oacute;lidas ganar&aacute;n los mandatos de mayor valor en los pr&oacute;ximos 2-3 a&ntilde;os.</p>
+    <div class="q" style="background:rgba(247,195,79,.07)">&#x1F4AC; &#xBF;Tenemos ya identificado un caso de uso interno donde la orquestaci&oacute;n multi-agente reducir&iacute;a el tiempo de entrega a la mitad? &#xBF;Cu&aacute;l ser&iacute;a nuestro primer piloto este trimestre?</div>
   </div>
-  <div class="card">
-    <div class="tag tag-ai">COMPETENCIA CHINA</div>
-    <div class="card-title">4 labs chinas lanzan modelos coding en 12 días a menor coste de inferencia</div>
-    <div class="card-body">Z.ai (GLM-5.1), MiniMax (M2.7), Moonshot (Kimi K2.6) y DeepSeek (V4) publicaron modelos open-weights de codificación comparables a los fronteras occidentales pero a menor coste de inferencia. La competencia entre labs de EE.UU. y China en el top de rankings se intensifica.</div>
-    <div class="why-box">La caída del coste de inferencia comprime márgenes de servicios IA comerciales. La propuesta de valor de las consultoras debe migrar desde el acceso a modelos hacia datos propietarios, integración y gobierno.</div>
-  </div>
-</section>
-<section id="conceptos">
-  <h2>📊 Conceptos Data &amp; IA del Día</h2>
-  <div class="concept-box">
-    <div class="concept-name">Data Fabric</div>
-    <div class="concept-cat">Arquitectura de Datos</div>
-    <div class="concept-section">
-      <strong>Qué es</strong>
-      <p>Arquitectura que crea una capa unificada sobre fuentes heterogéneas (on-prem, cloud, SaaS) usando metadata activa, grafos de conocimiento y ML para automatizar integración, calidad y gobierno en tiempo real. A diferencia de un Data Warehouse, no mueve los datos: los conecta virtualmente.</p>
-    </div>
-    <div class="concept-section">
-      <strong>Por qué importa como ejecutivo</strong>
-      <p>Las organizaciones con datos fragmentados pierden el 20–30% del tiempo de analistas buscando y reconciliando datos. Un Data Fabric reduce ese coste operacional y acelera el time-to-insight sin requerir migración masiva. Es el puente hacia el autoservicio de datos seguro a escala.</p>
-    </div>
-    <div class="question-box">💬 <strong>Pregunta para tu equipo esta semana:</strong> ¿Qué porcentaje del tiempo dedicamos a encontrar y limpiar datos versus a analizarlos? ¿Qué tres fuentes deberíamos conectar primero con una capa semántica común?</div>
-  </div>
-  <div class="concept-box">
-    <div class="concept-name">Agentic AI (IA Agéntica)</div>
-    <div class="concept-cat">Inteligencia Artificial Aplicada</div>
-    <div class="concept-section">
-      <strong>Qué es</strong>
-      <p>Sistemas de IA que planifican secuencias de acciones, usan herramientas externas (APIs, BBDDs, navegadores) y toman decisiones autónomas para completar tareas complejas de múltiples pasos con supervisión humana mínima. El agente actúa, no solo responde.</p>
-    </div>
-    <div class="concept-section">
-      <strong>Por qué importa como ejecutivo</strong>
-      <p>Los agentes pueden automatizar flujos completos: desde ingesta y validación de datos hasta generación de informes y notificación de anomalías. Para una práctica Data en consultoría, permiten entregar mayor valor a menor coste marginal, redefiniendo productividad del equipo y modelos de pricing con el cliente.</p>
-    </div>
-    <div class="question-box">💬 <strong>Pregunta para tu equipo esta semana:</strong> ¿Qué tarea repetitiva consume más de 4h semanales de nuestros analistas y podría ser el primer candidato para un agente de IA en producción este trimestre?</div>
-  </div>
-</section>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
-<script>
-  const btn = document.getElementById('back-top');
-  btn.style.opacity = '0'; btn.style.pointerEvents = 'none';
-  window.addEventListener('scroll', () => {
-    const v = window.scrollY > 300;
-    btn.style.opacity = v ? '1' : '0';
-    btn.style.pointerEvents = v ? 'auto' : 'none';
-  });
-</script>
+</div>
+
+<a href="#" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+
 </body>
 </html>
