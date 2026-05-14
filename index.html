@@ -1,534 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Briefing — 13 de mayo de 2026</title>
-<style>
-  :root {
-    --bg: #0f1117;
-    --card: #1a1d27;
-    --accent: #3d82f6;
-    --accent2: #22c55e;
-    --warn: #f59e0b;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --border: #2d3148;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    padding: 0 0 80px 0;
-  }
-  header {
-    background: linear-gradient(135deg, #1e2a4a 0%, #0f1117 100%);
-    padding: 28px 20px 20px;
-    border-bottom: 2px solid var(--accent);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.3px;
-  }
-  header .meta {
-    font-size: 14px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 14px 16px;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-  nav a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 13px;
-    white-space: nowrap;
-    padding: 4px 10px;
-    border-radius: 20px;
-    background: rgba(61,130,246,0.1);
-    border: 1px solid rgba(61,130,246,0.25);
-  }
-  section {
-    margin: 16px 14px;
-    background: var(--card);
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .section-header {
-    padding: 14px 18px 12px;
-    background: rgba(255,255,255,0.03);
-    border-bottom: 1px solid var(--border);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-  }
-  .section-body { padding: 14px 18px; }
-  .item {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .item:last-child { border-bottom: none; }
-  .item-title {
-    font-weight: 600;
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.4;
-  }
-  .item-desc {
-    margin-top: 5px;
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-  .tag-blue { background: rgba(61,130,246,0.2); color: #60a5fa; }
-  .tag-green { background: rgba(34,197,94,0.2); color: #4ade80; }
-  .tag-orange { background: rgba(245,158,11,0.2); color: #fbbf24; }
-  .tag-red { background: rgba(239,68,68,0.2); color: #f87171; }
-  .tag-purple { background: rgba(168,85,247,0.2); color: #c084fc; }
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 4px;
-  }
-  .stat-box {
-    background: rgba(255,255,255,0.04);
-    border-radius: 10px;
-    padding: 12px;
-    border: 1px solid var(--border);
-  }
-  .stat-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-  .stat-value { font-size: 20px; font-weight: 700; color: #fff; }
-  .stat-change { font-size: 13px; margin-top: 2px; }
-  .green { color: #4ade80; }
-  .red { color: #f87171; }
-  .concept-box {
-    background: rgba(61,130,246,0.07);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 10px 10px 0;
-    padding: 14px 16px;
-    margin: 12px 0;
-  }
-  .concept-box h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .concept-box p { font-size: 15px; color: var(--muted); margin-bottom: 8px; }
-  .concept-box .q {
-    font-size: 14px;
-    color: var(--accent);
-    font-style: italic;
-    padding: 8px 12px;
-    background: rgba(61,130,246,0.1);
-    border-radius: 8px;
-    margin-top: 8px;
-  }
-  .standing-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  .standing-table th {
-    text-align: left;
-    color: var(--muted);
-    font-weight: 600;
-    padding: 6px 4px;
-    border-bottom: 1px solid var(--border);
-    font-size: 12px;
-  }
-  .standing-table td {
-    padding: 8px 4px;
-    border-bottom: 1px solid rgba(45,49,72,0.5);
-  }
-  .standing-table tr:last-child td { border-bottom: none; }
-  .standing-table .pos { color: var(--muted); width: 24px; font-size: 13px; }
-  .standing-table .team { font-weight: 600; color: #fff; }
-  .standing-table .pts { font-weight: 700; color: var(--accent); }
-  .champ { color: #fbbf24; }
-  .weather-big {
-    text-align: center;
-    padding: 16px 0 8px;
-  }
-  .weather-icon { font-size: 52px; }
-  .weather-desc { font-size: 15px; color: var(--muted); margin-top: 6px; }
-  #top-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    box-shadow: 0 4px 16px rgba(61,130,246,0.5);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  .divider { height: 1px; background: var(--border); margin: 10px 0; }
-  .pill {
-    display: inline-block;
-    background: rgba(34,197,94,0.15);
-    color: #4ade80;
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .pill-red {
-    background: rgba(239,68,68,0.15);
-    color: #f87171;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing &mdash; 14 de mayo de 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; padding: 16px; max-width: 720px; margin: 0 auto; }
+    header { background: linear-gradient(135deg, #161b22, #21262d); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #30363d; text-align: center; }
+    header h1 { font-size: 1.4rem; color: #58a6ff; font-weight: 700; }
+    header p { color: #8b949e; font-size: 0.9rem; margin-top: 4px; }
+    section { background: #161b22; border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid #30363d; }
+    section h2 { font-size: 1.1rem; font-weight: 700; color: #58a6ff; margin-bottom: 12px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+    .item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #21262d; }
+    .item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .item-title { font-weight: 600; color: #e6edf3; font-size: 0.95rem; margin-bottom: 4px; }
+    .item-body { color: #8b949e; font-size: 0.88rem; }
+    .no-data { color: #f0883e; font-style: italic; font-size: 0.88rem; }
+    .score { font-size: 1.6rem; font-weight: 700; color: #f0883e; text-align: center; margin: 6px 0; }
+    .concept-box { background: #0d1117; border-radius: 8px; padding: 14px; margin-bottom: 12px; border-left: 3px solid #58a6ff; }
+    .concept-box:last-child { margin-bottom: 0; }
+    .concept-title { font-weight: 700; color: #58a6ff; font-size: 0.95rem; }
+    .concept-cat { font-size: 0.78rem; color: #8b949e; }
+    .concept-body { color: #c9d1d9; font-size: 0.88rem; margin-top: 6px; }
+    .concept-body p { margin-bottom: 6px; }
+    .concept-body strong { color: #e6edf3; }
+    #back-top { position: fixed; bottom: 24px; right: 24px; background: #58a6ff; color: #0d1117; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .market-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 0.9rem; }
+    .market-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .up { color: #3fb950; font-weight: 600; }
+    .down { color: #f85149; font-weight: 600; }
+    .neutral { color: #8b949e; }
+    .fixture { background: #0d1117; border-radius: 8px; padding: 10px 14px; margin-top: 8px; font-size: 0.88rem; color: #c9d1d9; }
+  </style>
 </head>
 <body>
-
 <header id="top">
-  <h1>📋 Daily Briefing</h1>
-  <div class="meta">📅 Miércoles, 13 de mayo de 2026 &nbsp;·&nbsp; Buenos días, Carlos ☀️</div>
+  <h1>&#128203; Daily Briefing</h1>
+  <p>Jueves, 14 de mayo de 2026 &bull; Generado autom&aacute;ticamente</p>
 </header>
 
-<nav>
-  <a href="#tiempo">☁️ Tiempo</a>
-  <a href="#inter">🌍 Internacional</a>
-  <a href="#espana">🇪🇸 España</a>
-  <a href="#bcn">🏙️ Barcelona</a>
-  <a href="#mercados">📈 Mercados</a>
-  <a href="#futbol">⚽ Fútbol</a>
-  <a href="#ufc">🥊 UFC</a>
-  <a href="#ia">🤖 IA</a>
-  <a href="#conceptos">📊 Conceptos</a>
-</nav>
+<section>
+  <h2>&#9729;&#65039; Tiempo en Barcelona</h2>
+  <p class="no-data">&#9888;&#65039; Sin datos hoy &mdash; servicio wttr.in no disponible. Previsi&oacute;n t&iacute;pica mayo: 19&ndash;25 &deg;C, cielos despejados o parcialmente nublados.</p>
+</section>
 
-<!-- ☁️ TIEMPO -->
-<section id="tiempo">
-  <div class="section-header">☁️ Tiempo en Barcelona</div>
-  <div class="section-body">
-    <div class="weather-big">
-      <div class="weather-icon">🌦️</div>
-      <div class="weather-desc">Miércoles variable · Precipitaciones posibles en el noreste de Cataluña y Pirineo · Barcelona ciudad: nublado con claros</div>
+<section>
+  <h2>&#127760; Internacional</h2>
+  <div class="item">
+    <div class="item-title">Trump viaja a China para cumbre con Xi Jinping</div>
+    <div class="item-body">Primera visita de Trump a Pek&iacute;n con la guerra de Ir&aacute;n como tel&oacute;n de fondo. El encuentro busca reducir tensiones bilaterales mientras EEUU mantiene su posici&oacute;n firme en Oriente Medio.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Princesa Catalina: primer viaje oficial al extranjero tras el c&aacute;ncer</div>
+    <div class="item-body">La Princesa de Gales visita Italia en su primer desplazamiento internacional desde que finaliz&oacute; el tratamiento oncol&oacute;gico. La Casa Real brit&aacute;nica lo presenta como un s&iacute;mbolo de recuperaci&oacute;n.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Dudas sobre el futuro de Keir Starmer como premier brit&aacute;nico</div>
+    <div class="item-body">Crecen las especulaciones en Westminster sobre qui&eacute;n relevar&aacute; al primer ministro. Los bajos &iacute;ndices de aprobaci&oacute;n del laborismo abren el debate interno sobre el liderazgo.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Tensi&oacute;n en Ormuz: negociaciones EEUU-Ir&aacute;n sin avances</div>
+    <div class="item-body">Las conversaciones de paz no progresan. El Brent se mantiene elevado (~107 $/barril). Trump rechaz&oacute; la &uacute;ltima propuesta iran&iacute; la semana pasada. La OTAN vigila el estrecho.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#127466;&#127480; Espa&ntilde;a</h2>
+  <div class="item">
+    <div class="item-title">Espa&ntilde;a lidera crecimiento en grandes econom&iacute;as por tercer a&ntilde;o consecutivo</div>
+    <div class="item-body">PIB +2,8% en 2025. Espa&ntilde;a encabeza las econom&iacute;as avanzadas tres a&ntilde;os seguidos impulsada por turismo, empleo y fondos europeos Next Generation. El desempleo sigue bajando hacia el 10,7% en 2026.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Bola&ntilde;os confirma: no habr&aacute; Presupuestos en 2026</div>
+    <div class="item-body">El ministro descart&oacute; ayer presentar nuevas cuentas este a&ntilde;o: &quot;no es el momento&quot;. El gobierno continuar&aacute; con los Presupuestos prorrogados. La oposici&oacute;n lo califica de bloqueo institucional.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Aprobada ley que prioriza la gesti&oacute;n p&uacute;blica de la sanidad</div>
+    <div class="item-body">El ejecutivo PSOE-Sumar aprob&oacute; ayer la norma que prioriza los modelos p&uacute;blicos de gesti&oacute;n sanitaria frente a la externalizaci&oacute;n privada. Genera controversia en CCAA gobernadas por el PP.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#127961;&#65039; Catalu&ntilde;a &bull; Barcelona</h2>
+  <p class="no-data">&#9888;&#65039; Sin titulares destacados hoy &mdash; las b&uacute;squedas no arrojaron noticias locales relevantes. Para actualidad local: ElNacional.cat, BarcelonaHoy.es o MetropoliAbierta.ElEspanol.com.</p>
+</section>
+
+<section>
+  <h2>&#128200; Finanzas y mercados</h2>
+  <div class="market-row"><span>&#127466;&#127480; Ibex 35</span><span class="down">17.573 pts (-1,56%)</span></div>
+  <div class="market-row"><span>&#128739;&#65039; Brent crude</span><span class="neutral">~107 $/barril</span></div>
+  <div class="market-row"><span>&#127482;&#127480; Bono EEUU 30A</span><span class="down">5,05% &mdash; m&aacute;x. desde 2007 &#9888;&#65039;</span></div>
+  <div class="market-row"><span>&#9762;&#65039; URA (Uranium ETF)</span><span class="neutral">$49,10</span></div>
+  <div class="market-row"><span>&#9762;&#65039; URNM (Sprott Uranium)</span><span class="neutral">$72,01</span></div>
+  <div style="margin-top:14px;" class="item">
+    <div class="item-title" style="margin-bottom:6px;">&#128273; Claves del d&iacute;a</div>
+    <div class="item-body">El bono americano a 30 a&ntilde;os supera el 5% por primera vez desde 2007, a&ntilde;adiendo presi&oacute;n sobre los activos de riesgo. El Ibex 35 sufre ventas sostenidas. El petr&oacute;leo se mantiene elevado por la situaci&oacute;n en Ormuz. Coinbase y PayPal sin noticias relevantes hoy. Los ETF de uranio cotiz&aacute;n estables en un rango consolidado; el boom nuclear por centros de datos de IA sigue impulsando el inter&eacute;s a largo plazo.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#9917; F&uacute;tbol</h2>
+  <div class="item">
+    <div class="item-title">Jornada 36 LaLiga &bull; Alav&eacute;s 1 &ndash; 0 FC Barcelona</div>
+    <div class="score">&#129383;&#128308; 0 &ndash; 1 &#129384;&#128309;</div>
+    <div class="item-body">El Alav&eacute;s, que luchaba por la permanencia, sorprendi&oacute; al ya campe&oacute;n en Mendizorroza. Gol de Ibrahim Diab&aacute;. El Betis gan&oacute; 2-1 al Elche y se clasifica matem&aacute;ticamente para la Champions League. El Espanyol venci&oacute; al Athletic y respira en la zona de permanencia.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Pr&oacute;ximos partidos del Bar&ccedil;a</div>
+    <div class="fixture">&#128197; <strong>J37 &mdash; s&aacute;b. 17 mayo</strong>: Bar&ccedil;a vs Real Betis (Camp Nou)<br>&#128197; <strong>J38 &mdash; vie. 23 mayo</strong>: Valencia vs Bar&ccedil;a (Mestalla)</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Real Madrid juega esta noche vs Real Oviedo</div>
+    <div class="item-body">El Madrid recibe hoy al Oviedo a las 21:30h en la jornada 36. Pr&oacute;ximos: Madrid vs Oviedo (17 mayo) y Sevilla vs Madrid (23 mayo). El equipo blanco busca recuperarse tras el 0-2 en el Cl&aacute;sico.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Clasificaci&oacute;n LaLiga (tras J36)</div>
+    <div class="item-body">&#127942; <strong>FC Barcelona</strong> &mdash; CAMPE&Oacute;N. Betis clasifica para Champions. Dos jornadas restantes para resolver permanencia (Alav&eacute;s 40 pts, Espanyol luchando). Real Madrid sin nada en juego.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#129354; UFC</h2>
+  <div class="item">
+    <div class="item-title">Este s&aacute;bado: UFC Fight Night &mdash; Allen vs. Costa</div>
+    <div class="item-body">&#128197; 16 de mayo &bull; UFC Apex, Las Vegas &bull; Plato fuerte: Arnold Allen (20-4) vs Melquizael Costa (26-7) en <strong>peso pluma</strong>. Evento disponible en Paramount+.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">UFC Freedom 250: Topuria vs Gaethje &mdash; t&iacute;tulo ligero</div>
+    <div class="item-body">&#128197; 14 de junio &bull; Casa Blanca &bull; Ilia Topuria defiende el cintur&oacute;n de peso ligero ante Justin Gaethje. Segunda defensa del campe&oacute;n georgiano. Pelea con muchos elementos t&eacute;cnicos a destacar.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#129302; IA &amp; Tecnolog&iacute;a</h2>
+  <div class="item">
+    <div class="item-title">Anthropic muestra Claude Mythos a partners seleccionados</div>
+    <div class="item-body">El pr&oacute;ximo gran modelo de Anthropic est&aacute; en preview privada. Se espera que sea el m&aacute;s potente del portfolio con capacidades avanzadas de razonamiento y agentes aut&oacute;nomos en contextos largos.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Coste de inferencia LLM cae ~50% en Q1 2026</div>
+    <div class="item-body">La densidad de lanzamientos de abril (Claude 4.6, GPT-5 Turbo, Llama 4, Qwen 3, Gemini 2.5) ha presionado los precios. Sonnet 4 a $3/$15 por mill&oacute;n de tokens. Mistral Medium 3 a $2/$6. &quot;Good enough&quot; nunca fue tan barato para los equipos.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Open-weights: GLM-5.1 y Qwen 3.6-Plus ganan terreno</div>
+    <div class="item-body">Zhipu GLM-5.1 afirma superar modelos propietarios en SWE-Bench Pro. Alibaba lanza Qwen 3.6-Plus. Los desarrolladores tienen m&aacute;s opciones frontier de bajo coste que nunca. Los modelos chinos open-weights son ya competidores reales.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Cloudflare lanza infraestructura de alto rendimiento para LLMs</div>
+    <div class="item-body">Cloudflare anuncia capacidades edge para ejecutar y enrutar LLMs en su red, compitiendo con AWS Bedrock y Azure AI como capa de infraestructura. La inferencia distribuida reduce latencia y costes para apps globales.</div>
+  </div>
+  <div class="item">
+    <div class="item-title">Mercado LLM: de $11,6B a $823B en 2040 (CAGR 35,6%)</div>
+    <div class="item-body">Nuevo informe proyecta crecimiento exponencial impulsado por adopci&oacute;n empresarial, agentes aut&oacute;nomos e integraci&oacute;n profunda en cadenas de producci&oacute;n de software y datos. La IA generativa es ya una infraestructura, no una novedad.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#128202; Conceptos Data &amp; IA del d&iacute;a</h2>
+
+  <div class="concept-box">
+    <div class="concept-title">Semantic Layer <span class="concept-cat">(arquitectura de datos)</span></div>
+    <div class="concept-body">
+      <p><strong>Qu&eacute; es:</strong> Una capa de abstracci&oacute;n que mapea los datos f&iacute;sicos del warehouse a conceptos de negocio (m&eacute;tricas, dimensiones, KPIs) con definiciones &uacute;nicas y consistentes. Herramientas: dbt Semantic Layer, Cube.dev, Looker LookML, AtScale.</p>
+      <p><strong>Por qu&eacute; importa como Senior Manager:</strong> Elimina el problema de &quot;cada equipo calcula el revenue de forma diferente&quot;. Una sola definici&oacute;n de &quot;cliente activo&quot; o &quot;margen neto&quot; sirve a BI, ML y APIs. Reduce onboarding anal&iacute;tico y aumenta la confianza en los datos de toda la organizaci&oacute;n.</p>
+      <p><strong>&#128172; Pregunta para el equipo:</strong> &iquest;Tenemos m&eacute;tricas cr&iacute;ticas definidas en m&uacute;ltiples sitios o dashboards? &iquest;Cu&aacute;l ser&iacute;a el impacto de unificarlas en una Semantic Layer central?</p>
     </div>
-    <div class="divider"></div>
-    <div class="item">
-      <div class="item-desc">⚠️ Datos en tiempo real no disponibles hoy (wttr.in sin respuesta). Según previsiones meteorológicas: ambiente templado, posibles lluvias en zonas de montaña y costa norte de Cataluña durante la tarde.</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-title">AI Gateway / LLM Proxy <span class="concept-cat">(infraestructura de IA)</span></div>
+    <div class="concept-body">
+      <p><strong>Qu&eacute; es:</strong> Capa intermediaria entre tus aplicaciones y los proveedores de LLM (OpenAI, Anthropic, Google...) que gestiona routing, caching, rate limiting, logging, fallback y control de costes. Ejemplos: LiteLLM, Portkey, Kong AI Gateway, Cloudflare AI.</p>
+      <p><strong>Por qu&eacute; importa como Senior Manager:</strong> Cuando el equipo usa 3+ proveedores LLM en producci&oacute;n, necesitas visibilidad central sobre latencia, costes por endpoint y errores. Un gateway da ese control sin cambiar el c&oacute;digo de las apps. Es la pieza que convierte el caos multi-modelo en gobernanza.</p>
+      <p><strong>&#128172; Pregunta para el equipo:</strong> Si ma&ntilde;ana necesitamos migrar un servicio cr&iacute;tico de GPT-5 a Claude Opus 4.6, &iquest;cu&aacute;nto tiempo y riesgo supone? &iquest;Tenemos un gateway que permita ese switch en minutos?</p>
     </div>
   </div>
 </section>
 
-<!-- 🌍 INTERNACIONAL -->
-<section id="inter">
-  <div class="section-header">🌍 Internacional</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-blue">ONU</div>
-      <div class="item-title">Ecuador presenta candidatura para la Secretaría General de la ONU</div>
-      <div class="item-desc">La diplomática ecuatoriana María Fernanda Espinosa, nominada por Antigua y Barbuda, expone a EFE sus propuestas para suceder a António Guterres al frente del organismo internacional.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-purple">DEMOCRACIA</div>
-      <div class="item-title">Michelle Bachelet diserta en Uruguay sobre el futuro de la democracia</div>
-      <div class="item-desc">La expresidenta de Chile analiza el presente democrático en un escenario marcado por tensiones geopolíticas y transformación tecnológica acelerada.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-orange">ENERGÍA</div>
-      <div class="item-title">Petróleo repunta: tensiones Washington–Teherán elevan el barril</div>
-      <div class="item-desc">El Brent sube un 3,52% hasta los 107,88 $/barril; el Texas avanza un 2,84% hasta los 102,43 $. La presión geopolítica en el estrecho de Ormuz sigue siendo el principal catalizador del alza.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-red">FED</div>
-      <div class="item-title">Inflación en EE.UU. en máximos desde 2023 — la Fed aprieta</div>
-      <div class="item-desc">El repunte del IPC americano, impulsado por la energía, aumenta la probabilidad de política monetaria restrictiva por parte de la Reserva Federal. Las bolsas globales reaccionan a la baja.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🇪🇸 ESPAÑA -->
-<section id="espana">
-  <div class="section-header">🇪🇸 España</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-blue">BOLSA</div>
-      <div class="item-title">TSK debuta hoy en Bolsa: primer estreno bursátil de 2026</div>
-      <div class="item-desc">La ingeniería asturiana TSK sale hoy a cotizar en el mercado español, convirtiéndose en la primera empresa en debutar en Bolsa durante este ejercicio 2026.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-orange">POLÍTICA</div>
-      <div class="item-title">Bolaños: los Presupuestos 2026 "no son el momento" ahora</div>
-      <div class="item-desc">El ministro de la Presidencia subraya la voluntad del Gobierno de presentar las cuentas generales del Estado pero reconoce que las condiciones parlamentarias actuales no lo permiten en lo inmediato.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-green">ECONOMÍA</div>
-      <div class="item-title">España busca liderar el crecimiento entre las grandes economías por tercer año</div>
-      <div class="item-desc">El Gobierno confía en batir todas las previsiones de crecimiento para 2026 y consolidar el liderazgo económico entre las grandes naciones europeas por tercer año consecutivo.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-blue">CIENCIA</div>
-      <div class="item-title">Fallo del Premio Princesa de Asturias de Investigación Científica 2026</div>
-      <div class="item-desc">Este miércoles se decide en Oviedo el galardón de investigación más prestigioso de España. Se esperan anuncios en el ámbito de las ciencias tecnológicas y naturales.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🏙️ BARCELONA -->
-<section id="bcn">
-  <div class="section-header">🏙️ Cataluña · Barcelona</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-blue">DERECHOS DIGITALES</div>
-      <div class="item-title">Encuentro Internacional por los Derechos Digitales en Barcelona</div>
-      <div class="item-desc">El Gobierno y Mobile World Capital Barcelona organizan hoy este evento sobre los desafíos de la transformación digital para los derechos fundamentales, con revelación de una encuesta sobre percepción digital en España.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-purple">DIPLOMACIA</div>
-      <div class="item-title">Salvador Illa viaja a California por el 40 aniversario del vínculo Cataluña–Estado Dorado</div>
-      <div class="item-desc">El president de la Generalitat iniciará hoy un viaje por el estado de California con encuentros en los sectores tecnológico y medioambiental para conmemorar cuatro décadas de relaciones bilaterales.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-green">FÚTBOL</div>
-      <div class="item-title">⚽ Esta noche: Alavés–Barcelona · Jornada 36 LaLiga · 21:30h</div>
-      <div class="item-desc">El Barça campeón visita el Mendizorroza en la jornada 36. El Alavés (37 pts, zona de descenso) se juega la permanencia ante el líder con 91 puntos. Barcelona lleva 6 victorias consecutivas ante los vascos.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 📈 MERCADOS -->
-<section id="mercados">
-  <div class="section-header">📈 Finanzas y Mercados</div>
-  <div class="section-body">
-
-    <div class="stat-grid">
-      <div class="stat-box">
-        <div class="stat-label">IBEX 35</div>
-        <div class="stat-value">&lt;17.600</div>
-        <div class="stat-change red">▼ 4ª sesión a la baja</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Brent</div>
-        <div class="stat-value">$107.88</div>
-        <div class="stat-change green">▲ +3.52%</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">WTI Texas</div>
-        <div class="stat-value">$102.43</div>
-        <div class="stat-change green">▲ +2.84%</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">EUR/USD</div>
-        <div class="stat-value">1.1739</div>
-        <div class="stat-change red">▼ −0.39%</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Oro</div>
-        <div class="stat-value">$4.720</div>
-        <div class="stat-change red">▼ −0.16%</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Plata</div>
-        <div class="stat-value">$87.44</div>
-        <div class="stat-change green">▲ +1.72%</div>
-      </div>
-    </div>
-
-    <div class="divider" style="margin: 14px 0;"></div>
-
-    <div class="item">
-      <div class="tag tag-orange">URANIO</div>
-      <div class="item-title">Uranium ETF (URA): $48.88–$52.04 · Boom nuclear continúa</div>
-      <div class="item-desc">El Global X Uranium ETF absorbió $3.800 millones en flujos netos en 2025 (retorno 1 año: +156%). En 2026, la demanda energética de los data centers de IA y el compromiso del Gobierno de EE.UU. para construir reactores AP1000 por $80.000M mantienen el momentum alcista.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-red">MACRO</div>
-      <div class="item-title">Fed en el punto de mira: inflación en máximos de 3 años</div>
-      <div class="item-desc">El repunte del IPC americano, impulsado por energía, presiona al alza las yields de los bonos y hace retirada generalizada en bolsas a ambos lados del Atlántico. El dólar se aprecia frente al euro.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ⚽ FÚTBOL -->
-<section id="futbol">
-  <div class="section-header">⚽ Fútbol</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-green">HOY</div>
-      <div class="item-title">🟡 Alavés vs FC Barcelona — Jornada 36 · 21:30h Mendizorroza</div>
-      <div class="item-desc">El campeón llega con 91 puntos y 6 victorias seguidas ante el Alavés. Los locales (37 pts) necesitan sumar para alejarse del descenso. Flick dispone de toda la plantilla disponible.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-blue">LIGA</div>
-      <div class="item-title">Clasificación LaLiga EA Sports 2025/26 — Tras J35</div>
-      <div class="item-desc">
-        <table class="standing-table">
-          <thead>
-            <tr>
-              <th class="pos">#</th>
-              <th class="team">Equipo</th>
-              <th class="pts">Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="pos champ">🏆</td>
-              <td class="team champ">FC Barcelona</td>
-              <td class="pts champ">91</td>
-            </tr>
-            <tr>
-              <td class="pos">2</td>
-              <td class="team">Real Madrid</td>
-              <td class="pts">77</td>
-            </tr>
-            <tr>
-              <td class="pos">3</td>
-              <td class="team">Villarreal CF</td>
-              <td class="pts">69</td>
-            </tr>
-            <tr>
-              <td class="pos">4</td>
-              <td class="team">Atlético de Madrid</td>
-              <td class="pts">66</td>
-            </tr>
-            <tr>
-              <td class="pos">5</td>
-              <td class="team">Real Betis</td>
-              <td class="pts">57</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-orange">REAL MADRID</div>
-      <div class="item-title">Real Madrid: próximo partido vs Oviedo el 14 mayo · Bernabéu · 21:30h</div>
-      <div class="item-desc">Tras el Clásico perdido (0-2), el Madrid recibe al Oviedo en la jornada 36 mañana jueves. Le quedan 3 partidos para cerrar la temporada.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🥊 UFC -->
-<section id="ufc">
-  <div class="section-header">🥊 UFC</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-red">ESTE VIERNES</div>
-      <div class="item-title">UFC Fight Night: Allen vs. Costa — 16 mayo · Meta APEX Las Vegas</div>
-      <div class="item-desc">Arnold Allen (#7 peso pluma) vs. Melquizael Costa (#12) encabeza la cartelera del viernes en Las Vegas. Evento Fight Night sin título en juego pero con dos contendientes en plena forma.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-purple">JUNIO</div>
-      <div class="item-title">UFC Freedom 250 en la Casa Blanca — 14 de junio · Topuria vs. Gaethje</div>
-      <div class="item-desc">Ilia Topuria (campeón) defenderá el título de peso ligero ante Justin Gaethje (campeón interino) en un evento histórico celebrado en la Casa Blanca. Uno de los combates más esperados del año.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🤖 IA -->
-<section id="ia">
-  <div class="section-header">🤖 Inteligencia Artificial</div>
-  <div class="section-body">
-
-    <div class="item">
-      <div class="tag tag-blue">FRONTERA MAYO 2026</div>
-      <div class="item-title">Los 5 modelos frontier en mayo: GPT-5, Claude Opus 4.6, Gemini 3.1 Pro, Grok 4, DeepSeek V3.2</div>
-      <div class="item-desc">La competencia en la frontera se intensifica. Arena Elo scores entre 1.450 y 1.561. GPT-5 lidera razonamiento matemático con AIME 2026 perfecto. Claude Mythos Preview lidera en ciencia (94.6% GPQA Diamond). Gemini 3.1 Pro es el más eficiente en coste a nivel frontier.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-green">TENDENCIA</div>
-      <div class="item-title">Multimodalidad y agentes: el nuevo estándar de los LLMs top</div>
-      <div class="item-desc">Los modelos frontier de mayo 2026 soportan texto, imagen, audio, vídeo y PDF de forma nativa. Capacidades de "Agent Teams" ya disponibles en Claude Sonnet 4.5 y GPT-5. La inferencia razonada (thinking) se consolida como diferenciador clave.</div>
-    </div>
-
-    <div class="item">
-      <div class="tag tag-purple">OPEN WEIGHTS</div>
-      <div class="item-title">DeepSeek V3.2 y modelos chinos siguen presionando en open-weights</div>
-      <div class="item-desc">Tras el tsunami de modelos abiertos de abril (GLM-5.1, MiniMax, Kimi, DeepSeek V4), mayo consolida a DeepSeek V3.2 como referente open-weights en la frontera, con rendimiento comparable a los modelos propietarios de primer nivel.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 📊 CONCEPTOS DATA & IA -->
-<section id="conceptos">
-  <div class="section-header">📊 Conceptos Data &amp; IA del día</div>
-  <div class="section-body">
-
-    <div class="concept-box">
-      <div class="tag tag-blue">Concepto DATA · Gobernanza</div>
-      <h4>📄 Data Contracts</h4>
-      <p><strong>Qué es:</strong> Un Data Contract es un acuerdo formal (y versionado) entre el productor de datos y sus consumidores que especifica el esquema, la semántica, la calidad esperada y los SLAs de entrega de un dataset. Funciona como una "API contract" pero para datos: si el productor cambia algo, debe notificar y versionar.</p>
-      <p><strong>Por qué importa como Senior Manager:</strong> Elimina los "datos rotos sin previo aviso" que paralizan pipelines. Introduce responsabilidad clara entre equipos (Data Engineering, Analytics, negocio) y permite gestionar cambios de esquema sin incidentes en producción. Es la base de una cultura de dato fiable a escala.</p>
-      <div class="q">💬 Pregunta para el equipo esta semana: ¿Tenemos definidos contratos de datos entre nuestros sistemas fuente y el Data Lake? ¿Quién es el "owner" de cada contrato?</div>
-    </div>
-
-    <div class="concept-box" style="border-left-color: #a855f7;">
-      <div class="tag tag-purple">Concepto IA · Arquitectura</div>
-      <h4>🧩 Mixture of Experts (MoE)</h4>
-      <p><strong>Qué es:</strong> MoE es una arquitectura de redes neuronales donde el modelo se divide en múltiples sub-redes especializadas ("expertos") y un router decide qué expertos activar para cada token. Solo se activan 2–8 expertos de cada vez, lo que permite escalar parámetros totales sin escalar el cómputo proporcional.</p>
-      <p><strong>Por qué importa como Senior Manager:</strong> Modelos como Grok 4, DeepSeek V3 y Mixtral usan MoE para ofrecer capacidades de modelos gigantes a coste de inferencia de modelos medianos. Entender esto ayuda a tomar decisiones de compra (modelos densos vs. MoE) y a evaluar el coste real de despliegue en producción.</p>
-      <div class="q">💬 Pregunta para el equipo esta semana: En los modelos que usamos internamente, ¿sabemos si son arquitecturas densas o MoE? ¿Tenemos visibilidad del coste de inferencia por token?</div>
-    </div>
-
-  </div>
-</section>
-
-<button id="top-btn" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">↑</button>
-
-<div style="text-align:center; padding: 20px; color: var(--muted); font-size: 13px;">
-  Generado automáticamente · 13 mayo 2026 · cnarcisom@gmail.com
-</div>
-
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 </body>
 </html>
