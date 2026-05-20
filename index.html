@@ -2,243 +2,249 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Briefing — 19 de mayo de 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Daily Briefing — 20 de mayo de 2026</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: #0f1117;
-  color: #e2e8f0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  padding: 0 0 80px 0;
-}
-header {
-  background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%);
-  border-bottom: 2px solid #3b82f6;
-  padding: 20px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-header h1 { font-size: 20px; font-weight: 700; color: #60a5fa; letter-spacing: -0.5px; }
-header .date { font-size: 13px; color: #94a3b8; margin-top: 2px; }
-section { margin: 12px 12px 0 12px; background: #1a1f2e; border-radius: 12px; padding: 16px; border: 1px solid #2d3748; }
-section h2 { font-size: 17px; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #2d3748; }
-.item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #1e2533; }
-.item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-.item-title { font-size: 15px; font-weight: 600; color: #f1f5f9; margin-bottom: 3px; }
-.item-text { font-size: 14px; color: #94a3b8; line-height: 1.5; }
-.badge { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 10px; font-weight: 600; margin-bottom: 4px; }
-.badge-red { background: #7f1d1d; color: #fca5a5; }
-.badge-green { background: #14532d; color: #86efac; }
-.badge-blue { background: #1e3a5f; color: #93c5fd; }
-.badge-yellow { background: #713f12; color: #fde68a; }
-.badge-purple { background: #4c1d95; color: #c4b5fd; }
-.badge-orange { background: #7c2d12; color: #fed7aa; }
-.market-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #1e2533; font-size: 14px; }
-.market-row:last-child { border-bottom: none; }
-.market-name { color: #cbd5e1; font-weight: 500; }
-.up { color: #4ade80; font-weight: 600; }
-.down { color: #f87171; font-weight: 600; }
-.neutral { color: #94a3b8; font-weight: 600; }
-.weather-big { text-align: center; padding: 10px 0; }
-.weather-temp { font-size: 48px; font-weight: 700; color: #fbbf24; line-height: 1; }
-.weather-desc { font-size: 15px; color: #94a3b8; margin-top: 4px; }
-.weather-details { display: flex; justify-content: space-around; margin-top: 12px; font-size: 13px; color: #94a3b8; }
-.concepto { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
-.concepto:last-child { margin-bottom: 0; }
-.concepto-title { font-size: 15px; font-weight: 700; color: #60a5fa; margin-bottom: 6px; }
-.concepto-label { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
-.concepto-body { font-size: 13px; color: #94a3b8; margin-bottom: 6px; line-height: 1.5; }
-.concepto-q { font-size: 13px; color: #e2e8f0; font-style: italic; padding: 6px 10px; background: #1e293b; border-left: 3px solid #3b82f6; border-radius: 0 4px 4px 0; margin-top: 6px; }
-#btn-top { position: fixed; bottom: 20px; right: 16px; width: 44px; height: 44px; background: #3b82f6; color: white; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.4); display: flex; align-items: center; justify-content: center; z-index: 200; text-decoration: none; line-height: 1; }
-.no-data { color: #64748b; font-style: italic; font-size: 14px; }
+:root{--bg:#0f0f13;--surface:#1a1a24;--border:#2a2a3a;--text:#e8e8f0;--muted:#8888a0;--accent:#6c8cff;--warn:#f5a623;--ok:#4cdf8c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;padding:0 0 90px;max-width:680px;margin:0 auto}
+header{background:linear-gradient(135deg,#1a1a30,#0f0f20);border-bottom:1px solid var(--border);padding:24px 20px 18px;position:sticky;top:0;z-index:100}
+header h1{font-size:21px;font-weight:700;color:var(--accent)}
+header p{font-size:14px;color:var(--muted);margin-top:5px}
+section{margin:0 14px 14px;background:var(--surface);border-radius:16px;border:1px solid var(--border);overflow:hidden}
+section:first-of-type{margin-top:20px}
+.st{background:rgba(108,140,255,.1);padding:13px 18px;font-size:16px;font-weight:700;color:var(--accent);border-bottom:1px solid var(--border)}
+.sb{padding:16px 18px}
+.item{padding:12px 0;border-bottom:1px solid var(--border)}
+.item:last-child{border-bottom:none;padding-bottom:0}
+.item:first-child{padding-top:0}
+.it{font-weight:600;font-size:16px;line-height:1.4}
+.id{font-size:15px;color:var(--muted);margin-top:6px;line-height:1.5}
+.tag{display:inline-block;background:rgba(108,140,255,.15);color:var(--accent);font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;margin-bottom:6px}
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;margin-top:4px}
+.wc{background:rgba(108,140,255,.08);border-radius:12px;padding:14px 8px}
+.wc .tmp{font-size:26px;font-weight:700;color:var(--accent)}
+.wc .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+.wm{text-align:center;margin-bottom:14px}
+.wm .bt{font-size:52px;font-weight:800;color:var(--text)}
+.wm .dc{font-size:16px;color:var(--muted);margin-top:4px}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.sr:last-child{border-bottom:none}
+.sl{color:var(--muted);font-size:15px}
+.sv{font-weight:700;font-size:16px}
+.up{color:var(--ok)}.down{color:#ff6b6b}.neu{color:var(--muted)}
+.cc{background:rgba(108,140,255,.07);border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid rgba(108,140,255,.2)}
+.cc:last-child{margin-bottom:0}
+.cn{font-size:17px;font-weight:700;color:var(--accent);margin-bottom:3px}
+.ccat{font-size:12px;color:var(--muted);margin-bottom:10px}
+.cq{background:rgba(245,166,35,.12);border-left:3px solid var(--warn);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-size:15px;color:var(--warn)}
+.mc{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.mc:last-child{border-bottom:none}
+.mt{font-weight:600;font-size:16px}
+.mm{font-size:14px;color:var(--muted);text-align:right}
+#topbtn{position:fixed;bottom:22px;right:18px;background:var(--accent);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(108,140,255,.5);z-index:999;display:flex;align-items:center;justify-content:center}
+p{font-size:16px}
 </style>
 </head>
 <body>
+
 <header>
-  <h1>📋 Daily Briefing</h1>
-  <div class="date">🗓️ Martes, 19 de mayo de 2026 · Generado automáticamente</div>
+  <h1>&#x1F4CB; Daily Briefing</h1>
+  <p>Miércoles, 20 de mayo de 2026 &nbsp;&middot;&nbsp; Carlos Narciso</p>
 </header>
 
-<section id="tiempo">
-  <h2>☁️ Tiempo en Barcelona</h2>
-  <div class="weather-big">
-      <div class="weather-temp">17°C</div>
-      <div class="weather-desc">Partly Cloudy </div>
-      <div class="weather-details">
-        <span>🌡️ Sensación 17°C</span>
-        <span>💧 Humedad 88%</span>
-        <span>💨 Viento 4 km/h</span>
+<!-- TIEMPO -->
+<section>
+  <div class="st">&#x2601;&#xFE0F; Tiempo &mdash; Barcelona</div>
+  <div class="sb">
+    <div class="wm">
+      <div class="bt">23&deg;C</div>
+      <div class="dc">Cielos despejados &middot; Anticiclón estable</div>
+    </div>
+    <div class="wg">
+      <div class="wc"><div class="tmp">19&deg;</div><div class="lbl">Mín</div></div>
+      <div class="wc"><div class="tmp">26&deg;</div><div class="lbl">Máx</div></div>
+      <div class="wc"><div class="tmp">&#x1F4A8; 12</div><div class="lbl">km/h</div></div>
+    </div>
+    <p style="margin-top:14px;font-size:14px;color:var(--muted)">Un anticiclón sobre Europa mantiene tiempo estable en la Península con temperaturas en ascenso generalizado.</p>
+  </div>
+</section>
+
+<!-- INTERNACIONAL -->
+<section>
+  <div class="st">&#x1F30D; Internacional</div>
+  <div class="sb">
+    <div class="item">
+      <div class="tag">DIPLOMACIA</div>
+      <div class="it">Modi cierra su gira europea en Roma con Meloni</div>
+      <div class="id">El primer ministro indio concluye hoy su visita europea con una reunión en Italia con la Primera Ministra Giorgia Meloni, buscando reforzar la cooperación bilateral y el acceso a mercados europeos en un contexto de fragmentación geoeconómica.</div>
+    </div>
+    <div class="item">
+      <div class="tag">CULTURA</div>
+      <div class="it">Festival de Cannes en plena efervescencia</div>
+      <div class="id">El certamen cinematográfico más prestigioso del mundo continúa con nuevas proyecciones en competición oficial. Directores internacionales compiten por la Palma de Oro en una edición marcada por la diversidad de propuestas y la presencia de IA en debates sobre el futuro del cine.</div>
+    </div>
+    <div class="item">
+      <div class="tag">ESPAÑA GLOBAL</div>
+      <div class="it">Premio Princesa de Asturias de Cooperación Internacional 2026 se decide hoy</div>
+      <div class="id">El jurado presidido por Gustavo Suárez Pertierra elige hoy en Oviedo entre 32 candidaturas al galardonado de esta edición, uno de los premios más reconocidos de la diplomacia cultural española.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPAÑA -->
+<section>
+  <div class="st">&#x1F1EA;&#x1F1F8; España</div>
+  <div class="sb">
+    <div class="item">
+      <div class="tag">POLÍTICA</div>
+      <div class="it">Bolaños: quiere Presupuestos 2026 pero &laquo;no es el momento&raquo;</div>
+      <div class="id">El ministro de la Presidencia reitera la intención del Gobierno de presentar unos PGE para 2026, pero reconoce que la incertidumbre geopolítica y económica hace inviable fijar fecha. La fragmentación parlamentaria complica la negociación.</div>
+    </div>
+    <div class="item">
+      <div class="tag">ECONOMÍA</div>
+      <div class="it">España liderá las economías avanzadas en 2026 con un 2,2% de crecimiento</div>
+      <div class="id">Por tercer año consecutivo España supera las previsiones, por delante de EEUU (1,7%). El mercado laboral marca récords pero el país acumula 156.000 vacantes sin cubrir y 2,6 millones de parados según la última EPA.</div>
+    </div>
+    <div class="item">
+      <div class="tag">INDUSTRIA</div>
+      <div class="it">Inversión de 1.200 millones impulsa nuevo boom industrial</div>
+      <div class="id">España registra un crecimiento del 50% en nuevos proyectos industriales, posicionándose como destino preferente de capital europeo en sectores estratégicos como semiconductores y energías limpias.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BARCELONA -->
+<section>
+  <div class="st">&#x1F3D9;&#xFE0F; Cataluña &middot; Barcelona</div>
+  <div class="sb">
+    <div class="item">
+      <div class="tag">URBANISMO</div>
+      <div class="it">415M€ para regenerar el Besòs i el Maresme en diez años</div>
+      <div class="id">Generalitat y Ajuntament de Barcelona firmaron un plan histórico de regeneración urbana para este barrio, con inversiones en vivienda, espacios verdes y equipamientos durante la próxima década.</div>
+    </div>
+    <div class="item">
+      <div class="tag">EMPLEO TECH</div>
+      <div class="it">Indra prevé 1.500 nuevos empleos cualificados en Cataluña</div>
+      <div class="id">El grupo tecnológico presentó en Barcelona su Plan de Crecimiento para Cataluña, con objetivo de alcanzar 5.000 profesionales altamente cualificados en la región, reforzando el ecosistema tech local.</div>
+    </div>
+    <div class="item">
+      <div class="tag">TRANSPORTE</div>
+      <div class="it">Polémica por la nueva línea R-Aeroport de la Generalitat</div>
+      <div class="id">Varias entidades alertan de impactos negativos en la red de Cercanías y Regionales ante el proyecto de nueva línea operada por FGC hacia el aeropuerto, prevista para principios de 2027.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANZAS -->
+<section>
+  <div class="st">&#x1F4C8; Finanzas y Mercados</div>
+  <div class="sb">
+    <div class="sr"><span class="sl">&#x1F1EA;&#x1F1F8; IBEX 35</span><span class="sv neu">~17.815 pts</span></div>
+    <div class="sr"><span class="sl">&#x2622;&#xFE0F; URA (Uranium ETF)</span><span class="sv down">$50,91 &nbsp;&#x25BC; -3,05%</span></div>
+    <div class="sr"><span class="sl">&#x1F4B0; Coinbase (COIN)</span><span class="sv neu">Q1 2026 earnings publicados</span></div>
+    <div class="sr"><span class="sl">&#x1F6E2;&#xFE0F; Brent</span><span class="sv up">~110 $/barril</span></div>
+    <div class="sr"><span class="sl">&#x1F4CA; PIB España 2026e</span><span class="sv up">+2,2%</span></div>
+    <div class="item" style="padding-top:12px">
+      <div class="id">Mercado de uranio con oferta ajustada y demanda nuclear estructuralmente creciente. URA registró corrección técnica aunque el ciclo a largo plazo sigue positivo. El petróleo se mantiene elevado por tensiones en el Estrecho de Ormuz.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FÚTBOL -->
+<section>
+  <div class="st">&#x26BD; Fútbol</div>
+  <div class="sb">
+    <div class="tag" style="margin-bottom:12px">PRÓXIMOS PARTIDOS &mdash; J38 &middot; Sábado 23 mayo &middot; 21:00h</div>
+    <div class="mc">
+      <div>
+        <div class="mt">&#x1F535;&#x1F534; Valencia vs FC Barcelona</div>
+        <div style="font-size:13px;color:var(--muted)">Mestalla &middot; LaLiga J38 (última jornada)</div>
       </div>
-      <div class="weather-details" style="margin-top:8px">
-        <span>🔺 Máx 21°C</span>
-        <span>🔻 Mín 16°C</span>
+      <div class="mm">Sáb 23/05<br/>21:00h<br/>DAZN</div>
+    </div>
+    <div class="mc">
+      <div>
+        <div class="mt">&#x26AA; Real Madrid vs Athletic Club</div>
+        <div style="font-size:13px;color:var(--muted)">Bernéu &middot; LaLiga J38</div>
       </div>
+      <div class="mm">Sáb 23/05<br/>21:00h</div>
     </div>
-</section>
-
-<section id="internacional">
-  <h2>🌍 Internacional</h2>
-  <div class="item">
-    <span class="badge badge-red">🇷🇺🇨🇳 Geopolítica</span>
-    <div class="item-title">Putin visita China hoy y mañana para reforzar el eje sino-ruso</div>
-    <div class="item-text">El presidente ruso está en Pekín los días 19 y 20 de mayo para profundizar la "cooperación estratégica sin límites" con Xi Jinping, en plena guerra en Ucrania y tensión máxima con Occidente.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-yellow">🇺🇦🇷🇺 Ucrania</span>
-    <div class="item-title">Rusia y Ucrania intercambian 205 prisioneros en la primera fase del gran canje</div>
-    <div class="item-text">Cada bando libera 205 presos de guerra en la primera fase de un acuerdo total por 1.000 prisioneros a cada lado — el mayor canje desde el inicio del conflicto. Señal de negociación en curso.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-red">🇨🇺🇺🇸 Cuba–EEUU</span>
-    <div class="item-title">EEUU estudia amenaza de drones militares desde Cuba; Díaz-Canel advierte "consecuencias incalculables"</div>
-    <div class="item-text">Washington analiza actividad de drones con origen cubano. El presidente cubano responde que un eventual ataque estadounidense provocaría "un baño de sangre de consecuencias incalculables".</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-blue">🇵🇪 Perú</span>
-    <div class="item-title">Segunda vuelta en Perú: Keiko Fujimori vs. Roberto Sánchez el 7 de junio</div>
-    <div class="item-text">Las elecciones presidenciales peruanas van a segunda vuelta entre Keiko Fujimori (Fuerza Popular) y Roberto Sánchez. La campaña entra ahora en su recta final.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-green">⚽ Mundial 2026</span>
-    <div class="item-title">Neymar convocado por Ancelotti para el Mundial 2026</div>
-    <div class="item-text">Carlo Ancelotti incluye a Neymar en la lista definitiva de 26 jugadores de Brasil para la Copa del Mundo. El torneo se celebra este verano en EEUU, Canadá y México, con el espectáculo de halftime a cargo de Shakira, Madonna y BTS.</div>
+    <div style="margin-top:16px;margin-bottom:8px"><span class="tag">CLASIFICACIÓN TRAS J37</span></div>
+    <div class="sr"><span class="sl">&#x1F947; FC Barcelona &#x1F3C6;</span><span class="sv up">94 pts</span></div>
+    <div class="sr"><span class="sl">2. Real Madrid</span><span class="sv neu">83 pts</span></div>
+    <div class="sr"><span class="sl">3. Villarreal CF</span><span class="sv neu">69 pts</span></div>
+    <div class="sr"><span class="sl">4. Atlético Madrid</span><span class="sv neu">69 pts</span></div>
+    <div class="sr"><span class="sl">5. Real Betis</span><span class="sv neu">57 pts</span></div>
   </div>
 </section>
 
-<section id="espana">
-  <h2>🇪🇸 España</h2>
-  <div class="item">
-    <span class="badge badge-blue">🗳️ Política</span>
-    <div class="item-title">Elecciones Andalucía 18-M: primeros resultados y posible mayoría del PP</div>
-    <div class="item-text">Tras la jornada electoral del domingo 18 de mayo en Andalucía, las primeras proyecciones apuntan a que el PP mantendría mayoría absoluta. Pendiente confirmación del escrutinio oficial.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-yellow">🌍 Exterior</span>
-    <div class="item-title">España concederá la nacionalidad al opositor venezolano Leopoldo López</div>
-    <div class="item-text">El Gobierno anuncia la concesión de la nacionalidad española al líder opositor que reside en Madrid desde 2020. Gesto político de alto valor simbólico para la comunidad venezolana en España.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-green">📊 Economía</span>
-    <div class="item-title">Inmigración: motor del 47% del crecimiento del PIB español desde 2022</div>
-    <div class="item-text">Un nuevo estudio revela que la fuerza laboral extranjera ha sido clave para la economía española, con empleo creciendo un 2,3% en 2024. La tasa de desempleo proyectada para 2026 es del 10,7%.</div>
-  </div>
-</section>
-
-<section id="barcelona">
-  <h2>🏙️ Cataluña · Barcelona</h2>
-  <div class="item">
-    <span class="badge badge-blue">🤖 IA y Ciencia</span>
-    <div class="item-title">Illa refuerza el Barcelona Supercomputing Center como hub europeo de IA</div>
-    <div class="item-text">El president Salvador Illa impulsa nuevas inversiones en el BSC-CNS para consolidarlo como centro clave de sistemas de inteligencia artificial en Europa, apostando por infraestructura de cómputo soberano.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-green">🏆 Deporte</span>
-    <div class="item-title">Barça campeón: última jornada en Mestalla el 23 de mayo como celebración</div>
-    <div class="item-text">Tras el 3-1 al Betis del sábado, el FC Barcelona cierra la temporada visitando Valencia el 23 de mayo. La ciudad ya celebra el título de LaLiga 2025/26 con 94 puntos — temporada histórica.</div>
-  </div>
-</section>
-
-<section id="finanzas">
-  <h2>📈 Finanzas y mercados</h2>
-  <div class="item">
-    <span class="badge badge-red">📉 Bolsa europea</span>
-    <div class="item-title">IBEX –0,37% a 17.528: tensiones en Ormuz disparan el Brent a $110</div>
-    <div class="item-text">Repsol lidera el selectivo con +4% gracias al petróleo en máximos. Las tensiones entre EEUU e Irán mantienen el Brent al alza (+0,9%), pesando sobre transporte y economía global.</div>
-  </div>
-  <div style="margin: 8px 0;">
-    <div class="market-row"><span class="market-name">🇪🇸 IBEX 35</span><span class="down">17.528 ▼ −0,37%</span></div>
-    <div class="market-row"><span class="market-name">🇪🇺 EuroStoxx 50</span><span class="down">5.780 ▼ −0,60%</span></div>
-    <div class="market-row"><span class="market-name">🇩🇪 DAX</span><span class="neutral">23.960 → plano</span></div>
-    <div class="market-row"><span class="market-name">🛢️ Brent (crudo)</span><span class="up">$110,50 ▲ +0,90%</span></div>
-  </div>
-  <div class="item">
-    <span class="badge badge-yellow">⚛️ Uranio / Cartera</span>
-    <div class="item-title">URA $48–52 · URNM $71–73 · Uranio spot en $100/lb — máximo desde 2008</div>
-    <div class="item-text">Global X Uranium ETF (URA): $48,88–$52,04. Sprott URNM: $71,16–$73,49. Precio spot supera los $100/lb; largo plazo en $90/lb, máximo histórico desde 2008. EEUU otorga $2,7B en contratos a Centrus; Meta firma 7,8 GW de capacidad nuclear para sus data centers de IA.</div>
-  </div>
-</section>
-
-<section id="futbol">
-  <h2>⚽ Fútbol</h2>
-  <div class="item">
-    <span class="badge badge-blue">🏆 LaLiga — J38 · Sábado 23 mayo 21:00h</span>
-    <div class="item-title">Última jornada: Valencia–Barça en Mestalla · Real Madrid–Athletic en Bernabéu</div>
-    <div class="item-text">El Barça campeón cierra en Mestalla; el Madrid se despide de su afición ante el Athletic Club. Múltiples plazas europeas y los últimos puestos de descenso aún por decidir.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-red">📊 Clasificación tras J37</span>
-    <div class="item-title">Barça 94 pts (campeón) · Madrid 83 pts · Descenso sin resolver</div>
-    <div class="item-text"><strong style="color:#4ade80">Top:</strong> Barça campeón (94), Madrid 2º (83).<br><strong style="color:#f87171">Peligro de descenso:</strong> Mallorca 39 pts y Girona 40 pts en zona roja. Levante, Osasuna y Elche (42 pts) también en riesgo. Todo se decide el sábado.</div>
-  </div>
-</section>
-
-<section id="ufc">
-  <h2>🥊 UFC</h2>
-  <div class="item">
-    <span class="badge badge-orange">📅 Próximos eventos</span>
-    <div class="item-title">UFC Vegas 118 (30 mayo) · UFC Freedom 250 (14 junio)</div>
-    <div class="item-text"><strong style="color:#f1f5f9">30 Mayo — UFC Vegas 118:</strong> Belal Muhammad vs. Gabriel Bonfim — título peso wélter en juego. En 11 días.<br><strong style="color:#f1f5f9">14 Junio — UFC Freedom 250:</strong> Topuria vs. Gaethje + Pereira vs. Gane. Doble estelar en la Casa Blanca — evento histórico.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-green">✅ Último resultado</span>
-    <div class="item-title">UFC Vegas 117 (16 mayo): Arnold Allen vence a Costa 50–45 por decisión unánime</div>
-    <div class="item-text">Allen dominó los 5 rounds en el peso pluma y sube posiciones en el ranking. Costa no tuvo respuesta en ningún asalto.</div>
-  </div>
-</section>
-
-<section id="ia">
-  <h2>🤖 Inteligencia Artificial</h2>
-  <div class="item">
-    <span class="badge badge-blue">🆕 Modelo</span>
-    <div class="item-title">SubQ: primer modelo no-transformer lanzado con contexto nativo de 12M tokens</div>
-    <div class="item-text">Lanzado el 5 de mayo con $29M en seed, SubQ apuesta por arquitectura subquadrática que rompe el paradigma transformer. Contexto nativo de 12 millones de tokens con eficiencia de inferencia superior a escala.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-red">🇨🇳 China AI</span>
-    <div class="item-title">4 labs chinos lanzan coding models open-weights en 12 días a menor coste</div>
-    <div class="item-text">GLM-5.1 (Z.ai), MiniMax M2.7, Kimi K2.6 (Moonshot) y DeepSeek V4 alcanzan el mismo nivel de capacidad agentica en ingeniería que los modelos occidentales, a coste de inferencia notablemente menor. La presión sobre OpenAI y Anthropic se intensifica.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-purple">🛠️ Coding AI</span>
-    <div class="item-title">Cursor Composer 2.5 iguala a Opus 4.7 y GPT-5.5 en benchmarks de coding</div>
-    <div class="item-text">Basado en Kimi K2.5 y entrenado con 25x más tareas sintéticas, el nuevo modelo de Cursor es comparable a los modelos frontier a una fracción del coste. La guerra del AI coding se acelera.</div>
-  </div>
-  <div class="item">
-    <span class="badge badge-green">☁️ Infraestructura</span>
-    <div class="item-title">Cloudflare despliega infraestructura global para ejecutar LLMs en su red de borde</div>
-    <div class="item-text">La compañía anuncia capacidad distribuida para correr grandes modelos en sus nodos de borde globales, reduciendo latencia y mejorando privacidad para empresas que buscan alternativas a clouds centralizados.</div>
-  </div>
-</section>
-
-<section id="conceptos">
-  <h2>📊 Conceptos Data &amp; IA del día</h2>
-  <div class="concepto">
-    <div class="concepto-label">📦 Concepto DATA · Arquitectura</div>
-    <div class="concepto-title">Data Mesh</div>
-    <div class="concepto-body">
-      <strong style="color:#e2e8f0">Qué es:</strong> Paradigma arquitectónico que distribuye la propiedad de los datos como productos entre los equipos de dominio, en lugar de centralizar todo en un equipo de datos único. Cada dominio publica, mantiene y garantiza la calidad de sus datos con total autonomía.<br><br>
-      <strong style="color:#e2e8f0">Por qué importa como Senior Manager:</strong> Elimina el cuello de botella del equipo central de datos y traslada la responsabilidad a los squads de negocio. Requiere data product owners en cada dominio, contratos de datos claros y SLAs propios — cambia radicalmente la dinámica organizacional.
+<!-- UFC -->
+<section>
+  <div class="st">&#x1F94A; UFC &mdash; Próximos eventos</div>
+  <div class="sb">
+    <div class="item">
+      <div class="tag">6 JUNIO &middot; UFC Vegas 118 &middot; Las Vegas</div>
+      <div class="it">Belal Muhammad vs Gabriel Bonfim &mdash; Wélter</div>
+      <div class="id">Combate estelar de peso wélter en el UFC APEX. Bonfim &laquo;Napolinão&raquo; llega con racha ganadora buscando el título ante el campeón Belal Muhammad.</div>
     </div>
-    <div class="concepto-q">💬 Pregunta para el equipo esta semana: "¿Cuáles son los 3 dominios de datos más críticos en nuestro negocio y quién debería ser el data product owner de cada uno?"</div>
-  </div>
-  <div class="concepto">
-    <div class="concepto-label">🤖 Concepto IA · Técnica — RAG Avanzado</div>
-    <div class="concepto-title">Agentic RAG</div>
-    <div class="concepto-body">
-      <strong style="color:#e2e8f0">Qué es:</strong> Evolución del RAG clásico en la que el modelo no hace una única búsqueda estática: despliega agentes autónomos que iteran, reformulan queries, usan múltiples fuentes, validan relevancia y razonan en varios pasos antes de generar la respuesta final.<br><br>
-      <strong style="color:#e2e8f0">Por qué importa como Senior Manager:</strong> Los asistentes empresariales y motores de búsqueda interna están migrando a Agentic RAG. La calidad de respuesta mejora radicalmente, pero la latencia y el coste de tokens se multiplican — hay un trade-off real que los equipos de producto deben gestionar con métricas propias.
+    <div class="item">
+      <div class="tag">14 JUNIO &middot; UFC Freedom 250 &middot; Casa Blanca</div>
+      <div class="it">Topuria vs Gaethje + Pereira vs Gane &mdash; Doble título</div>
+      <div class="id">Evento histórico desde la Casa Blanca. Ilia Topuria defiende el título de peso ligero ante Justin Gaethje, y Alex Pereira se la juega con Ciryl Gane por el semipesado. Cartelera de élite.</div>
     </div>
-    <div class="concepto-q">💬 Pregunta para el equipo esta semana: "Si tuviéramos Agentic RAG sobre nuestra base de conocimiento interna, ¿cuál sería el caso de uso con mayor ROI y cuánta latencia aceptarían los usuarios?"</div>
   </div>
 </section>
 
-<a href="#" id="btn-top">&#8679;</a>
-<script>
-document.getElementById('btn-top').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
-</script>
+<!-- IA -->
+<section>
+  <div class="st">&#x1F916; IA &amp; LLMs</div>
+  <div class="sb">
+    <div class="item">
+      <div class="tag">GOOGLE</div>
+      <div class="it">Gemini 3.1 Ultra: 2M tokens y razonamiento multimodal nativo</div>
+      <div class="id">Google lanza Gemini 3.1 Ultra con ventana de contexto de 2 millones de tokens y razonamiento simultáneo sobre vídeo, audio y texto. Nuevo referente en multimodalidad avanzada y competidor directo de GPT-5.5.</div>
+    </div>
+    <div class="item">
+      <div class="tag">ARQUITECTURA</div>
+      <div class="it">Mercury 2 (Inception): difusión supera 1.000 tokens/segundo</div>
+      <div class="id">Mercury 2 genera tokens en paralelo usando arquitectura de difusión, superando 1.000 tok/s. Ideal para loops agénticos y voz en tiempo real. Un salto paradigmático en velocidad de inferencia sin transformers.</div>
+    </div>
+    <div class="item">
+      <div class="tag">OPEN-WEIGHTS</div>
+      <div class="it">Mayo: arquitectura por delante de escala en el frente chino</div>
+      <div class="id">Cuatro labs chinos publican modelos open-weights de coding: GLM-5.1, MiniMax M2.7, Kimi K2.6 y DeepSeek V4 alcanzan techo similar en ingeniería agéntica con coste de inferencia significativamente menor que los modelos occidentales.</div>
+    </div>
+    <div class="item">
+      <div class="tag">SPEECH AI</div>
+      <div class="it">Sakana KAME: conocimiento LLM inyectado en voz en tiempo real</div>
+      <div class="id">Sakana AI introduce arquitectura &laquo;tandem&raquo; que inyecta el conocimiento de un LLM directamente en un sistema speech-to-speech, eliminando el cuello de botella del texto intermedio en IA conversacional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTOS -->
+<section>
+  <div class="st">&#x1F4CA; Conceptos Data &amp; IA del día</div>
+  <div class="sb">
+    <div class="cc">
+      <div class="cn">Data Lakehouse</div>
+      <div class="ccat">Concepto DATA &middot; Arquitectura</div>
+      <p style="font-size:15px;margin-bottom:8px"><strong>Qué es:</strong> Arquitectura híbrida que combina la flexibilidad y bajo coste del data lake con las garantías transaccionales ACID y el rendimiento analítico del data warehouse. Implementaciones líder: Delta Lake, Apache Iceberg y Apache Hudi.</p>
+      <p style="font-size:15px;margin-bottom:8px"><strong>Por qué importa como Senior Manager:</strong> Elimina la dicotomía lake/warehouse, reduciendo duplicación de datos y costes de ETL inter-sistema. Permite a equipos de DS y Analytics trabajar sobre las mismas fuentes con calidad de warehouse, acelerando time-to-insight.</p>
+      <div class="cq">&#x1F4AC; <em>Pregunta para el equipo esta semana:</em> ¿Nuestro stack actual genera silos entre el lake y el warehouse? ¿Tenemos duplicación de datos entre capas? ¿Merece la pena evaluar una arquitectura lakehouse?</div>
+    </div>
+    <div class="cc">
+      <div class="cn">Mixture of Experts (MoE)</div>
+      <div class="ccat">Concepto IA &middot; Arquitectura</div>
+      <p style="font-size:15px;margin-bottom:8px"><strong>Qué es:</strong> Técnica de arquitectura neural donde el modelo se compone de múltiples sub-redes &laquo;expertas&raquo; y un router que, para cada token, activa solo un subconjunto de ellas. Permite escalar los parámetros totales sin escalar el coste de inferencia. GPT-4, Mixtral y DeepSeek usan MoE.</p>
+      <p style="font-size:15px;margin-bottom:8px"><strong>Por qué importa como Senior Manager:</strong> Entender MoE explica por qué &laquo;más parámetros&raquo; no implica necesariamente más coste en producción. Al evaluar proveedores LLM, preguntar si usan MoE da contexto sobre eficiencia de inferencia y estrategia de pricing real.</p>
+      <div class="cq">&#x1F4AC; <em>Pregunta para el equipo esta semana:</em> En los modelos que usamos en producción, ¿sabemos si son densos o MoE? ¿Cómo afecta eso a nuestra estimación de costes a escala?</div>
+    </div>
+  </div>
+</section>
+
+<button id="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
 </body>
 </html>
