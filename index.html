@@ -1,375 +1,289 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Daily Briefing — 21 de mayo de 2026</title>
-<style>
-  :root {
-    --bg: #0f0f13;
-    --card: #1a1a24;
-    --border: #2a2a3a;
-    --accent: #7c6ff7;
-    --accent2: #4fc3f7;
-    --text: #e2e2f0;
-    --muted: #9090aa;
-    --good: #4caf82;
-    --warn: #f5a623;
-    --bad: #e05c5c;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    padding-bottom: 80px;
-  }
-  header {
-    background: linear-gradient(135deg, #1a1a35 0%, #0f0f20 100%);
-    padding: 24px 20px 20px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  header h1 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.5px;
-  }
-  header p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 3px;
-  }
-  .section {
-    margin: 12px 14px;
-    background: var(--card);
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .section-title {
-    padding: 14px 18px 10px;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--accent2);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-body { padding: 14px 18px; }
-  .item {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
-  }
-  .item:last-child { border-bottom: none; padding-bottom: 4px; }
-  .item-title { font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .item-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
-  .tag {
-    display: inline-block;
-    background: rgba(124,111,247,0.2);
-    color: var(--accent);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 4px;
-  }
-  .tag-warn { background: rgba(245,166,35,0.15); color: var(--warn); }
-  .tag-good { background: rgba(76,175,130,0.15); color: var(--good); }
-  .tag-bad { background: rgba(224,92,92,0.15); color: var(--bad); }
-  .weather-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 4px;
-  }
-  .weather-val {
-    background: rgba(79,195,247,0.08);
-    border-radius: 10px;
-    padding: 10px 12px;
-    text-align: center;
-  }
-  .weather-val .num { font-size: 22px; font-weight: 700; color: var(--accent2); }
-  .weather-val .lbl { font-size: 12px; color: var(--muted); }
-  .market-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .market-row:last-child { border-bottom: none; }
-  .market-name { font-weight: 600; font-size: 15px; }
-  .market-val { font-size: 15px; font-weight: 700; }
-  .up { color: var(--good); }
-  .dn { color: var(--bad); }
-  .neutral { color: var(--muted); }
-  .standings {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    margin-top: 4px;
-  }
-  .standings th {
-    color: var(--muted);
-    font-weight: 600;
-    text-align: left;
-    padding: 6px 4px;
-    font-size: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .standings td { padding: 8px 4px; border-bottom: 1px solid #1f1f2e; }
-  .standings tr:last-child td { border-bottom: none; }
-  .pos-1 { color: var(--accent); font-weight: 700; }
-  .pos-2 { color: var(--accent2); font-weight: 600; }
-  .concepto {
-    background: rgba(124,111,247,0.07);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 10px 10px 0;
-    padding: 14px 16px;
-    margin-bottom: 14px;
-  }
-  .concepto:last-child { margin-bottom: 0; }
-  .concepto h3 { font-size: 15px; color: var(--accent); margin-bottom: 6px; }
-  .concepto p { font-size: 14px; color: var(--muted); margin-bottom: 6px; line-height: 1.55; }
-  .concepto .q { font-size: 14px; color: var(--warn); font-style: italic; }
-  .nodata { color: var(--warn); font-size: 14px; padding: 8px 0; }
-  #topbtn {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(124,111,247,0.4);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing — 23 mayo 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0 0 80px 0;
+    }
+    header {
+      background: linear-gradient(135deg, #161b22, #21262d);
+      padding: 24px 20px 20px;
+      border-bottom: 2px solid #238636;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { font-size: 20px; font-weight: 700; color: #58a6ff; }
+    header p { font-size: 13px; color: #8b949e; margin-top: 4px; }
+    section {
+      margin: 16px 16px 0;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .sh {
+      background: #1c2128;
+      padding: 14px 18px;
+      border-bottom: 1px solid #21262d;
+    }
+    .sh h2 { font-size: 16px; font-weight: 700; }
+    .sb { padding: 16px 18px; }
+    .ni { padding: 12px 0; border-bottom: 1px solid #21262d; }
+    .ni:last-child { border-bottom: none; padding-bottom: 0; }
+    .nt { font-size: 16px; font-weight: 600; color: #e6edf3; margin-bottom: 6px; line-height: 1.4; }
+    .nb { font-size: 15px; color: #8b949e; line-height: 1.55; }
+    .nb strong { color: #e6edf3; }
+    .bdg {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .r { background: #3d1f1f; color: #ff7b72; }
+    .b { background: #1f2d3d; color: #58a6ff; }
+    .g { background: #1f3d2a; color: #3fb950; }
+    .y { background: #3d2f1f; color: #d29922; }
+    .p { background: #2d1f3d; color: #bc8cff; }
+    .sr { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 15px; }
+    .sr:last-child { border-bottom: none; }
+    .sl { color: #8b949e; }
+    .sv { color: #e6edf3; font-weight: 600; }
+    .up { color: #3fb950; }
+    .cb { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+    .cb:last-child { margin-bottom: 0; }
+    .cn { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 4px; }
+    .cc { font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .cd { font-size: 15px; color: #8b949e; line-height: 1.55; }
+    .cd strong { color: #e6edf3; }
+    .cd p { margin-bottom: 8px; }
+    .nd { color: #6e7681; font-size: 15px; padding: 8px 0; }
+    #top-btn {
+      position: fixed; bottom: 24px; right: 20px;
+      background: #238636; color: white; border: none;
+      border-radius: 50%; width: 48px; height: 48px;
+      font-size: 20px; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4); z-index: 200;
+    }
+    .mc { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+    .mc:last-child { margin-bottom: 0; }
+    .mt { font-size: 16px; font-weight: 700; color: #e6edf3; margin-bottom: 3px; }
+    .mi { font-size: 13px; color: #8b949e; }
+    table.st { width: 100%; border-collapse: collapse; font-size: 14px; }
+    table.st th { color: #8b949e; font-weight: 600; text-align: left; padding: 6px 4px; border-bottom: 1px solid #21262d; }
+    table.st td { padding: 7px 4px; border-bottom: 1px solid #21262d; color: #e6edf3; }
+    table.st tr:last-child td { border-bottom: none; }
+    .p1 { color: #f1c40f; font-weight: 700; }
+    .p2 { color: #8b949e; font-weight: 700; }
+    .p3 { color: #cd7f32; font-weight: 700; }
+  </style>
 </head>
 <body>
 <header id="top">
-  <h1>☀️ Daily Briefing</h1>
-  <p>Jueves, 21 de mayo de 2026 &nbsp;·&nbsp; Generado automáticamente</p>
+  <h1>📋 Daily Briefing</h1>
+  <p>Sábado, 23 de mayo de 2026 &nbsp;·&nbsp; Generado a las <span id="hora"></span></p>
 </header>
 
-<!-- TIEMPO -->
-<div class="section">
-  <div class="section-title">☁️ Tiempo — Barcelona</div>
-  <div class="section-body">
-    <p class="nodata">⚠️ Sin datos en tiempo real hoy (servicio wttr.in no respondió)</p>
-    <p style="font-size:14px;color:var(--muted);margin-top:8px;">Típico de mayo en Barcelona: 19–24°C, cielos parcialmente nublados, baja probabilidad de lluvia. Consulta la app del tiempo para datos actualizados.</p>
-  </div>
-</div>
+<section>
+  <div class="sh"><h2>☁️ Tiempo en Barcelona</h2></div>
+  <div class="sb"><p class="nd">⚠️ Sin datos hoy — servicio wttr.in no disponible</p></div>
+</section>
 
-<!-- INTERNACIONAL -->
-<div class="section">
-  <div class="section-title">🌍 Internacional</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title"><span class="tag tag-bad">🇺🇸🇨🇺 Tensión</span> EEUU evalúa acusar a Raúl Castro</div>
-      <div class="item-desc">El Departamento de Justicia estudia una acusación criminal contra Raúl Castro. Cuba advierte que habrá un "baño de sangre" ante cualquier intervención y Trump anuncia novedades "pronto" sobre el embargo.</div>
+<section>
+  <div class="sh"><h2>🌍 Internacional</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg r">🇷🇺🇨🇳 Geopolítica</span>
+      <div class="nt">Putin visita Pekín: cumbre bilateral con Xi Jinping</div>
+      <div class="nb">El presidente ruso Vladimir Putin llegó a Pekín para una visita de dos días, reuniéndose con el presidente Xi Jinping. Nuevo refuerzo del eje Moscú-Pekín en un contexto de creciente tensión global con Occidente.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-bad">🦠 Alerta</span> Brote mortal de ébola en África</div>
-      <div class="item-desc">La OMS activa alarma internacional por un nuevo brote de ébola. Se monitorean posibles rutas de propagación y se refuerzan medidas de contención en los países afectados.</div>
+    <div class="ni">
+      <span class="bdg r">⚠️ Seguridad nuclear</span>
+      <div class="nt">Drones atacan la central nuclear de Barakah (EAU) desde Irak</div>
+      <div class="nb">Emiratos Árabes Unidos confirmó que los drones que atacaron su planta nuclear de Barakah fueron lanzados desde territorio iraquí. El incidente eleva la tensión en el Golfo y pone en cuestión la seguridad de la infraestructura nuclear civil.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag">🇺🇸🇨🇳 Diplomacia</span> Trump regresa de China sin grandes acuerdos</div>
-      <div class="item-desc">La cumbre Trump-Xi concluyó sin acuerdos sustanciales. Los mercados siguen la tregua arancelaria vigente. El foco estaba en comercio, Irán y Taiwán. Se esperan próximas rondas negociadoras.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-warn">☄️ Espacio</span> Asteroide 2026JH2 pasa a 91.000 km de la Tierra</div>
-      <div class="item-desc">La NASA confirma el acercamiento de 2026JH2, que quedará a solo ¼ de la distancia Tierra-Luna. Sin riesgo de impacto, pero es una de las aproximaciones más cercanas del año.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">⚽🎤 Mundial 2026</span> Shakira, Madonna y BTS en el espectáculo final</div>
-      <div class="item-desc">La FIFA confirma el cartel estelar para la ceremonia de medio tiempo de la final de la Copa Mundial 2026. El torneo arranca en junio con sedes en EEUU, Canadá y México.</div>
+    <div class="ni">
+      <span class="bdg y">🕊️ Irán-EEUU</span>
+      <div class="nt">Trump: "La guerra con Irán está en sus etapas finales"</div>
+      <div class="nb">Irán estudia la última propuesta de EEUU mientras Trump afirma que el conflicto llega a su fin. En paralelo, Washington pausó la venta de armas a Taiwán por valor de <strong>14.000 millones de dólares</strong> en relación con el conflicto iraní.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ESPAÑA -->
-<div class="section">
-  <div class="section-title">🇪🇸 España</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">📊 Economía</span> España lidera economías avanzadas por tercer año</div>
-      <div class="item-desc">Con un PIB previsto del +2,2% en 2026, España supera a EEUU (+1,7%), Alemania y Francia (+1%). Las exportaciones de marzo alcanzaron récord: 35.859M€ (+5,1%). El consumo privado y la inversión sostienen el ciclo expansivo.</div>
+<section>
+  <div class="sh"><h2>🇪🇸 España</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg y">📚 Educación</span>
+      <div class="nt">Huelga docente: la semana del 27 de mayo puede ser decisiva</div>
+      <div class="nb">La huelga en el sector educativo entra en una semana clave. La manifestación convocada para el miércoles 27 de mayo en Cataluña podría marcar un punto de inflexión en las negociaciones con la Generalitat y el Ministerio de Educación.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-warn">🏛️ Política</span> Bolaños: los PGE "no son el momento" ahora</div>
-      <div class="item-desc">El ministro de Presidencia reconoce que la fragmentación parlamentaria y la incertidumbre geopolítica bloquean los Presupuestos Generales del Estado 2026. La voluntad existe, pero no hay fecha concreta de presentación.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><span class="tag">🌐 Geopolítica</span> Venezuela · Leopoldo López y la relación España-Caracas</div>
-      <div class="item-desc">La nacionalidad española de Leopoldo López sigue siendo foco de tensión diplomática entre Madrid y el régimen de Maduro. El opositor continúa activo desde España.</div>
+    <div class="ni">
+      <span class="bdg b">💶 Economía</span>
+      <div class="nt">Bolsas cerradas hoy — economía española lidera entre las avanzadas</div>
+      <div class="nb">Sábado sin actividad bursátil en España. La semana cerró con el país consolidando su rol de motor económico europeo: crecimiento del 2,2% del PIB en 2026, récord de empleo y exportaciones.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- BARCELONA / CATALUÑA -->
-<div class="section">
-  <div class="section-title">🏙️ Cataluña · Barcelona</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">🏟️ Mundial 2026</span> Barcelona, sede del mayor evento deportivo del planeta</div>
-      <div class="item-desc">Con el Mundial a semanas vista, Barcelona ultima la logística como sede anfitriona. El Camp Nou y la infraestructura hotelera y de transporte de la ciudad serán puestos a prueba ante millones de visitantes.</div>
+<section>
+  <div class="sh"><h2>🏙️ Cataluña · Barcelona</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg g">🌊 Infraestructura</span>
+      <div class="nt">Pont del Petroli de Badalona: inicia la reconstrucción (4,1M€)</div>
+      <div class="nb">Este mes arrancaron las obras de reconstrucción del emblemático Pont del Petroli de Badalona, con un presupuesto de 4,1 millones de euros. La finalización está prevista para finales de 2026.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag">🚇 Infraestructura</span> R-Aeroport FGC: debate político sobre el trazado</span></div>
-      <div class="item-desc">La nueva línea ferroviaria de la Generalitat al aeropuerto sigue generando fricción con la oposición. El proyecto prevé estar operativo en 2027, aunque su trazado y coste siguen en cuestión.</div>
+    <div class="ni">
+      <span class="bdg b">♿ Transporte</span>
+      <div class="nt">Intercambiador de Clot: accesibilidad completa con los últimos dos ascensores</div>
+      <div class="nb">El Departament de Territori puso en servicio los dos ascensores restantes del intercambiador de Clot, cerrando el plan de mejora de accesibilidad de este nodo clave del transporte metropolitano de Barcelona.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">💼 Tech</span> Indra consolida Barcelona como hub tecnológico</div>
-      <div class="item-desc">Indra Group avanza en su plan de crear 1.500 nuevos empleos en Cataluña, con foco en perfiles tech cualificados. Barcelona refuerza su posición como polo de talento digital en el sur de Europa.</div>
+    <div class="ni">
+      <span class="bdg y">🎓 Huelga</span>
+      <div class="nt">Educación: manifestación del 27 mayo como termómetro del conflicto</div>
+      <div class="nb">Las negociaciones entre sindicatos y la Generalitat están rotas. La concentración del miércoles definirá si el conflicto escala o se abre una vía de diálogo antes del fin de curso.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FINANZAS -->
-<div class="section">
-  <div class="section-title">📈 Finanzas y Mercados</div>
-  <div class="section-body">
-    <div class="market-row">
-      <span class="market-name">🇺🇸 Dow Jones</span>
-      <span class="market-val up">+1,22%</span>
+<section>
+  <div class="sh"><h2>📈 Finanzas y mercados</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg b">📊 Bolsas</span>
+      <div class="nt">Sábado: mercados europeos cerrados — NYSE y Londres operativos</div>
+      <div class="nb">Las bolsas de España, Alemania y Francia permanecen cerradas hoy. NYSE y la Bolsa de Londres operan con normalidad durante la sesión americana.</div>
     </div>
-    <div class="market-row">
-      <span class="market-name">🇺🇸 S&amp;P 500</span>
-      <span class="market-val up">+0,91%</span>
+    <div class="ni">
+      <span class="bdg g">☢️ Uranio</span>
+      <div class="nt">Uranium spot $100/lb — máximos sostenidos, nuclear como infraestructura de IA</div>
+      <div class="nb">El precio spot del uranio ha alcanzado los <strong>100 dólares por libra</strong>. El contrato a largo plazo cerró Q1 2026 en $90/lb, máximo desde 2008. La demanda de energía nuclear para centros de datos de IA es el catalizador estructural más citado por los analistas.</div>
     </div>
-    <div class="market-row">
-      <span class="market-name">🇺🇸 Nasdaq</span>
-      <span class="market-val up">+1,29%</span>
+    <div class="sr"><span class="sl">URA (Global X Uranium ETF)</span><span class="sv">$48.88 – $52.04</span></div>
+    <div class="sr"><span class="sl">URNM (Sprott Uranium Miners)</span><span class="sv">$71.16 – $73.49</span></div>
+    <div class="sr"><span class="sl">Uranium spot</span><span class="sv up">$100 / lb ↑</span></div>
+    <div class="sr"><span class="sl">Long-term contract Q1 2026</span><span class="sv">$90 / lb (máx. desde 2008)</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><h2>⚽ Fútbol</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg g">🏆 CAMPEÓN LaLiga 2025-26</span>
+      <div class="nt">FC Barcelona, Campeón de LaLiga 2025-26</div>
+      <div class="nb">El Barça cierra la temporada como campeón con <strong>94 puntos</strong> — 11 de ventaja sobre el Real Madrid (83 pts). Temporada histórica bajo la dirección de Hansi Flick.</div>
     </div>
-    <div class="market-row">
-      <span class="market-name">🛢️ Petróleo Brent</span>
-      <span class="market-val neutral">~106 $/barril</span>
-    </div>
-    <div class="market-row">
-      <span class="market-name">☢️ URA (Uranio ETF)</span>
-      <span class="market-val neutral">$48,88–$52,04</span>
-    </div>
-    <div class="market-row">
-      <span class="market-name">☢️ URNM (Sprott)</span>
-      <span class="market-val neutral">$71,16–$73,49</span>
-    </div>
-    <div style="margin-top:12px;">
-      <div class="item">
-        <div class="item-title"><span class="tag tag-good">☢️ Uranio</span> Spot alcanza los 100 $/lb — máximo desde 2008</div>
-        <div class="item-desc">El precio spot del uranio toca los 100 $/lb mientras el precio de contratos a largo plazo llega a 90 $/lb (máximo desde 2008). La demanda nuclear de data centers y políticas energéticas impulsan el ciclo.</div>
-      </div>
-      <div class="item">
-        <div class="item-title"><span class="tag tag-good">🔵 Coinbase</span> Alianza con Yahoo Finance para trading de stocks 24/5</div>
-        <div class="item-desc">Coinbase confirma partnership con Yahoo Finance: los usuarios podrán pasar de investigar un activo en Yahoo Finance a ejecutar la operación en Coinbase en un clic. El trading de stocks y ETFs ya es accesible en EEUU 24/5.</div>
-      </div>
-      <div class="item" style="border-bottom:none">
-        <div class="item-title"><span class="tag tag-warn">⚠️ Contexto</span> Reunión EEUU-China y mercados</div>
-        <div class="item-desc">Los futuros abren positivos. La reunión bilateral termina sin titulares de gran acuerdo, pero la tregua arancelaria se mantiene. Arm (+13%) y Constellation (+7,4%) lideran el Nasdaq. Petróleo estable pese a tensiones en Ormuz.</div>
+    <div class="ni">
+      <span class="bdg b">🗓️ Esta noche · J38 (última jornada)</span>
+      <div class="nt">Dos partidos decisivos a las 21:00h</div>
+      <div class="nb">
+        <div class="mc">
+          <div class="mt">Valencia CF 🆚 FC Barcelona</div>
+          <div class="mi">📍 Mestalla · 21:00h · DAZN</div>
+        </div>
+        <div class="mc">
+          <div class="mt">Real Madrid 🆚 Athletic Club</div>
+          <div class="mi">📍 Santiago Bernabéu · 21:00h · Movistar LaLiga</div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- FÚTBOL -->
-<div class="section">
-  <div class="section-title">⚽ Fútbol</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title">🔵🔴 FC Barcelona — Campeón LaLiga 2025/26</div>
-      <div class="item-desc">Barça ya es campeón con 94 puntos en 37 jornadas. El sábado 23 mayo (21h, DAZN) visita Mestalla en la J38 de despedida. Sin Lamine Yamal ni Fermín, pero con De Jong, Rashford y Ferran Torres disponibles.</div>
+    <div class="ni">
+      <span class="bdg y">👋 Despedidas históricas</span>
+      <div class="nt">Carvajal se despide del Bernabéu · Adiós de Arbeloa y Valverde</div>
+      <div class="nb"><strong>Dani Carvajal</strong> cierra su etapa como madridista ante su afición en el Bernabéu. Es también el último partido de <strong>Álvaro Arbeloa</strong> como técnico del Real Madrid y de <strong>Ernesto Valverde</strong> dirigiendo al Athletic Club.</div>
     </div>
-    <div class="item">
-      <div class="item-title">⚪ Real Madrid — Cierre de temporada vs Athletic</div>
-      <div class="item-desc">El Madrid recibe al Athletic Club el 23 mayo en el Bernabéu (J38 final). Viene de vencer al Sevilla. Termina la temporada 2º con 83 puntos, a 11 del Barça campeón.</div>
-    </div>
-    <div class="item" style="border-bottom:none">
-      <div class="item-title">📊 Clasificación Final LaLiga — J37</div>
-      <table class="standings">
-        <tr><th>Pos</th><th>Equipo</th><th>Pts</th><th>J</th></tr>
-        <tr><td class="pos-1">🥇 1</td><td class="pos-1">FC Barcelona</td><td class="pos-1">94</td><td>37</td></tr>
-        <tr><td class="pos-2">🥈 2</td><td class="pos-2">Real Madrid</td><td class="pos-2">83</td><td>37</td></tr>
-        <tr><td>3</td><td>Villarreal CF</td><td>69</td><td>37</td></tr>
-        <tr><td>4</td><td>Atlético Madrid</td><td>69</td><td>37</td></tr>
-        <tr><td>5</td><td>Real Betis</td><td>57</td><td>37</td></tr>
-      </table>
+    <div class="ni">
+      <span class="bdg b">📊 Clasificación J37</span>
+      <div class="nt">Top 5 LaLiga 2025-26</div>
+      <div class="nb">
+        <table class="st">
+          <thead><tr><th>Pos</th><th>Equipo</th><th>Pts</th><th>J</th></tr></thead>
+          <tbody>
+            <tr><td class="p1">🥇 1</td><td>FC Barcelona</td><td>94</td><td>37</td></tr>
+            <tr><td class="p2">🥈 2</td><td>Real Madrid</td><td>83</td><td>37</td></tr>
+            <tr><td class="p3">🥉 3</td><td>Villarreal CF</td><td>69</td><td>37</td></tr>
+            <tr><td>4</td><td>Atlético de Madrid</td><td>69</td><td>37</td></tr>
+            <tr><td>5</td><td>Real Betis</td><td>57</td><td>37</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- UFC -->
-<div class="section">
-  <div class="section-title">🥊 UFC</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title"><span class="tag">📅 Próximo</span> UFC Fight Night: Song vs. Figueiredo — 30 mayo</div>
-      <div class="item-desc">El 30 de mayo en Galaxy Arena, Macau (China), Deiveson Figueiredo reta al campeón bantamweight Song Yadong en la pelea estelar. Un combate de alto nivel técnico con dos pegadores de primer orden.</div>
+<section>
+  <div class="sh"><h2>🥊 UFC</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg r">🏠 Evento estelar · 14 junio</span>
+      <div class="nt">UFC at the White House: Ilia Topuria vs Justin Gaethje — título ligero</div>
+      <div class="nb"><strong>Ilia Topuria</strong> (campeón reinante) defiende el cinturón de peso ligero ante <strong>Justin Gaethje</strong> (campeón interino) el <strong>14 de junio de 2026</strong>. Unificación de títulos en un evento histórico sin precedentes en la Casa Blanca.</div>
     </div>
-    <div class="item" style="border-bottom:none">
-      <div class="item-title"><span class="tag">📅 Junio</span> UFC Vegas 118 — Belal Muhammad vs. Bonfim (6 jun)</div>
-      <div class="item-desc">Belal Muhammad (campeón welter) defiende el título ante Bonfim en Las Vegas el 6 de junio. Un duelo entre el luchador palestino-americano más consistente del momento y el retador brasileño con poder de KO.</div>
+    <div class="ni">
+      <span class="bdg b">📅 También en junio</span>
+      <div class="nt">UFC Vegas 118 — 6 junio: Belal Muhammad vs Gabriel Bonfim (welter)</div>
+      <div class="nb">Primera parada de junio el día 6 en Las Vegas, con el choque de peso welter entre Belal Muhammad y Gabriel Bonfim encabezando la cartelera de UFC Fight Night.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- IA / TECH -->
-<div class="section">
-  <div class="section-title">🤖 IA &amp; Tecnología</div>
-  <div class="section-body">
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">🆕 Google</span> Gemini 3.5 Flash — Frontier a 4x velocidad</div>
-      <div class="item-desc">Google lanza Gemini 3.5 Flash: rendimiento de frontera, 4 veces más rápido que modelos comparables. Precio: $1,50/$9 por millón de tokens. Contexto de 1M tokens. Benchmark Terminal-Bench 2.1: 76,2%. Un salto claro en eficiencia.</div>
+<section>
+  <div class="sh"><h2>🤖 IA y Tecnología</h2></div>
+  <div class="sb">
+    <div class="ni">
+      <span class="bdg p">🎯 Google IO 2026</span>
+      <div class="nt">Gemini deja de ser un chatbot: Google la convierte en hub de IA todo-en-uno</div>
+      <div class="nb">En Google IO 2026, Google renovó la app Gemini para convertirla en una plataforma integral de IA — productividad, agentes, acciones multiplataforma — compitiendo directamente con ChatGPT y Claude más allá del chat.</div>
     </div>
-    <div class="item">
-      <div class="item-title"><span class="tag tag-good">🆕 OpenAI</span> GPT-5.5 Instant se convierte en el modelo por defecto de ChatGPT</div>
-      <div class="item-desc">OpenAI hace de GPT-5.5 Instant el modelo predeterminado en ChatGPT. La apuesta es por velocidad y coste reducido sin sacrificar calidad en tareas del día a día. Los usuarios premium siguen con acceso a GPT-5.5 completo.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><span class="tag">🆕 Alibaba</span> Chip Zhenwu más potente + nuevo LLM</div>
-      <div class="item-desc">Alibaba presenta el chip Zhenwu de nueva generación y un nuevo modelo de lenguaje de gran escala. La empresa china intensifica su apuesta por la soberanía tecnológica en IA, compitiendo directamente con los chips de NVIDIA.</div>
-    </div>
-    <div class="item" style="border-bottom:none">
-      <div class="item-title"><span class="tag tag-warn">📌 Tendencia</span> Mayo 2026: arquitectura e infraestructura toman el protagonismo</div>
-      <div class="item-desc">Sin grandes lanzamientos frontier esta quincena, el foco se desplaza a eficiencia, velocidad y distribución. Cloudflare, Sakana, Inception Mercury y SubQ marcan la dirección: inferencia más barata, más rápida y distribuida globalmente.</div>
+    <div class="ni">
+      <span class="bdg p">📊 Benchmarks mayo 2026</span>
+      <div class="nt">La frontera se estabiliza: Claude 4.6, GPT-5 y Gemini 3 convergen</div>
+      <div class="nb">Los benchmarks de abril-mayo 2026 muestran convergencia entre los modelos frontera. Claude 4.6, GPT-5 y Gemini 3 están muy próximos en tareas generales. La diferenciación se desplaza a <strong>velocidad de inferencia, precio/token y capacidades de agentes especializados</strong>.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CONCEPTOS DATA & IA -->
-<div class="section">
-  <div class="section-title">📊 Conceptos Data &amp; IA del día</div>
-  <div class="section-body">
-    <div class="concepto">
-      <h3>📦 Concepto DATA: Stream Processing (Procesamiento en Tiempo Real)</h3>
-      <p><strong>Qué es:</strong> Paradigma de procesamiento de datos en el que los eventos se procesan de forma continua conforme llegan, en lugar de acumularlos y procesarlos en lotes (batch). Tecnologías como Apache Kafka, Apache Flink o Spark Streaming son los pilares de este enfoque.</p>
-      <p><strong>Por qué importa como Senior Manager:</strong> Las decisiones de negocio que requieren reacción en segundos (fraude, personalización, alertas operativas) dependen de arquitecturas de streaming. Saber cuándo vale la pena la complejidad añadida vs. batch es una decisión estratégica de arquitectura de datos.</p>
-      <p class="q">💬 Pregunta para el equipo esta semana: ¿Qué casos de uso actuales se beneficiarían de pasar de batch a streaming, y cuál sería el umbral de latencia aceptable para el negocio?</p>
+<section>
+  <div class="sh"><h2>📊 Conceptos Data &amp; IA del día</h2></div>
+  <div class="sb">
+    <div class="cb">
+      <div class="cc">💾 Concepto DATA · Gobernanza</div>
+      <div class="cn">Data Contracts</div>
+      <div class="cd">
+        <p><strong>Qué es:</strong> Un Data Contract es un acuerdo formal y verificable entre el productor de datos y el consumidor, que define el esquema, la calidad esperada, los SLAs y las garantías del dato. Es el "contrato de servicio" del mundo de los datos — análogo a un API contract en software.</p>
+        <p><strong>Por qué importa como Senior Manager:</strong> Reduce drásticamente los incidentes de calidad en pipelines. Cuando equipos upstream cambian estructuras sin avisar, los contratos hacen esos cambios visibles y gestionables antes de que lleguen a producción. Transforma la calidad del dato de reactividad a prevención.</p>
+        <p><strong>💬 Pregunta para el equipo esta semana:</strong> "¿Tenemos Data Contracts definidos entre nuestros dominios productores y los equipos analytics que los consumen? ¿Qué pasa hoy cuando un campo cambia de tipo o un dataset llega vacío?"</p>
+      </div>
     </div>
-    <div class="concepto">
-      <h3>🧭 Concepto IA: Constitutional AI (IA Constitucional)</h3>
-      <p><strong>Qué es:</strong> Enfoque de Anthropic para alinear modelos de lenguaje mediante un conjunto de principios (una "constitución") en lugar de depender exclusivamente de feedback humano (RLHF). El modelo aprende a auto-evaluarse y a revisar sus respuestas según esos principios, reduciendo la dependencia de etiquetadores humanos para aspectos de seguridad y valores.</p>
-      <p><strong>Por qué importa como Senior Manager:</strong> A medida que los LLMs se integran en productos de empresa, entender cómo se alinean los modelos es clave para la gobernanza, la gestión de riesgos y la elección de proveedores. CAI es uno de los marcos más influyentes hoy en el debate sobre IA segura y responsable.</p>
-      <p class="q">💬 Pregunta para el equipo esta semana: ¿Tenemos definida una "constitución" interna (valores, restricciones, casos de uso prohibidos) para el uso de LLMs en nuestros productos y procesos?</p>
+    <div class="cb">
+      <div class="cc">🤖 Concepto IA · Inferencia</div>
+      <div class="cn">Speculative Decoding</div>
+      <div class="cd">
+        <p><strong>Qué es:</strong> Técnica de optimización de inferencia en LLMs donde un modelo pequeño ("draft model") genera tokens candidatos rápidamente, y el modelo grande los verifica en paralelo — aceptando los correctos y regenerando solo los erróneos. Acelera la inferencia entre <strong>2x y 4x</strong> sin cambiar la calidad del output.</p>
+        <p><strong>Por qué importa como Senior Manager:</strong> Es una razón clave por la que los costes de inferencia están cayendo. Si negocias contratos de plataforma LLM o planificas costes de IA generativa, entender este mecanismo te da palanca en la conversación técnica y en la evaluación de proveedores.</p>
+        <p><strong>💬 Pregunta para el equipo esta semana:</strong> "¿Nuestras APIs de LLM utilizan Speculative Decoding internamente? ¿Medimos latencia P50/P95 además del coste por token? ¿Hay oportunidades de reducir costes con modelos draft propios?"</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<button id="topbtn" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">↑</button>
-
+<button id="top-btn" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">↑</button>
+<script>
+  const now = new Date();
+  document.getElementById('hora').textContent = now.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+</script>
 </body>
 </html>
